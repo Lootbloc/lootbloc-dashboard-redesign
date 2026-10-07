@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:wght@400;600;700&display=swap">
+<link rel="stylesheet" href="https://unpkg.com/lucide-static@0.469.0/font/lucide.css">
+<style>body{margin:0;background:#1b1d22}</style>
+</helmet>
+<div style="min-height: 100vh; box-sizing: border-box; padding: 20px; display: flex; flex-direction: column; align-items: center; gap: 14px; font-family: 'Atkinson Hyperlegible Next', system-ui, sans-serif; color: #e9eaee;">
+  <div style="width: 100%; max-width: 980px; display: flex; flex-wrap: wrap; align-items: center; gap: 10px 16px; padding: 10px 14px; border: 1px dashed #4a4e58; border-radius: 12px; background: #23262d;">
+    <span style="font-weight: 700; display: flex; align-items: center; gap: 8px;"><i class="icon-flask-conical" style="font-size: 16px;"></i>Phone test harness</span>
+    <span style="font-size: 13px; color: #a7abb5;">Not part of the product. Use Tweaks or these controls.</span>
+    <span style="flex: 1;"></span>
+    <label style="display: flex; align-items: center; gap: 6px; font-size: 13px;">Page<select value="{{ page }}" onChange="{{ setPage }}" style="height: 34px; border-radius: 8px; background: #15171b; color: #e9eaee; border: 1px solid #4a4e58; font: inherit;"><sc-for list="{{ pages }}" as="p" hint-placeholder-count="9"><option value="{{ p.v }}">{{ p.l }}</option></sc-for></select></label>
+    <div role="group" aria-label="Width" style="display: flex; gap: 2px; background: #15171b; padding: 3px; border-radius: 9px;"><sc-for list="{{ widths }}" as="w" hint-placeholder-count="3"><button onClick="{{ w.pick }}" aria-pressed="{{ w.on }}" style="height: 30px; padding: 0 10px; border: 0; border-radius: 7px; background: {{ w.bg }}; color: #e9eaee; font: inherit; font-weight: 700; cursor: pointer;">{{ w.label }}</button></sc-for></div>
+    <div role="group" aria-label="Role" style="display: flex; gap: 2px; background: #15171b; padding: 3px; border-radius: 9px;"><sc-for list="{{ roles }}" as="w" hint-placeholder-count="3"><button onClick="{{ w.pick }}" aria-pressed="{{ w.on }}" style="height: 30px; padding: 0 10px; border: 0; border-radius: 7px; background: {{ w.bg }}; color: #e9eaee; font: inherit; font-weight: 700; cursor: pointer;">{{ w.label }}</button></sc-for></div>
+    <div role="group" aria-label="Sales scenario" style="display: flex; gap: 2px; background: #15171b; padding: 3px; border-radius: 9px;"><sc-for list="{{ scens }}" as="w" hint-placeholder-count="2"><button onClick="{{ w.pick }}" aria-pressed="{{ w.on }}" style="height: 30px; padding: 0 10px; border: 0; border-radius: 7px; background: {{ w.bg }}; color: #e9eaee; font: inherit; font-weight: 700; cursor: pointer;">{{ w.label }}</button></sc-for></div>
+    <div role="group" aria-label="Scheme" style="display: flex; gap: 2px; background: #15171b; padding: 3px; border-radius: 9px;"><sc-for list="{{ schemes }}" as="w" hint-placeholder-count="2"><button onClick="{{ w.pick }}" aria-pressed="{{ w.on }}" style="height: 30px; padding: 0 10px; border: 0; border-radius: 7px; background: {{ w.bg }}; color: #e9eaee; font: inherit; font-weight: 700; cursor: pointer;">{{ w.label }}</button></sc-for></div>
+  </div>
+  <div role="status" style="font-size: 13px; color: #a7abb5; font-variant-numeric: tabular-nums;">Frame {{ frameW }} × {{ frameH }}<span style="display: inline-block; width: 10px;"></span>measured inside page: innerWidth <b style="color: #e9eaee;">{{ mInner }}</b>, document width <b style="color: #e9eaee;">{{ mClient }}</b>, scroll width <b style="color: {{ mInk }};">{{ mScroll }}</b> {{ mNote }}</div>
+  <div style="padding: 12px; border-radius: 44px; background: #0c0d10; box-shadow: 0 0 0 2px #3a3d45, 0 30px 60px rgba(0,0,0,0.5);">
+    <iframe ref="{{ frameRef }}" src="{{ src }}" title="Phone preview" onLoad="{{ onLoad }}" style="display: block; width: {{ frameW }}; height: {{ frameH }}; border: 0; border-radius: 32px; background: #000;"></iframe>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;page&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Home Custom&quot;,&quot;Products&quot;,&quot;Quotes&quot;,&quot;Purchase Orders&quot;,&quot;Shipments&quot;,&quot;Inventory&quot;,&quot;Approvals&quot;,&quot;Invoices&quot;,&quot;Workspace&quot;],&quot;default&quot;:&quot;Home Custom&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;width&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[320,360,390,430],&quot;default&quot;:390,&quot;tsType&quot;:&quot;number&quot;},&quot;role&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;ops&quot;,&quot;finance&quot;,&quot;partner&quot;,&quot;admin&quot;],&quot;default&quot;:&quot;ops&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;scenario&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;dedicated&quot;,&quot;shared&quot;],&quot;default&quot;:&quot;dedicated&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;scheme&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;dark&quot;,&quot;light&quot;],&quot;default&quot;:&quot;dark&quot;,&quot;tsType&quot;:&quot;string&quot;}}">
+class Component extends DCLogic {
+  state = { page: null, w: null, role: null, scheme: null, m: null, nonce: 0 };
+  frameRef = React.createRef();
+  componentDidMount() { this.t = setInterval(() => this.measure(), 800); }
+  componentWillUnmount() { clearInterval(this.t); }
+  measure() { const f = this.frameRef.current || document.querySelector("iframe"); if (!f) return; try { const d = f.contentDocument, w = f.contentWindow; if (!d || !d.documentElement) return; const m = { inner: w.innerWidth, client: d.documentElement.clientWidth, scroll: Math.max(d.documentElement.scrollWidth, d.body ? d.body.scrollWidth : 0) }; const o = this.state.m || {}; if (o.inner !== m.inner || o.client !== m.client || o.scroll !== m.scroll) this.setState({ m }); } catch (e) { if (!this.state.m || !this.state.m.err) this.setState({ m: { err: true } }); } }
+  renderVals() {
+    const S = this.state, P = this.props;
+    const page = S.page ?? P.page ?? "Home Custom", w = S.w ?? P.width ?? 390, role = S.role ?? P.role ?? "ops", scheme = S.scheme ?? P.scheme ?? "dark", scen = S.scen ?? P.scenario ?? "dedicated";
+    const H = { 320: 690, 360: 780, 390: 844, 430: 932 }[w] || 844;
+    const PAGES = [["Home Custom", "Home"], ["Products", "Products"], ["Quotes", "Quotes"], ["Purchase Orders", "Purchase orders"], ["Shipments", "Shipments"], ["Inventory", "Inventory"], ["Approvals", "Approvals"], ["Invoices", "Invoices"], ["Workspace", "More tools"]];
+    const seg = (cur, k, label, key) => ({ label, on: String(cur === k), bg: cur === k ? "#3a3f4b" : "transparent", pick: () => this.setState({ [key]: k, m: null }) });
+    const m = S.m || {};
+    return { page, setPage: e => this.setState({ page: e.target.value, m: null }), pages: PAGES.map(([v, l]) => ({ v, l })),
+      widths: [320, 360, 390, 430].map(x => seg(w, x, x + "px", "w")), roles: ["ops", "finance", "partner", "admin"].map(x => seg(role, x, x, "role")), schemes: ["dark", "light"].map(x => seg(scheme, x, x, "scheme")), scens: [["dedicated", "Dedicated store"], ["shared", "Synthetic shared store"]].map(([k, l]) => seg(scen, k, l, "scen")),
+      src: page + ".dc.html?role=" + role + "&scheme=" + scheme + (scen === "shared" ? "&scenario=shared" : ""), frameW: w + "px", frameH: H + "px", frameRef: this.frameRef, onLoad: () => setTimeout(() => this.measure(), 600),
+      mInner: m.err ? "n/a" : m.inner ? m.inner + "px" : "…", mClient: m.client ? m.client + "px" : "…", mScroll: m.scroll ? m.scroll + "px" : "…", mInk: m.scroll && m.client && m.scroll > m.client ? "#ff8a80" : "#9be7b0", mNote: m.scroll && m.client ? (m.scroll > m.client ? ", horizontal overflow" : ", no horizontal overflow") : "" };
+  }
+}
+</script>
+</body>
+</html>

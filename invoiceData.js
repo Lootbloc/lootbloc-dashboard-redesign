@@ -1,0 +1,92 @@
+// SYNTHETIC invoice + reimbursement fixture for the prototype. Amounts are in cents (USD).
+// QuickBooks IDs and sync states are MOCK labels; nothing here is exported, sent, paid or synced.
+export const NOTE = "Synthetic demo data. QuickBooks numbers and sync states are mock; nothing is exported, sent or paid.";
+export const PARTNERS = { ta: "Twin Atlas", k: "Sample Partner K (synthetic)" };
+export const VIEWER_PARTNER = "ta"; // the Twin Atlas partner demo
+export const TODAY = "Sep 29";
+export const QB_ISSUE = { mapping: "Needs mapping", export: "Export error", source: "Source problem" };
+
+export const FACTORY = [
+  { id: "INV-3312", vendor: "Dongguan Toys", type: "Balance", date: "Sep 8", due: "Sep 23", overdue: true, total: 645000, partner: "ta",
+    pos: ["PO-1038"], products: ["Sonaria Plush Wave 2"], qb: { state: "ok", ref: "Bill #5521 (mock)" }, ready: false, block: "Hold: QC photos for the balance haven't arrived",
+    payments: [],
+    lines: [
+      { id: "L1", po: "PO-1038", product: "Sonaria Plush Wave 2", sku: "SON-PW2-STD", item: "Balance for 1,000 plush units (70%)", amount: 580000, billable: false },
+      { id: "L2", po: "PO-1038", product: "Sonaria Plush Wave 2", sku: "SON-PW2-STD", item: "Sample freight, Aug", amount: 41280, billable: true, reimb: "QB-7711" },
+      { id: "L3", po: "PO-1038", product: "Sonaria Plush Wave 2", sku: "SON-PW2-STD", item: "Rework fee, seam repair", amount: 15000, billable: true, reimb: "R-DRAFT-2" },
+    ],
+    docs: [{ name: "Dongguan_INV-3312.pdf", kind: "Factory invoice PDF" }, { name: "PO-1038_QC_checklist.xlsx", kind: "QC checklist" }],
+    inote: "Factory offered to absorb half the rework fee if the next QC passes. Leave $87.20 unallocated until confirmed.",
+    activity: [["Sep 8", "Invoice added from PDF", "Jordan"], ["Sep 21", "Sample freight line billed to Twin Atlas on QB-7711 (mock)", "Priya"], ["Sep 29", "Rework fee added to reimbursement draft R-DRAFT-2", "Priya"]] },
+  { id: "INV-3320", vendor: "Shenzhen Apparel Co.", type: "Deposit", date: "Sep 26", due: "Oct 2", total: 384000, partner: "ta",
+    pos: ["PO-1043"], products: ["World Zero Hoodie (Black)"], qb: { state: "ok", ref: "Bill #5530 (mock)" }, ready: true, payments: [],
+    lines: [{ id: "L1", po: "PO-1043", product: "World Zero Hoodie (Black)", sku: "WZ-HD-BLK", item: "30% deposit, 2,400 units", amount: 384000, billable: false }],
+    docs: [{ name: "ShenzhenApparel_INV-3320.pdf", kind: "Factory invoice PDF" }], inote: "", activity: [["Sep 26", "Invoice added from PDF", "Jordan"], ["Sep 27", "Approved for payment", "Priya"]] },
+  { id: "INV-3318", vendor: "Ningbo Metalworks", type: "Balance", date: "Sep 15", due: "Oct 6", total: 288400, partner: "ta",
+    pos: ["PO-1045"], products: ["World Zero Keychain Set"], qb: { state: "ok", ref: "Bill #5512 (mock)" }, ready: true,
+    payments: [{ date: "Sep 20", amount: 123600, how: "Wire, recorded by hand" }], lines: [],
+    docs: [{ name: "Ningbo_INV-3318.pdf", kind: "Factory invoice PDF" }], inote: "", activity: [["Sep 15", "Invoice added", "Sam"], ["Sep 20", "Part payment recorded", "Priya"]] },
+  { id: "INV-3322", vendor: "Guangzhou Figures", type: "Sample", date: "Sep 4", due: "Oct 1", total: 160000, partner: "ta",
+    pos: ["PO-1049"], products: ["World Zero Figure"], qb: { state: "ok", ref: "Bill #5498 (mock)" }, ready: true, payments: [],
+    lines: [
+      { id: "L1", po: "PO-1049", product: "World Zero Figure", sku: "WZ-FIG-01", item: "Sample rounds 1–3", amount: 60000, billable: true, reimb: "QB-7704" },
+      { id: "L2", po: "PO-1049", product: "World Zero Figure", sku: "WZ-FIG-01", item: "Sculpt development", amount: 100000, billable: false },
+    ],
+    docs: [{ name: "GZFigures_INV-3322.pdf", kind: "Factory invoice PDF" }], inote: "Sculpt development stays with Lootbloc per the dev agreement.",
+    activity: [["Sep 4", "Invoice added", "Sam"], ["Sep 8", "Sample rounds line added to reimbursement QB-7704 (mock)", "Priya"]] },
+  { id: "INV-3316", vendor: "Guangzhou Figures", type: "Tooling", date: "Aug 29", due: "Sep 12", total: 125000, partner: "ta",
+    pos: ["PO-1049"], products: ["World Zero Figure"], qb: { state: "ok", ref: "Bill #5480 (mock)" }, ready: true,
+    payments: [{ date: "Sep 3", amount: 125000, how: "Wire, recorded by hand" }],
+    lines: [{ id: "L1", po: "PO-1049", product: "World Zero Figure", sku: "WZ-FIG-01", item: "Figure mold, 2-part steel", amount: 125000, billable: true, reimb: "QB-7704" }],
+    docs: [{ name: "GZFigures_INV-3316_mold.pdf", kind: "Factory invoice PDF" }], inote: "", activity: [["Aug 29", "Invoice added", "Sam"], ["Sep 3", "Paid in full", "Priya"], ["Sep 5", "Billed to Twin Atlas, reimbursement draft started", "Priya"]] },
+  { id: "INV-3305", vendor: "Dongguan Toys", type: "Sample", date: "Sep 12", due: "Sep 26", total: 66000, partner: "ta",
+    pos: ["PO-1047"], products: ["Sonaria Glacier Plush"], qb: { state: "ok", ref: "Bill #5505 (mock)" }, ready: true,
+    payments: [{ date: "Sep 18", amount: 66000, how: "Wire, recorded by hand" }],
+    lines: [{ id: "L1", po: "PO-1047", product: "Sonaria Glacier Plush", sku: "SON-GLC-01", item: "Sample rounds 1–2", amount: 66000, billable: true, reimb: "R-DRAFT-2" }],
+    docs: [{ name: "Dongguan_INV-3305.pdf", kind: "Factory invoice PDF" }], inote: "", activity: [["Sep 12", "Invoice added", "Jordan"], ["Sep 18", "Paid in full", "Priya"], ["Sep 26", "Added to reimbursement draft R-DRAFT-2", "Priya"]] },
+  { id: "INV-3301", vendor: "Yiwu Packaging", type: "Balance", date: "Sep 14", due: "Oct 14", total: 469000, partner: null,
+    pos: ["PO-1040"], products: ["Mystery Box S3"], qb: { state: "export", issue: "Mock export failed: no expense account set for packaging." }, ready: false, payments: [],
+    lines: [{ id: "L1", po: "PO-1040", product: "Mystery Box S3", sku: "LB-MB3", item: "Printed boxes, balance", amount: 469000, billable: false }],
+    docs: [{ name: "Yiwu_INV-3301.pdf", kind: "Factory invoice PDF" }], inote: "", activity: [["Sep 14", "Invoice added", "Sam"], ["Sep 15", "Mock QuickBooks export failed", "System (mock)"]] },
+  { id: "INV-3325", vendor: "Dongguan Toys", type: "Deposit", date: "Sep 24", due: "Oct 20", total: 295800, partner: "ta",
+    pos: ["PO-1044"], products: ["Sonaria Plush Wave 1 restock"], qb: { state: "mapping", issue: "Line items aren't mapped to QuickBooks items yet." }, ready: false, payments: [], lines: [],
+    docs: [{ name: "Dongguan_INV-3325.pdf", kind: "Factory invoice PDF" }], inote: "", activity: [["Sep 24", "Invoice added from PDF", "Jordan"]] },
+  { id: "INV-3330", vendor: "Shenzhen Apparel Co.", type: "Sample", date: "Sep 27", due: "Oct 9", total: 42000, partner: "ta",
+    pos: ["PO-1053"], products: ["World Zero Beanie"], qb: { state: "source", issue: "No source PDF attached. Amount was typed in by hand." }, ready: false, payments: [],
+    lines: [{ id: "L1", po: "PO-1053", product: "World Zero Beanie", sku: "WZ-BN-01", item: "Knit samples, 3 colors", amount: 42000, billable: true }],
+    docs: [], inote: "Factory sent the amount over chat; ask for the PDF.", activity: [["Sep 27", "Invoice typed in by hand", "Jordan"]] },
+  { id: "INV-3327", vendor: "Suzhou Softgoods", type: "Sample", date: "Sep 5", due: "Sep 19", total: 78000, partner: "k",
+    pos: [], products: ["Partner K plush sample"], qb: { state: "ok", ref: "Bill #5500 (mock)" }, ready: true,
+    payments: [{ date: "Sep 12", amount: 78000, how: "Wire, recorded by hand" }],
+    lines: [{ id: "L1", po: null, product: "Partner K plush sample", sku: "—", item: "Plush samples", amount: 78000, billable: true, reimb: "QB-7715" }],
+    docs: [{ name: "Suzhou_INV-3327.pdf", kind: "Factory invoice PDF" }], inote: "", activity: [["Sep 5", "Invoice added", "Sam"], ["Sep 12", "Paid in full", "Priya"]] },
+  { id: "INV-3290", vendor: "Ningbo Metalworks", type: "Balance", date: "Aug 20", due: "Sep 15", total: 371000, partner: "ta", archived: true,
+    pos: ["PO-1036"], products: ["Sonaria Enamel Pins"], qb: { state: "ok", ref: "Bill #5461 (mock)" }, ready: true,
+    payments: [{ date: "Sep 14", amount: 371000, how: "Wire, recorded by hand" }],
+    lines: [
+      { id: "L1", po: "PO-1036", product: "Sonaria Enamel Pins", sku: "SON-PIN-SET", item: "Balance for 3,000 pins", amount: 250550, billable: false },
+      { id: "L2", po: "PO-1036", product: "Sonaria Enamel Pins", sku: "SON-PIN-SET", item: "Air freight", amount: 120450, billable: true, reimb: "QB-7690" },
+    ],
+    docs: [{ name: "Ningbo_INV-3290.pdf", kind: "Factory invoice PDF" }], inote: "", activity: [["Aug 20", "Invoice added", "Sam"], ["Aug 28", "Freight billed to Twin Atlas on QB-7690 (mock)", "Priya"], ["Sep 14", "Paid in full", "Priya"]] },
+  { id: "INV-3270", vendor: "Yiwu Packaging", type: "Balance", date: "Aug 2", due: "Aug 30", total: 214000, partner: null, archived: true,
+    pos: ["PO-1031"], products: ["Mystery Box S2"], qb: { state: "ok", ref: "Bill #5433 (mock)" }, ready: true,
+    payments: [{ date: "Aug 30", amount: 214000, how: "Wire, recorded by hand" }],
+    lines: [{ id: "L1", po: "PO-1031", product: "Mystery Box S2", sku: "LB-MB2", item: "Printed boxes, balance", amount: 214000, billable: false }],
+    docs: [{ name: "Yiwu_INV-3270.pdf", kind: "Factory invoice PDF" }], inote: "", activity: [["Aug 2", "Invoice added", "Sam"], ["Aug 30", "Paid in full", "Priya"]] },
+];
+
+// Billed-to-partner invoices (reimbursements). `covers` points at factory invoice lines.
+export const REIMB = [
+  { id: "QB-7711", qb: true, to: "ta", covers: [["INV-3312", "L2"]], sent: "Sep 22", due: "Oct 22", payments: [],
+    history: [["Sep 21", "Created from INV-3312 line L2", true], ["Sep 22", "Sent to Twin Atlas (mock QuickBooks invoice)", false]] },
+  { id: "QB-7704", qb: true, to: "ta", covers: [["INV-3316", "L1"], ["INV-3322", "L1"]], sent: "Sep 9", due: "Oct 9",
+    payments: [{ date: "Sep 20", amount: 100000, how: "ACH from Twin Atlas, recorded by hand" }],
+    history: [["Sep 5", "Draft started with INV-3316 mold ($1,250.00)", true], ["Sep 8", "Consolidated: added INV-3322 sample rounds ($600.00)", true], ["Sep 9", "Sent to Twin Atlas (mock QuickBooks invoice)", false], ["Sep 20", "Payment of $1,000.00 received", false]] },
+  { id: "R-DRAFT-2", qb: false, to: "ta", covers: [["INV-3305", "L1"], ["INV-3312", "L3"]], sent: null, due: null, payments: [],
+    history: [["Sep 26", "Draft started with INV-3305 sample rounds ($660.00)", true], ["Sep 29", "Consolidated: added INV-3312 rework fee ($150.00)", true]] },
+  { id: "QB-7690", qb: true, to: "ta", covers: [["INV-3290", "L2"]], sent: "Aug 28", due: "Sep 27", archived: true,
+    payments: [{ date: "Sep 19", amount: 120450, how: "ACH from Twin Atlas, recorded by hand" }],
+    history: [["Aug 27", "Created from INV-3290 line L2", true], ["Aug 28", "Sent to Twin Atlas (mock QuickBooks invoice)", false], ["Sep 19", "Paid in full", false]] },
+  { id: "QB-7715", qb: true, to: "k", covers: [["INV-3327", "L1"]], sent: "Sep 13", due: "Oct 13", payments: [],
+    history: [["Sep 13", "Sent (mock QuickBooks invoice)", false]] },
+];

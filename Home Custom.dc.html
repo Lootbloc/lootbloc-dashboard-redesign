@@ -1,0 +1,1152 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:wght@400;500;600;700&family=Atkinson+Hyperlegible:wght@400;700&family=Space+Grotesk:wght@500;600;700&display=swap">
+<link rel="stylesheet" href="https://unpkg.com/lucide-static@0.469.0/font/lucide.css">
+<style>body{margin:0}</style>
+</helmet>
+<div style="color-scheme: {{ scheme }};">
+<div style="--bg: light-dark(oklch(0.982 0.003 260), oklch(0.15 0.008 260)); --surface: light-dark(oklch(1 0 0), oklch(0.19 0.009 260)); --sunk: light-dark(oklch(0.962 0.004 260), oklch(0.225 0.01 260)); --hover: light-dark(oklch(0.95 0.005 260), oklch(0.235 0.01 260)); --fg: light-dark(oklch(0.21 0.012 260), oklch(0.965 0.003 260)); --fg2: light-dark(oklch(0.44 0.012 260), oklch(0.78 0.008 260)); --fg3: light-dark(oklch(0.54 0.01 260), oklch(0.64 0.008 260)); --line: light-dark(oklch(0.905 0.005 260), oklch(0.275 0.01 260)); --line2: light-dark(oklch(0.935 0.004 260), oklch(0.235 0.009 260)); --side: light-dark(oklch(0.968 0.004 260), oklch(0.125 0.008 260)); --brand: light-dark(oklch(0.6 0.22 8.5), oklch(0.66 0.21 8.5)); --brandInk: light-dark(oklch(0.52 0.2 8.5), oklch(0.8 0.12 8.5)); --brandSoft: light-dark(oklch(0.955 0.03 8.5), oklch(0.27 0.07 8.5)); --red: light-dark(oklch(0.52 0.19 27), oklch(0.76 0.15 25)); --redSoft: light-dark(oklch(0.955 0.03 27), oklch(0.28 0.07 25)); --amber: light-dark(oklch(0.52 0.12 65), oklch(0.83 0.13 80)); --amberSoft: light-dark(oklch(0.96 0.045 85), oklch(0.29 0.06 75)); --green: light-dark(oklch(0.5 0.12 155), oklch(0.8 0.13 155)); --greenSoft: light-dark(oklch(0.955 0.035 155), oklch(0.27 0.05 155)); --blue: light-dark(oklch(0.5 0.13 250), oklch(0.8 0.1 245)); --blueSoft: light-dark(oklch(0.955 0.025 250), oklch(0.28 0.05 250)); --redBar: light-dark(oklch(0.62 0.2 27), oklch(0.68 0.18 25)); --amberBar: light-dark(oklch(0.75 0.15 75), oklch(0.78 0.14 78)); --greenBar: light-dark(oklch(0.64 0.14 155), oklch(0.68 0.14 155)); --blueBar: light-dark(oklch(0.6 0.13 250), oklch(0.68 0.12 248)); --shc: light-dark(oklch(0.25 0.02 260 / 0.07), oklch(0 0 0 / 0.35)); --solid: light-dark(oklch(0.21 0.012 260), oklch(0.96 0.003 260)); --onSolid: light-dark(oklch(0.99 0 0), oklch(0.17 0.01 260)); --st1: light-dark(oklch(0.64 0.012 260), oklch(0.6 0.012 260)); --st2: light-dark(oklch(0.6 0.16 300), oklch(0.68 0.15 300)); --st3: light-dark(oklch(0.8 0.15 88), oklch(0.82 0.14 88)); --st4: light-dark(oklch(0.7 0.16 52), oklch(0.74 0.15 55)); --st5: light-dark(oklch(0.6 0.15 252), oklch(0.68 0.13 250)); --st6: light-dark(oklch(0.68 0.11 220), oklch(0.74 0.1 220)); --st7: light-dark(oklch(0.64 0.11 185), oklch(0.72 0.1 185)); --st8: light-dark(oklch(0.64 0.15 152), oklch(0.7 0.15 152)); width: 100%; min-width: {{ rootMinW }}; min-height: 100vh; position: relative; display: flex; background: var(--bg); color: var(--fg); font-family: 'Atkinson Hyperlegible Next', 'Atkinson Hyperlegible', system-ui, sans-serif; font-size: 15px; line-height: 1.45; -webkit-font-smoothing: antialiased;">
+
+<sc-if value="{{ sbTipOn }}" hint-placeholder-val="{{ false }}"><div role="tooltip" style="position: fixed; z-index: 150; left: {{ sbTipX }}; top: {{ sbTipY }}; transform: {{ sbTipTf }}; max-width: 300px; background: var(--solid); color: var(--onSolid); padding: 7px 9px 7px 10px; border-radius: 8px; font-size: 13px; font-weight: 700; display: flex; flex-direction: column; align-items: flex-start; gap: 3px; pointer-events: none; white-space: {{ sbTipWs }}; box-shadow: 0 8px 20px var(--shc); animation: tkFade 140ms linear;"><span style="display: flex; align-items: center; gap: 10px;">{{ sbTipT }}<sc-if value="{{ sbTipHasK }}" hint-placeholder-val="{{ false }}"><span style="display: flex; gap: 3px;"><sc-for list="{{ sbTipKeys }}" as="k" hint-placeholder-count="2"><kbd style="font: inherit; font-size: 11.5px; font-weight: 700; min-width: 18px; height: 20px; padding: 0 5px; box-sizing: border-box; border-radius: 5px; display: inline-flex; align-items: center; justify-content: center; background: color-mix(in oklch, var(--onSolid) 16%, transparent); color: var(--onSolid);">{{ k }}</kbd></sc-for></span></sc-if></span><sc-if value="{{ sbTipSub }}" hint-placeholder-val="{{ false }}"><span style="font-weight: 500; font-size: 12.5px; line-height: 1.4; opacity: 0.88; text-wrap: pretty;">{{ sbTipSub }}</span></sc-if></div></sc-if>
+<sc-if value="{{ palOpen }}" hint-placeholder-val="{{ false }}"><div onClick="{{ palClose }}" style="position: fixed; inset: 0; z-index: 140; background: oklch(0 0 0 / 0.4); animation: tkFade 140ms linear;"></div><div role="dialog" aria-modal="true" aria-label="Search" onKeyDown="{{ palKey }}" style="position: fixed; z-index: 141; left: 50%; top: 12vh; transform: translateX(-50%); width: min(620px, calc(100vw - 24px)); box-sizing: border-box; background: var(--surface); color: var(--fg); border: 1px solid var(--line); border-radius: 14px; box-shadow: 0 30px 70px var(--shc), 0 2px 8px var(--shc); overflow: hidden; animation: lbPal 180ms cubic-bezier(.2,0,0,1);">
+  <div style="display: flex; align-items: center; gap: 10px; height: 54px; padding: 0 14px 0 16px; border-bottom: 1px solid var(--line2);"><i class="icon-search" style="font-size: 18px; color: var(--fg3);"></i><input value="{{ palQ }}" onChange="{{ palSet }}" autoFocus="{{ true }}" aria-label="Search pages, products and actions" placeholder="Search pages, products and actions" style="flex: 1; min-width: 0; border: 0; outline: none; background: transparent; color: var(--fg); font: inherit; font-size: 16px;"><kbd style="font: inherit; font-size: 11.5px; font-weight: 700; min-width: 18px; height: 20px; padding: 0 5px; box-sizing: border-box; border: 1px solid var(--line); border-radius: 5px; display: inline-flex; align-items: center; justify-content: center; background: var(--sunk); color: var(--fg2);">Esc</kbd></div>
+  <div style="max-height: min(56vh, 460px); overflow-y: auto; padding: 6px; display: flex; flex-direction: column; gap: 6px;">
+    <sc-for list="{{ palGroups }}" as="g" hint-placeholder-count="2"><div style="display: flex; flex-direction: column; gap: 1px;"><div style="font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--fg3); padding: 8px 10px 4px;">{{ g.label }}</div><sc-for list="{{ g.items }}" as="it" hint-placeholder-count="3"><a href="{{ it.href }}" onClick="{{ it.go }}" onMouseMove="{{ it.hover }}" style="min-height: 40px; display: flex; align-items: center; gap: 12px; padding: 0 10px; border-radius: 8px; background: {{ it.bg }}; color: var(--fg); text-decoration: none; transition: background-color 90ms linear;"><i class="{{ it.icon }}" style="font-size: 17px; color: var(--fg3); flex-shrink: 0;"></i><span style="flex: 1; min-width: 0; display: flex; align-items: baseline; gap: 10px;"><span style="font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">{{ it.label }}</span><span style="font-size: 13px; color: var(--fg3); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">{{ it.sub }}</span></span><sc-if value="{{ it.hasKeys }}" hint-placeholder-val="{{ false }}"><span style="display: flex; gap: 3px;"><sc-for list="{{ it.keys }}" as="k" hint-placeholder-count="2"><kbd style="font: inherit; font-size: 11.5px; font-weight: 700; min-width: 18px; height: 20px; padding: 0 5px; box-sizing: border-box; border: 1px solid var(--line); border-radius: 5px; display: inline-flex; align-items: center; justify-content: center; background: var(--sunk); color: var(--fg2);">{{ k }}</kbd></sc-for></span></sc-if><sc-if value="{{ it.on }}" hint-placeholder-val="{{ false }}"><i class="icon-corner-down-left" style="font-size: 14px; color: var(--fg3);"></i></sc-if></a></sc-for></div></sc-for>
+    <sc-if value="{{ palEmpty }}" hint-placeholder-val="{{ false }}"><div style="padding: 22px 12px; text-align: center; color: var(--fg2);">Nothing matches “{{ palQ }}”</div></sc-if>
+  </div>
+  <div style="display: flex; align-items: center; gap: 14px; padding: 8px 14px; border-top: 1px solid var(--line2); background: var(--sunk); font-size: 12.5px; color: var(--fg3);"><span style="display: flex; align-items: center; gap: 5px;"><kbd style="font: inherit; font-size: 11.5px; font-weight: 700; min-width: 18px; height: 20px; padding: 0 5px; box-sizing: border-box; border: 1px solid var(--line); border-radius: 5px; display: inline-flex; align-items: center; justify-content: center; background: var(--sunk); color: var(--fg2);">↑</kbd><kbd style="font: inherit; font-size: 11.5px; font-weight: 700; min-width: 18px; height: 20px; padding: 0 5px; box-sizing: border-box; border: 1px solid var(--line); border-radius: 5px; display: inline-flex; align-items: center; justify-content: center; background: var(--sunk); color: var(--fg2);">↓</kbd>Move</span><span style="display: flex; align-items: center; gap: 5px;"><kbd style="font: inherit; font-size: 11.5px; font-weight: 700; min-width: 18px; height: 20px; padding: 0 5px; box-sizing: border-box; border: 1px solid var(--line); border-radius: 5px; display: inline-flex; align-items: center; justify-content: center; background: var(--sunk); color: var(--fg2);">↵</kbd>Open</span></div>
+</div></sc-if>
+<sc-if value="{{ isDesk }}" hint-placeholder-val="{{ true }}"><aside aria-label="Sidebar" style="position: sticky; top: 0; align-self: flex-start; height: 100vh; width: {{ sbW }}; flex-shrink: 0; z-index: 60; background: var(--side); border-right: 1px solid var(--line); display: flex; flex-direction: column; box-sizing: border-box; transition: width 220ms cubic-bezier(.2,0,0,1);">
+  <div style="height: 58px; flex-shrink: 0; display: flex; align-items: center; gap: 8px; padding: 0 12px 0 {{ sbBrandPad }}; overflow: hidden;">
+    <sc-if value="{{ sbFull }}" hint-placeholder-val="{{ true }}"><img src="assets/lootbloc-icon.png" alt="" style="width: 26px; height: 26px; flex-shrink: 0;"><span style="flex: 1; min-width: 0; display: flex; align-items: baseline; gap: 6px; white-space: nowrap; animation: tkFade 200ms linear;"><span style="font-family: 'Space Grotesk', sans-serif; font-size: 17px; font-weight: 600; letter-spacing: -0.01em;">Lootbloc</span><span style="font-size: 13px; color: var(--fg3); font-weight: 600;">Ops</span></span></sc-if>
+    <button onClick="{{ sbToggle }}" onMouseEnter="{{ sbColTip }}" onMouseLeave="{{ sbTipOff }}" onFocus="{{ sbColTip }}" onBlur="{{ sbTipOff }}" aria-label="{{ sbColL }}" aria-expanded="{{ sbFullS }}" style="width: 40px; height: 36px; flex-shrink: 0; border: 0; border-radius: 9px; background: transparent; color: var(--fg2); display: flex; align-items: center; justify-content: center; cursor: pointer; transition: background-color 120ms linear;" style-hover="background: var(--hover); color: var(--fg);"><i class="{{ sbColIcon }}" style="font-size: 18px;"></i></button>
+  </div>
+  <div style="padding: 0 12px; flex-shrink: 0;"><button onClick="{{ palOpenDo }}" onMouseEnter="{{ sbSearchTip }}" onMouseLeave="{{ sbTipOff }}" onFocus="{{ sbSearchTip }}" onBlur="{{ sbTipOff }}" aria-label="Search" style="width: 100%; height: 38px; box-sizing: border-box; border: 1px solid var(--line); background: var(--surface); border-radius: 10px; display: flex; align-items: center; gap: 9px; padding: 0 9px 0 11px; color: var(--fg3); font: inherit; cursor: pointer; overflow: hidden; white-space: nowrap; transition: border-color 120ms linear;" style-hover="border-color: var(--fg3);"><i class="icon-search" style="font-size: 16px; flex-shrink: 0;"></i><span style="flex: 1; text-align: left; opacity: {{ sbLblOp }}; transition: opacity 160ms linear;">Search</span><span style="display: flex; gap: 3px; opacity: {{ sbLblOp }}; transition: opacity 160ms linear;"><sc-for list="{{ sbSearchKeys }}" as="k" hint-placeholder-count="2"><kbd style="font: inherit; font-size: 11.5px; font-weight: 700; min-width: 18px; height: 20px; padding: 0 5px; box-sizing: border-box; border: 1px solid var(--line); border-radius: 5px; display: inline-flex; align-items: center; justify-content: center; background: var(--sunk); color: var(--fg2);">{{ k }}</kbd></sc-for></span></button></div>
+  <sc-if value="{{ isStaff }}" hint-placeholder-val="{{ true }}"><div style="position: relative; padding: 8px 12px 0; flex-shrink: 0;"><button onClick="{{ sbCreateToggle }}" onMouseEnter="{{ sbCreateTip }}" onMouseLeave="{{ sbTipOff }}" aria-haspopup="menu" aria-expanded="{{ sbCreateS }}" aria-label="Create new" style="width: 100%; height: 38px; border: 0; border-radius: 10px; background: var(--brand); color: white; font: inherit; font-weight: 700; display: flex; align-items: center; justify-content: center; gap: 8px; cursor: pointer; overflow: hidden; white-space: nowrap; box-shadow: 0 1px 2px var(--shc); transition: transform 120ms cubic-bezier(.2,0,0,1), filter 120ms linear;" style-hover="filter: brightness(1.06);" style-active="transform: scale(0.97);"><i class="icon-plus" style="font-size: 18px; flex-shrink: 0;"></i><sc-if value="{{ sbFull }}" hint-placeholder-val="{{ true }}"><span>Create new</span></sc-if></button>
+    <sc-if value="{{ sbCreateOpen }}" hint-placeholder-val="{{ false }}"><div onClick="{{ sbPopClose }}" style="position: fixed; inset: 0; z-index: 94;"></div><div role="menu" aria-label="Create new" style="position: absolute; z-index: 95; left: {{ sbPopL }}; top: {{ sbPopT }}; width: 230px; box-sizing: border-box; background: var(--surface); border: 1px solid var(--line); border-radius: 12px; box-shadow: 0 14px 36px var(--shc), 0 2px 6px var(--shc); padding: 6px; display: flex; flex-direction: column; gap: 1px; animation: lbMenu 160ms cubic-bezier(.2,0,0,1);"><sc-for list="{{ sbCreate }}" as="c" hint-placeholder-count="6"><a role="menuitem" href="{{ c.href }}" onClick="{{ c.go }}" style="min-height: 38px; display: flex; align-items: center; gap: 10px; padding: 0 10px; border-radius: 8px; color: var(--fg); text-decoration: none; font-weight: 600; transition: background-color 120ms linear;" style-hover="background: var(--hover);"><i class="{{ c.icon }}" style="font-size: 16px; color: var(--fg3);"></i>{{ c.label }}</a></sc-for></div></sc-if>
+  </div></sc-if>
+  <nav aria-label="Main" style="flex: 1; min-height: 0; overflow-y: auto; overflow-x: hidden; padding: 14px 12px 10px; display: flex; flex-direction: column; gap: 12px;">
+    <sc-for list="{{ sbNav }}" as="g" hint-placeholder-count="5"><div style="display: flex; flex-direction: column; gap: 2px;">
+      <sc-if value="{{ g.showLabel }}" hint-placeholder-val="{{ true }}"><div style="font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--fg3); padding: 0 10px 4px; white-space: nowrap; overflow: hidden;">{{ g.label }}</div></sc-if>
+      <sc-if value="{{ g.showRule }}" hint-placeholder-val="{{ false }}"><div style="height: 1px; background: var(--line); margin: 2px 8px 6px;"></div></sc-if>
+      <sc-for list="{{ g.items }}" as="it" hint-placeholder-count="3"><a href="{{ it.href }}" aria-current="{{ it.cur }}" aria-label="{{ it.aria }}" onMouseEnter="{{ it.tipOn }}" onMouseLeave="{{ sbTipOff }}" onFocus="{{ it.tipOn }}" onBlur="{{ sbTipOff }}" style="position: relative; text-decoration: none; height: 36px; flex-shrink: 0; display: flex; align-items: center; gap: 10px; padding: 0 11px; border-radius: 9px; background: {{ it.bg }}; color: {{ it.fg }}; font-weight: {{ it.fw }}; box-shadow: {{ it.sh }}; white-space: nowrap; overflow: hidden; transition: background-color 120ms linear, color 120ms linear;" style-hover="background: var(--hover); color: var(--fg);"><i class="{{ it.icon }}" style="font-size: 18px; color: {{ it.ic }}; flex-shrink: 0;"></i><span style="flex: 1; opacity: {{ sbLblOp }}; transition: opacity 160ms linear;">{{ it.label }}</span><sc-if value="{{ it.showCount }}" hint-placeholder-val="{{ false }}"><span style="position: {{ it.bPos }}; top: 3px; right: 3px; min-width: {{ it.bSz }}; height: {{ it.bSz }}; padding: 0 {{ it.bPad }}; box-sizing: border-box; border-radius: 99px; font-size: {{ it.bFs }}; font-weight: 700; display: flex; align-items: center; justify-content: center; background: {{ it.cbg }}; color: {{ it.cfg }}; flex-shrink: 0;">{{ it.count }}</span></sc-if></a></sc-for>
+    </div></sc-for>
+  </nav>
+  <div style="flex-shrink: 0; border-top: 1px solid var(--line); padding: 8px 12px 10px; display: flex; flex-direction: column; gap: 2px;">
+    <div style="position: relative; display: flex; flex-direction: {{ sbRowDir }}; align-items: center; gap: 2px;">
+      <button onClick="{{ sbAcctToggle }}" onMouseEnter="{{ sbUserTip }}" onMouseLeave="{{ sbTipOff }}" aria-haspopup="menu" aria-expanded="{{ sbAcctS }}" aria-label="Your account" style="flex: 1; min-width: 0; height: 46px; border: 0; border-radius: 10px; background: {{ sbAcctBg }}; color: var(--fg); font: inherit; display: flex; align-items: center; gap: 10px; padding: 0 6px; cursor: pointer; overflow: hidden; white-space: nowrap; text-align: left; transition: background-color 120ms linear;" style-hover="background: var(--hover);"><span style="width: 34px; height: 34px; flex-shrink: 0; border-radius: 99px; background: var(--brandSoft); color: var(--brandInk); font-weight: 700; display: flex; align-items: center; justify-content: center;">{{ user.initial }}</span><sc-if value="{{ sbFull }}" hint-placeholder-val="{{ true }}"><span style="flex: 1; display: flex; flex-direction: column; line-height: 1.25; min-width: 0;"><span style="font-weight: 700; overflow: hidden; text-overflow: ellipsis;">{{ user.name }}</span><span style="font-size: 13px; color: var(--fg3); overflow: hidden; text-overflow: ellipsis;">{{ sbAcctSub }}</span></span></sc-if></button>
+      <button onClick="{{ sbNotifToggle }}" onMouseEnter="{{ sbNotifTip }}" onMouseLeave="{{ sbTipOff }}" aria-haspopup="dialog" aria-expanded="{{ sbNotifS }}" aria-label="{{ sbNotifL }}" style="position: relative; width: 40px; height: 38px; flex-shrink: 0; border: 0; border-radius: 9px; background: {{ sbNotifBg }}; color: var(--fg2); display: flex; align-items: center; justify-content: center; cursor: pointer;" style-hover="background: var(--hover); color: var(--fg);"><i class="icon-bell" style="font-size: 18px;"></i><sc-if value="{{ sbNotifN }}" hint-placeholder-val="{{ false }}"><span style="position: absolute; top: 2px; right: 2px; min-width: 17px; height: 17px; padding: 0 4px; box-sizing: border-box; border-radius: 99px; background: var(--brand); color: white; font-size: 11px; font-weight: 700; display: flex; align-items: center; justify-content: center; border: 2px solid var(--side);">{{ sbNotifN }}</span></sc-if></button>
+      <button onClick="{{ sbSetToggle }}" onMouseEnter="{{ sbSetTip }}" onMouseLeave="{{ sbTipOff }}" aria-haspopup="menu" aria-expanded="{{ sbSetS }}" aria-label="Settings" style="width: 40px; height: 38px; flex-shrink: 0; border: 0; border-radius: 9px; background: {{ sbSetBg }}; color: var(--fg2); display: flex; align-items: center; justify-content: center; cursor: pointer;" style-hover="background: var(--hover); color: var(--fg);"><i class="icon-settings" style="font-size: 18px;"></i></button>
+      <sc-if value="{{ sbNotifOpen }}" hint-placeholder-val="{{ false }}"><div onClick="{{ sbPopClose }}" style="position: fixed; inset: 0; z-index: 94;"></div><div role="dialog" aria-label="Notifications" style="position: absolute; z-index: 95; left: {{ sbNtL }}; bottom: {{ sbUpB }}; width: 300px; box-sizing: border-box; background: var(--surface); border: 1px solid var(--line); border-radius: 12px; box-shadow: 0 14px 36px var(--shc), 0 2px 6px var(--shc); padding: 6px; display: flex; flex-direction: column; gap: 1px; animation: lbMenuUp 160ms cubic-bezier(.2,0,0,1);"><div style="padding: 8px 10px 6px; font-weight: 700; font-size: 15px;">Notifications</div><sc-for list="{{ sbNotif }}" as="n" hint-placeholder-count="3"><a href="{{ n.href }}" style="min-height: 44px; display: flex; align-items: center; gap: 10px; padding: 4px 10px; border-radius: 8px; color: var(--fg); text-decoration: none; transition: background-color 120ms linear;" style-hover="background: var(--hover);"><span style="width: 30px; height: 30px; flex-shrink: 0; border-radius: 8px; background: var(--redSoft); color: var(--red); display: flex; align-items: center; justify-content: center;"><i class="{{ n.icon }}" style="font-size: 15px;"></i></span><span style="flex: 1; min-width: 0; display: flex; flex-direction: column; line-height: 1.25;"><span style="font-weight: 600; text-wrap: pretty;">{{ n.t }}</span><span style="font-size: 12.5px; color: var(--fg3);">{{ n.page }}</span></span><i class="icon-chevron-right" style="font-size: 15px; color: var(--fg3);"></i></a></sc-for><sc-if value="{{ sbNotifNone }}" hint-placeholder-val="{{ false }}"><div style="padding: 10px; color: var(--fg2);">You're all caught up.</div></sc-if></div></sc-if>
+      <sc-if value="{{ sbAcctOpen }}" hint-placeholder-val="{{ false }}"><div onClick="{{ sbPopClose }}" style="position: fixed; inset: 0; z-index: 94;"></div><div role="menu" aria-label="Your account" style="position: absolute; z-index: 95; left: {{ sbUpL }}; bottom: {{ sbUpB }}; box-sizing: border-box; background: var(--surface); border: 1px solid var(--line); border-radius: 12px; box-shadow: 0 14px 36px var(--shc), 0 2px 6px var(--shc); padding: 6px; display: flex; flex-direction: column; gap: 1px; animation: lbMenuUp 160ms cubic-bezier(.2,0,0,1); width: 260px;">
+        <div style="display: flex; align-items: center; gap: 10px; padding: 8px 10px 10px;"><span style="width: 36px; height: 36px; flex-shrink: 0; border-radius: 99px; background: var(--brandSoft); color: var(--brandInk); font-weight: 700; display: flex; align-items: center; justify-content: center;">{{ user.initial }}</span><span style="display: flex; flex-direction: column; line-height: 1.25; min-width: 0;"><b style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">{{ user.name }}</b><span style="font-size: 13px; color: var(--fg2);">{{ user.role }}</span></span></div>
+        <sc-if value="{{ sbScopeShow }}" hint-placeholder-val="{{ true }}"><div style="height: 1px; background: var(--line2); margin: 2px 4px 4px;"></div><div style="font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--fg3); padding: 6px 10px 4px;">View as</div><sc-for list="{{ sbScopeOpts }}" as="o" hint-placeholder-count="2"><button role="menuitemradio" aria-checked="{{ o.onS }}" onClick="{{ o.go }}" style="min-height: 48px; border: 0; border-radius: 8px; background: transparent; color: var(--fg); font: inherit; text-align: left; display: flex; align-items: center; gap: 10px; padding: 4px 10px; cursor: pointer; transition: background-color 120ms linear;" style-hover="background: var(--hover);"><span style="flex: 1; min-width: 0; display: flex; flex-direction: column; line-height: 1.25;"><b>{{ o.label }}</b><span style="font-size: 13px; color: var(--fg2);">{{ o.sub }}</span></span><sc-if value="{{ o.on }}" hint-placeholder-val="{{ false }}"><i class="icon-check" style="font-size: 16px; color: var(--brandInk);"></i></sc-if></button></sc-for></sc-if>
+        <div style="height: 1px; background: var(--line2); margin: 4px;"></div>
+        <button role="menuitem" onClick="{{ sbHelp }}" style="min-height: 40px; border: 0; border-radius: 8px; background: transparent; color: var(--fg); font: inherit; text-align: left; display: flex; align-items: center; gap: 10px; padding: 0 10px; cursor: pointer; transition: background-color 120ms linear;" style-hover="background: var(--hover);"><i class="icon-circle-help" style="font-size: 17px; color: var(--fg2);"></i>Help and shortcuts</button>
+        <button role="menuitem" onClick="{{ sbSignOut }}" style="min-height: 40px; border: 0; border-radius: 8px; background: transparent; color: var(--fg); font: inherit; text-align: left; display: flex; align-items: center; gap: 10px; padding: 0 10px; cursor: pointer; transition: background-color 120ms linear;" style-hover="background: var(--hover);"><i class="icon-log-out" style="font-size: 17px; color: var(--fg2);"></i>Sign out</button>
+      </div></sc-if>
+      <sc-if value="{{ sbSetOpen }}" hint-placeholder-val="{{ false }}"><div onClick="{{ sbPopClose }}" style="position: fixed; inset: 0; z-index: 94;"></div><div role="menu" aria-label="Settings" style="position: absolute; z-index: 95; left: {{ sbUpL }}; bottom: {{ sbUpB }}; box-sizing: border-box; background: var(--surface); border: 1px solid var(--line); border-radius: 12px; box-shadow: 0 14px 36px var(--shc), 0 2px 6px var(--shc); padding: 6px; display: flex; flex-direction: column; gap: 1px; animation: lbMenuUp 160ms cubic-bezier(.2,0,0,1); width: 240px;">
+        <div style="padding: 8px 10px 6px; font-weight: 700; font-size: 15px;">Settings</div>
+        <div style="font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--fg3); padding: 6px 10px 6px;">Appearance</div>
+        <div role="radiogroup" aria-label="Appearance" style="display: grid; grid-template-columns: 1fr 1fr; gap: 2px; padding: 3px; margin: 0 6px 6px; background: var(--sunk); border-radius: 10px;"><sc-for list="{{ sbThemeOpts }}" as="o" hint-placeholder-count="2"><button role="radio" aria-checked="{{ o.onS }}" onClick="{{ o.go }}" style="height: 36px; border: 0; border-radius: 8px; background: {{ o.bg }}; box-shadow: {{ o.sh }}; color: {{ o.fg }}; font: inherit; font-size: 14px; font-weight: 700; display: flex; align-items: center; justify-content: center; gap: 6px; cursor: pointer;"><i class="{{ o.icon }}" style="font-size: 15px;"></i>{{ o.label }}</button></sc-for></div>
+        <div style="height: 1px; background: var(--line2); margin: 2px 4px;"></div>
+        <a href="Workspace.dc.html?m=settings" role="menuitem" style="min-height: 40px; border-radius: 8px; color: var(--fg); text-decoration: none; display: flex; align-items: center; gap: 10px; padding: 0 10px; transition: background-color 120ms linear;" style-hover="background: var(--hover);"><i class="icon-sliders-horizontal" style="font-size: 17px; color: var(--fg2);"></i><span style="flex: 1;">All settings</span><i class="icon-chevron-right" style="font-size: 15px; color: var(--fg3);"></i></a>
+      </div></sc-if>
+
+    </div>
+  </div>
+</aside></sc-if>
+
+<div style="flex: 1; min-width: 0; display: flex; flex-direction: column;">
+  <sc-if value="{{ isPhone }}" hint-placeholder-val="{{ false }}">
+    <header style="position: sticky; top: 0; z-index: 50; box-sizing: border-box; min-height: 56px; padding: env(safe-area-inset-top) 6px 0 4px; display: flex; align-items: center; gap: 2px; background: var(--side); border-bottom: 1px solid var(--line);">
+      <button onClick="{{ openNav }}" aria-label="Open navigation" aria-expanded="{{ navOpenS }}" style="width: 44px; height: 44px; flex-shrink: 0; border: 0; border-radius: 10px; background: transparent; color: var(--fg); display: flex; align-items: center; justify-content: center; cursor: pointer; padding: 0;"><i class="icon-menu" style="font-size: 22px;"></i></button>
+      <img src="assets/lootbloc-icon.png" alt="" style="width: 24px; height: 24px; margin-right: 6px;">
+      <span style="flex: 1; min-width: 0; font-family: 'Space Grotesk', sans-serif; font-size: 18px; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">{{ phTitle }}</span>
+      <button onClick="{{ openSearch }}" aria-label="Search and jump to a page" style="width: 44px; height: 44px; flex-shrink: 0; border: 0; border-radius: 10px; background: transparent; color: var(--fg); display: flex; align-items: center; justify-content: center; cursor: pointer; padding: 0;"><i class="icon-search" style="font-size: 20px;"></i></button>
+            <sc-if value="{{ phStaff }}" hint-placeholder-val="{{ true }}"><button onClick="{{ openCreatePh }}" aria-label="Create a new record" style="width: 44px; height: 44px; flex-shrink: 0; border: 0; border-radius: 10px; background: var(--brand); color: white; display: flex; align-items: center; justify-content: center; cursor: pointer; padding: 0; margin-left: 2px; transition: transform 120ms cubic-bezier(.2,0,0,1), filter 120ms linear;" style-active="transform: scale(0.97);" style-hover="filter: brightness(1.06);"><i class="icon-plus" style="font-size: 22px;"></i></button></sc-if>
+    </header>
+  </sc-if>
+  <sc-if value="{{ navOpen }}" hint-placeholder-val="{{ false }}">
+    <div role="dialog" aria-modal="true" aria-label="Navigation" style="position: fixed; inset: 0; z-index: 90; background: var(--side); display: flex; flex-direction: column; padding: env(safe-area-inset-top) 0 env(safe-area-inset-bottom);">
+      <div style="min-height: 56px; display: flex; align-items: center; gap: 8px; padding: 0 6px 0 14px; border-bottom: 1px solid var(--line);"><img src="assets/lootbloc-icon.png" alt="" style="width: 26px; height: 26px;"><span style="flex: 1; font-family: 'Space Grotesk', sans-serif; font-size: 17px; font-weight: 600;">Lootbloc</span><span style="font-size: 13px; color: var(--fg3); font-weight: 600;">{{ phUser }}</span><button onClick="{{ closeNav }}" aria-label="Close navigation" style="width: 44px; height: 44px; flex-shrink: 0; border: 0; border-radius: 10px; background: transparent; color: var(--fg); display: flex; align-items: center; justify-content: center; cursor: pointer; padding: 0;"><i class="icon-x" style="font-size: 22px;"></i></button></div>
+      <div style="padding: 12px 14px 6px;"><div style="height: 48px; box-sizing: border-box; border: 1px solid var(--line); background: var(--surface); border-radius: 12px; display: flex; align-items: center; gap: 10px; padding: 0 12px;"><i class="icon-search" style="font-size: 18px; color: var(--fg3);"></i><input value="{{ navQ }}" onChange="{{ setNavQ }}" autoFocus="{{ navFocus }}" aria-label="Jump to a page" placeholder="Jump to a page…" style="flex: 1; min-width: 0; border: 0; outline: none; background: transparent; color: var(--fg); font: inherit; font-size: 16px;"></div></div>
+      <nav aria-label="Main" style="flex: 1; overflow-y: auto; overflow-x: hidden; padding: 8px 10px 24px; display: flex; flex-direction: column; gap: 14px;">
+        <sc-for list="{{ phNav }}" as="g" hint-placeholder-count="5"><div style="display: flex; flex-direction: column; gap: 2px;"><sc-if value="{{ g.label }}" hint-placeholder-val="{{ true }}"><div style="font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--fg3); padding: 0 12px 6px;">{{ g.label }}</div></sc-if><sc-for list="{{ g.items }}" as="it" hint-placeholder-count="3"><a href="{{ it.href }}" aria-current="{{ it.cur }}" style="min-height: 48px; box-sizing: border-box; display: flex; align-items: center; gap: 12px; padding: 0 12px; border-radius: 10px; background: {{ it.bg }}; box-shadow: {{ it.sh }}; color: {{ it.fg }}; font-weight: {{ it.fw }}; font-size: 16px; text-decoration: none;"><i class="{{ it.icon }}" style="font-size: 19px; color: {{ it.ic }};"></i><span style="flex: 1;">{{ it.label }}</span><sc-if value="{{ it.count }}" hint-placeholder-val="{{ false }}"><span style="min-width: 24px; height: 24px; padding: 0 7px; box-sizing: border-box; border-radius: 99px; font-size: 13px; font-weight: 700; display: flex; align-items: center; justify-content: center; background: {{ it.cbg }}; color: {{ it.cfg }};">{{ it.count }}</span></sc-if></a></sc-for></div></sc-for>
+        <sc-if value="{{ phNavEmpty }}" hint-placeholder-val="{{ false }}"><div style="padding: 12px; color: var(--fg2);">No pages match.</div></sc-if>
+      </nav>
+      <div style="position: relative; flex-shrink: 0; border-top: 1px solid var(--line); padding: 8px 10px; display: flex; align-items: center; gap: 4px;">
+        <span style="width: 36px; height: 36px; flex-shrink: 0; border-radius: 99px; background: var(--brandSoft); color: var(--brandInk); font-weight: 700; display: flex; align-items: center; justify-content: center;">{{ user.initial }}</span>
+        <span style="flex: 1; min-width: 0; display: flex; flex-direction: column; line-height: 1.25; padding-left: 6px;"><span style="font-weight: 700;">{{ user.name }}</span><span style="font-size: 13px; color: var(--fg3);">{{ user.role }}</span></span>
+        <button aria-label="Settings" style="width: 44px; height: 44px; flex-shrink: 0; border: 0; border-radius: 10px; background: transparent; color: var(--fg2); display: flex; align-items: center; justify-content: center; cursor: pointer;"><i class="icon-settings" style="font-size: 19px;"></i></button>
+        <button onClick="{{ toggleScheme }}" aria-label="{{ sbThemeL }}" style="width: 44px; height: 44px; flex-shrink: 0; border: 0; border-radius: 10px; background: transparent; color: var(--fg2); display: flex; align-items: center; justify-content: center; cursor: pointer;"><i class="{{ schemeIcon }}" style="font-size: 19px;"></i></button>
+        <button onClick="{{ sbNotifToggle }}" aria-label="{{ sbNotifL }}" aria-expanded="{{ sbNotifS }}" style="position: relative; width: 44px; height: 44px; flex-shrink: 0; border: 0; border-radius: 10px; background: {{ sbNotifBg }}; color: var(--fg2); display: flex; align-items: center; justify-content: center; cursor: pointer;"><i class="icon-bell" style="font-size: 19px;"></i><sc-if value="{{ sbNotifN }}" hint-placeholder-val="{{ false }}"><span style="position: absolute; top: 4px; right: 4px; min-width: 17px; height: 17px; padding: 0 4px; box-sizing: border-box; border-radius: 99px; background: var(--brand); color: white; font-size: 11px; font-weight: 700; display: flex; align-items: center; justify-content: center;">{{ sbNotifN }}</span></sc-if></button>
+        <sc-if value="{{ sbNotifOpen }}" hint-placeholder-val="{{ false }}"><div role="dialog" aria-label="Notifications" style="position: absolute; z-index: 95; left: 10px; right: 10px; bottom: calc(100% + 6px); box-sizing: border-box; background: var(--surface); border: 1px solid var(--line); border-radius: 12px; box-shadow: 0 14px 36px var(--shc); padding: 6px; display: flex; flex-direction: column; gap: 1px; animation: lbMenuUp 160ms cubic-bezier(.2,0,0,1);"><sc-for list="{{ sbNotif }}" as="n" hint-placeholder-count="3"><a href="{{ n.href }}" style="min-height: 48px; display: flex; align-items: center; gap: 10px; padding: 4px 10px; border-radius: 8px; color: var(--fg); text-decoration: none;"><i class="{{ n.icon }}" style="font-size: 17px; color: var(--red);"></i><span style="flex: 1; font-weight: 600;">{{ n.t }}</span><i class="icon-chevron-right" style="font-size: 15px; color: var(--fg3);"></i></a></sc-for></div></sc-if>
+      </div>
+    </div>
+  </sc-if>
+  <sc-if value="{{ createOpen }}" hint-placeholder-val="{{ false }}">
+    <div onClick="{{ closeNav }}" style="position: fixed; inset: 0; z-index: 90; background: oklch(0 0 0 / 0.5);"></div>
+    <div role="dialog" aria-modal="true" aria-label="Create a new record" style="position: fixed; left: 0; right: 0; bottom: 0; z-index: 91; background: var(--surface); border-radius: 18px 18px 0 0; padding: 8px 14px calc(16px + env(safe-area-inset-bottom)); display: flex; flex-direction: column; gap: 4px; box-shadow: 0 -10px 30px var(--shc);">
+      <div style="display: flex; align-items: center; gap: 8px; padding: 4px 0 4px 6px;"><span style="flex: 1; font-weight: 700; font-size: 17px;">Create a new record</span><button onClick="{{ closeNav }}" aria-label="Close" style="width: 44px; height: 44px; flex-shrink: 0; border: 0; border-radius: 10px; background: transparent; color: var(--fg); display: flex; align-items: center; justify-content: center; cursor: pointer; padding: 0;"><i class="icon-x" style="font-size: 20px;"></i></button></div>
+            <sc-for list="{{ phCreate }}" as="c" hint-placeholder-count="6"><a href="{{ c.href }}" style="min-height: 50px; display: flex; align-items: center; gap: 12px; padding: 0 10px; border-radius: 10px; color: var(--fg); text-decoration: none; font-size: 16px; font-weight: 600; transition: background-color 120ms linear;" style-hover="background: var(--hover);"><i class="{{ c.icon }}" style="font-size: 18px; color: var(--fg3);"></i>{{ c.label }}</a></sc-for>
+    </div>
+  </sc-if>
+  
+  <main style="padding: {{ mainPad }}; min-width: {{ mainMinW }}; display: flex; flex-direction: column; gap: 18px;">
+    <div style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 12px 24px;">
+      <div style="min-width: 0;">
+        <div style="font-size: 14px; color: var(--fg3); font-weight: 600;">Tuesday, September 29</div>
+        <h1 style="margin: 4px 0 0; font-family: 'Space Grotesk', sans-serif; font-size: {{ h1Size }}; line-height: 1.15; font-weight: 600; letter-spacing: -0.025em;">{{ greeting }}</h1>
+      </div>
+      <div style="display: flex; align-items: center; gap: 6px; align-self: flex-start; flex-shrink: 0; justify-content: flex-end;">
+        <div style="position: relative;">
+          <button onClick="{{ hvToggle }}" aria-haspopup="true" aria-expanded="{{ hvOpenS }}" style="height: 32px; box-sizing: border-box; padding: 0 10px; border: 1px solid var(--line); background: var(--surface); color: var(--fg); border-radius: 8px; display: flex; align-items: center; gap: 6px; font: inherit; font-size: 13.5px; font-weight: 700; white-space: nowrap; cursor: pointer; max-width: 260px; transition: border-color 120ms linear;" style-hover="border-color: var(--fg3);"><i class="{{ hvIcon }}" style="font-size: 14px; color: var(--fg3);"></i><span style="color: var(--fg3); font-weight: 600;">View</span><span style="max-width: 170px; overflow: hidden; text-overflow: ellipsis;">{{ viewName }}</span><sc-if value="{{ hvEdited }}" hint-placeholder-val="{{ false }}"><span style="font-size: 11.5px; font-weight: 700; color: var(--amber);">Edited</span></sc-if><i class="icon-chevron-down" style="font-size: 14px; color: var(--fg3);"></i></button>
+          <sc-if value="{{ hvOpen }}" hint-placeholder-val="{{ false }}">
+            <div onClick="{{ hvClose }}" style="position: fixed; inset: 0; z-index: 39;"></div>
+            <div role="dialog" aria-label="Home views" style="position: absolute; top: 38px; right: 0; z-index: 40; width: 300px; max-width: calc(100vw - 28px); box-sizing: border-box; background: var(--surface); border: 1px solid var(--line); border-radius: 12px; box-shadow: 0 16px 40px var(--shc), 0 2px 6px var(--shc); overflow: hidden; animation: lbMenu 150ms cubic-bezier(.2,0,0,1);">
+              <div style="max-height: 320px; overflow-y: auto; padding: 6px; display: flex; flex-direction: column; gap: 1px;">
+                <div style="font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--fg3); padding: 6px 10px 4px;">Your views</div>
+                <sc-for list="{{ hvMine }}" as="v" hint-placeholder-count="2"><button onClick="{{ v.pick }}" aria-pressed="{{ v.on }}" style="min-height: 38px; display: flex; align-items: center; gap: 10px; padding: 0 10px; border: 0; border-radius: 8px; background: {{ v.bg }}; color: var(--fg); font: inherit; font-weight: {{ v.fw }}; text-align: left; cursor: pointer; transition: background-color 120ms linear;" style-hover="background: var(--hover);"><i class="{{ v.icon }}" style="font-size: 15px; color: var(--fg3);"></i><span style="flex: 1; min-width: 0; display: flex; align-items: center; gap: 6px;">{{ v.name }}<sc-if value="{{ v.isDefault }}" hint-placeholder-val="{{ false }}"><i class="icon-star" title="Your default" style="font-size: 13px; color: var(--amberBar);"></i></sc-if></span><i class="{{ v.check }}" style="font-size: 15px; color: var(--brandInk);"></i></button></sc-for>
+                <sc-if value="{{ hvHasShared }}" hint-placeholder-val="{{ true }}"><div style="font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--fg3); padding: 10px 10px 4px;">Shared with you</div><sc-for list="{{ hvShared }}" as="v" hint-placeholder-count="2"><button onClick="{{ v.pick }}" aria-pressed="{{ v.on }}" style="min-height: 38px; display: flex; align-items: center; gap: 10px; padding: 0 10px; border: 0; border-radius: 8px; background: {{ v.bg }}; color: var(--fg); font: inherit; font-weight: {{ v.fw }}; text-align: left; cursor: pointer; transition: background-color 120ms linear;" style-hover="background: var(--hover);"><i class="{{ v.icon }}" style="font-size: 15px; color: var(--fg3);"></i><span style="flex: 1; min-width: 0; display: flex; align-items: center; gap: 6px;">{{ v.name }}<sc-if value="{{ v.isDefault }}" hint-placeholder-val="{{ false }}"><i class="icon-star" title="Your default" style="font-size: 13px; color: var(--amberBar);"></i></sc-if></span><i class="{{ v.check }}" style="font-size: 15px; color: var(--brandInk);"></i></button></sc-for></sc-if>
+              </div>
+              <div style="border-top: 1px solid var(--line2); padding: 6px; display: flex; flex-direction: column; gap: 1px;">
+                <button onClick="{{ hvCustomize }}" style="min-height: 36px; display: flex; align-items: center; gap: 10px; padding: 0 10px; border: 0; border-radius: 8px; background: transparent; color: var(--fg); font: inherit; font-weight: 600; text-align: left; cursor: pointer; transition: background-color 120ms linear;" style-hover="background: var(--hover);"><i class="icon-pencil" style="font-size: 15px; color: var(--brandInk);"></i>Customize this view</button>
+                <button onClick="{{ hvSaveAs }}" style="min-height: 36px; display: flex; align-items: center; gap: 10px; padding: 0 10px; border: 0; border-radius: 8px; background: transparent; color: var(--fg); font: inherit; font-weight: 600; text-align: left; cursor: pointer; transition: background-color 120ms linear;" style-hover="background: var(--hover);"><i class="icon-plus" style="font-size: 15px; color: var(--fg3);"></i>Save as new view</button>
+                <sc-if value="{{ hvOwned }}" hint-placeholder-val="{{ true }}"><button onClick="{{ hvRename }}" style="min-height: 36px; display: flex; align-items: center; gap: 10px; padding: 0 10px; border: 0; border-radius: 8px; background: transparent; color: var(--fg); font: inherit; font-weight: 600; text-align: left; cursor: pointer; transition: background-color 120ms linear;" style-hover="background: var(--hover);"><i class="icon-type" style="font-size: 15px; color: var(--fg3);"></i>Rename</button><button onClick="{{ hvShare }}" style="min-height: 36px; display: flex; align-items: center; gap: 10px; padding: 0 10px; border: 0; border-radius: 8px; background: transparent; color: var(--fg); font: inherit; font-weight: 600; text-align: left; cursor: pointer; transition: background-color 120ms linear;" style-hover="background: var(--hover);"><i class="icon-users" style="font-size: 15px; color: var(--fg3);"></i>Share</button><button onClick="{{ makeDefault }}" style="min-height: 36px; display: flex; align-items: center; gap: 10px; padding: 0 10px; border: 0; border-radius: 8px; background: transparent; color: var(--fg); font: inherit; font-weight: 600; text-align: left; cursor: pointer; transition: background-color 120ms linear;" style-hover="background: var(--hover);"><i class="icon-star" style="font-size: 15px; color: var(--amberBar);"></i>{{ defaultLabel }}</button></sc-if>
+                <button onClick="{{ hvCopy }}" style="min-height: 36px; display: flex; align-items: center; gap: 10px; padding: 0 10px; border: 0; border-radius: 8px; background: transparent; color: var(--fg); font: inherit; font-weight: 600; text-align: left; cursor: pointer; transition: background-color 120ms linear;" style-hover="background: var(--hover);"><i class="icon-link" style="font-size: 15px; color: var(--fg3);"></i>Copy link</button>
+                <sc-if value="{{ hvModeName }}" hint-placeholder-val="{{ false }}"><div style="display: flex; flex-direction: column; gap: 6px; margin-top: 4px; padding: 0 4px;"><span style="font-size: 13px; font-weight: 700;">{{ hvNameTitle }}</span><div style="display: flex; gap: 6px;"><input value="{{ hvName }}" onChange="{{ hvSetName }}" autoFocus="{{ true }}" placeholder="View name" style="flex: 1; min-width: 0; height: 36px; box-sizing: border-box; border: 1px solid var(--line); border-radius: 8px; background: var(--bg); color: var(--fg); font: inherit; padding: 0 10px;"><button onClick="{{ hvConfirm }}" style="height: 36px; padding: 0 12px; border: 0; border-radius: 8px; background: var(--brand); color: white; font: inherit; font-weight: 700; cursor: pointer; transition: transform 120ms cubic-bezier(.2,0,0,1), filter 120ms linear;" style-active="transform: scale(0.97);" style-hover="filter: brightness(1.06);">{{ hvNameBtn }}</button><button onClick="{{ hvCancel }}" style="height: 36px; padding: 0 10px; border: 1px solid var(--line); border-radius: 8px; background: transparent; color: var(--fg); font: inherit; font-weight: 600; cursor: pointer;">Cancel</button></div></div></sc-if>
+              <sc-if value="{{ hvModeShare }}" hint-placeholder-val="{{ false }}"><div style="display: flex; flex-direction: column; gap: 6px; margin-top: 4px; padding: 0 4px;"><span style="font-size: 13px; font-weight: 700;">Who can use this view</span><sc-for list="{{ hvShareOpts }}" as="a" hint-placeholder-count="2"><button onClick="{{ a.pick }}" aria-pressed="{{ a.on }}" style="display: flex; align-items: flex-start; gap: 8px; text-align: left; padding: 8px 10px; border: 1px solid {{ a.bd }}; border-radius: 8px; background: transparent; color: var(--fg); font: inherit; cursor: pointer;"><i class="{{ a.check }}" style="font-size: 16px; margin-top: 2px; color: var(--brandInk);"></i><span><span style="display: block; font-weight: 700; font-size: 14px;">{{ a.label }}</span><span style="display: block; font-size: 12.5px; color: var(--fg2);">{{ a.sub }}</span></span></button></sc-for><span style="font-size: 12.5px; color: var(--fg3);">Prototype: nobody is invited or notified, and no permissions change.</span></div></sc-if>
+              <sc-if value="{{ hvHasToast }}" hint-placeholder-val="{{ false }}"><div role="status" style="margin-top: 4px; padding: 0 4px; font-size: 13px; font-weight: 600; color: var(--green); text-wrap: pretty;">{{ hvToast }}</div></sc-if>
+              </div>
+            </div>
+          </sc-if>
+        </div>
+        <sc-if value="{{ hdShowCust }}" hint-placeholder-val="{{ true }}"><button onClick="{{ startEdit }}" style="height: 32px; box-sizing: border-box; padding: 0 10px; border: 1px solid var(--line); background: var(--surface); color: var(--fg); border-radius: 8px; font: inherit; font-size: 13.5px; font-weight: 700; display: flex; align-items: center; gap: 6px; cursor: pointer; white-space: nowrap; transition: border-color 120ms linear;" style-hover="border-color: var(--fg3);"><i class="icon-pencil" style="font-size: 14px; color: var(--fg3);"></i>Customize</button></sc-if>
+      </div>
+    </div>
+
+    <sc-if value="{{ hvHasHidden }}" hint-placeholder-val="{{ false }}"><span style="font-size: 13.5px; color: var(--fg2); display: flex; align-items: center; gap: 6px;"><i class="icon-shield" style="font-size: 15px; color: var(--blue);"></i>{{ hvHiddenShort }}</span></sc-if>
+
+    <sc-if value="{{ editing }}" hint-placeholder-val="{{ false }}">
+      <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 10px 14px; padding: 12px 14px; border-radius: 14px; background: var(--brandSoft); border: 1px solid color-mix(in oklch, var(--brand) 35%, transparent);">
+        <span style="width: 38px; height: 38px; border-radius: 99px; background: var(--brand); color: white; display: flex; align-items: center; justify-content: center; flex-shrink: 0;"><i class="icon-pencil" style="font-size: 17px;"></i></span>
+        <div style="display: flex; flex-direction: column; gap: 4px; min-width: 0; flex: 1 1 220px;">
+          <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px;"><span style="font-weight: 700; color: var(--brandInk);">Editing view</span><input value="{{ viewName }}" onChange="{{ renameView }}" style="height: 32px; width: 220px; max-width: 100%; box-sizing: border-box; border: 1px solid var(--line); background: var(--surface); color: var(--fg); border-radius: 8px; padding: 0 10px; font: inherit; font-weight: 700;"></div>
+          <div style="font-size: 14px; color: var(--fg2);">Drag a widget by its handle to move it. Pick a size, or open <b>Settings</b> to change what it shows.</div>
+        </div>
+        <span style="flex: 1;"></span>
+        <button onClick="{{ openLibrary }}" style="height: 40px; padding: 0 14px; border: 0; border-radius: 10px; background: var(--solid); color: var(--onSolid); font: inherit; font-weight: 700; display: flex; align-items: center; gap: 6px; cursor: pointer; white-space: nowrap;"><i class="icon-plus" style="font-size: 16px;"></i>Add widget</button>
+        <button onClick="{{ makeDefault }}" style="height: 40px; padding: 0 12px; border: 1px solid var(--line); border-radius: 10px; background: var(--surface); color: var(--fg); font: inherit; font-weight: 700; display: flex; align-items: center; gap: 6px; cursor: pointer; white-space: nowrap;"><i class="icon-star" style="font-size: 15px; color: var(--amberBar);"></i>{{ defaultLabel }}</button>
+        <button onClick="{{ resetView }}" style="height: 40px; padding: 0 12px; border: 1px solid var(--line); border-radius: 10px; background: var(--surface); color: var(--fg); font: inherit; font-weight: 700; display: flex; align-items: center; gap: 6px; cursor: pointer; white-space: nowrap;"><i class="icon-rotate-ccw" style="font-size: 15px;"></i>Reset</button>
+        <button onClick="{{ deleteView }}" title="Delete this view" style="height: 40px; width: 40px; border: 1px solid var(--line); border-radius: 10px; background: var(--surface); color: var(--red); font: inherit; display: flex; align-items: center; justify-content: center; cursor: pointer; white-space: nowrap;"><i class="icon-trash-2" style="font-size: 16px;"></i></button>
+        <button onClick="{{ stopEdit }}" style="height: 40px; padding: 0 18px; border: 0; border-radius: 10px; background: var(--brand); color: white; font: inherit; font-weight: 700; display: flex; align-items: center; gap: 6px; cursor: pointer; white-space: nowrap; transition: transform 120ms cubic-bezier(.2,0,0,1), filter 120ms linear;" style-active="transform: scale(0.97);" style-hover="filter: brightness(1.06);"><i class="icon-check" style="font-size: 16px;"></i>Done</button>
+      </div>
+    </sc-if>
+
+    <div style="display: grid; grid-template-columns: {{ homeCols }}; gap: {{ homeGap }}; grid-auto-flow: dense;">
+      <sc-for list="{{ widgets }}" as="w" hint-placeholder-count="6">
+        <div draggable="{{ w.draggable }}" onDragStart="{{ w.dragStart }}" onDragOver="{{ w.dragOver }}" onDrop="{{ w.drop }}" onDragEnd="{{ dragEnd }}" style="grid-column: span {{ w.span }}; min-width: 0; background: var(--surface); border: {{ w.border }}; border-radius: 16px; box-shadow: {{ w.shadow }}; padding: 14px 18px 18px; display: flex; flex-direction: column; gap: 14px; opacity: {{ w.op }};">
+          <sc-if value="{{ w.editing }}" hint-placeholder-val="{{ false }}">
+            <div style="display: flex; align-items: center; gap: 6px; margin: -2px -6px 0; padding: 4px; border-radius: 10px; background: var(--sunk);">
+              <span title="Drag to move" style="width: 28px; height: 28px; display: flex; align-items: center; justify-content: center; color: var(--fg2); cursor: grab;"><i class="icon-grip-vertical" style="font-size: 18px;"></i></span>
+              <div style="display: flex; gap: 2px;">
+                <sc-for list="{{ w.sizes }}" as="z" hint-placeholder-count="3"><button onClick="{{ z.pick }}" title="{{ z.title }}" style="height: 28px; min-width: 30px; padding: 0 7px; border: 0; border-radius: 7px; background: {{ z.bg }}; color: {{ z.fg }}; font: inherit; font-size: 13px; font-weight: 700; cursor: pointer; box-shadow: {{ z.sh }}; white-space: nowrap;">{{ z.label }}</button></sc-for>
+              </div>
+              <span style="flex: 1;"></span>
+              <button onClick="{{ w.openSettings }}" title="Widget settings" style="height: 28px; padding: 0 8px; border: 0; border-radius: 7px; background: var(--surface); color: var(--fg); font: inherit; font-size: 13px; font-weight: 700; display: flex; align-items: center; gap: 5px; cursor: pointer; box-shadow: 0 0 0 1px var(--line); white-space: nowrap;"><i class="icon-sliders-horizontal" style="font-size: 14px;"></i>Settings</button>
+              <button onClick="{{ w.remove }}" title="Remove widget" style="width: 28px; height: 28px; border: 0; border-radius: 7px; background: transparent; color: var(--fg2); display: flex; align-items: center; justify-content: center; cursor: pointer; white-space: nowrap;" style-hover="color: var(--red);"><i class="icon-x" style="font-size: 16px;"></i></button>
+            </div>
+          </sc-if>
+          <div style="display: flex; flex-wrap: {{ hdWrap }}; align-items: center; gap: 6px 10px; min-height: 28px;">
+            <i class="{{ w.icon }}" style="font-size: 18px; color: var(--fg3);"></i>
+            <span style="font-weight: 700; font-size: 16px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; flex-shrink: {{ hdShrink }};">{{ w.title }}</span>
+            <sc-if value="{{ w.kindChip }}" hint-placeholder-val="{{ false }}"><span style="font-size: 12.5px; font-weight: 700; padding: 2px 8px; border-radius: 99px; background: var(--blueSoft); color: var(--blue); white-space: nowrap;">{{ w.kindChip }}</span></sc-if>
+            <sc-if value="{{ w.partnerChip }}" hint-placeholder-val="{{ false }}"><span style="font-size: 12.5px; font-weight: 700; padding: 2px 8px; border-radius: 99px; background: var(--sunk); color: var(--fg2); white-space: nowrap;">{{ w.partnerChip }}</span></sc-if>
+            <span style="flex: 1;"></span>
+            <sc-if value="{{ w.showLink }}" hint-placeholder-val="{{ false }}"><a href="{{ w.linkHref }}" style="font-size: 14px; font-weight: 700; color: var(--brandInk); white-space: nowrap;">{{ w.link }}</a></sc-if>
+          </div>
+
+          <sc-if value="{{ w.isKpi }}" hint-placeholder-val="{{ false }}">
+            <div style="display: grid; grid-template-columns: {{ kpiCols }}; gap: 10px;">
+              <sc-for list="{{ w.d.kpis }}" as="k" hint-placeholder-count="4">
+                <div style="background: var(--sunk); border-radius: 12px; padding: 12px 14px; display: flex; align-items: center; gap: 12px; min-width: 0;">
+                  <span style="width: 40px; height: 40px; border-radius: 10px; background: {{ k.soft }}; color: {{ k.ink }}; display: flex; align-items: center; justify-content: center; flex-shrink: 0;"><i class="{{ k.icon }}" style="font-size: 19px;"></i></span>
+                  <div style="min-width: 0;"><div style="font-size: 13.5px; color: var(--fg2); font-weight: 600; white-space: {{ wsWrap }}; overflow: hidden; text-overflow: ellipsis;">{{ k.label }}</div><div style="display: flex; align-items: baseline; gap: 8px; flex-wrap: wrap;"><span style="font-family: 'Space Grotesk', sans-serif; font-size: 26px; font-weight: 600; letter-spacing: -0.02em; font-variant-numeric: tabular-nums;">{{ k.value }}</span><span style="font-size: 13.5px; font-weight: 700; color: {{ k.noteInk }};">{{ k.note }}</span></div></div>
+                </div>
+              </sc-for>
+            </div>
+          </sc-if>
+
+          <sc-if value="{{ w.isNeeds }}" hint-placeholder-val="{{ false }}">
+            <sc-if value="{{ isPhone }}" hint-placeholder-val="{{ false }}"><div style="display: flex; flex-direction: column; gap: 10px;">
+              <sc-for list="{{ w.d.items }}" as="a" hint-placeholder-count="3">
+                <div style="display: flex; flex-direction: column; gap: 8px; padding: 12px; border: 1px solid var(--line2); border-radius: 12px; min-width: 0;">
+                  <div style="display: flex; align-items: center; gap: 8px;"><span style="width: 30px; height: 30px; flex-shrink: 0; border-radius: 99px; background: {{ a.soft }}; color: {{ a.ink }}; display: flex; align-items: center; justify-content: center;"><i class="{{ a.icon }}" style="font-size: 15px;"></i></span><span style="font-size: 12.5px; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; color: {{ a.gInk }};">{{ a.group }}</span></div>
+                  <div style="font-weight: 700; font-size: 16px; line-height: 1.3; text-wrap: pretty; overflow-wrap: anywhere;">{{ a.title }}</div>
+                  <div style="font-size: 14px; color: var(--fg2); line-height: 1.4; text-wrap: pretty; overflow-wrap: anywhere;">{{ a.ctx }}</div>
+                  <sc-if value="{{ a.why }}" hint-placeholder-val="{{ false }}"><div style="font-size: 13.5px; color: var(--fg3); line-height: 1.4; text-wrap: pretty;">{{ a.why }}</div></sc-if>
+                  <a href="{{ a.href }}" style="display: flex; align-items: center; justify-content: center; gap: 6px; width: 100%; min-height: 44px; box-sizing: border-box; padding: 0 14px; border-radius: 10px; background: var(--solid); color: var(--onSolid); font-weight: 700; text-decoration: none; margin-top: 4px;">{{ a.action }}<i class="icon-arrow-right" style="font-size: 15px;"></i></a>
+                </div>
+              </sc-for>
+              <sc-if value="{{ w.d.empty }}" hint-placeholder-val="{{ false }}"><div style="padding: 14px; border: 1px dashed var(--line); border-radius: 12px; color: var(--fg2);">Nothing needs you right now.</div></sc-if>
+            </div></sc-if>
+            <sc-if value="{{ isDesk }}" hint-placeholder-val="{{ true }}">
+            <div style="display: flex; flex-direction: column; gap: 8px;">
+              <sc-for list="{{ w.d.items }}" as="a" hint-placeholder-count="3">
+                <div style="display: flex; align-items: center; gap: 12px; padding: 10px 12px; border: 1px solid var(--line2); border-radius: 12px; min-width: 0;">
+                  <span style="width: 38px; height: 38px; flex-shrink: 0; border-radius: 99px; background: {{ a.soft }}; color: {{ a.ink }}; display: flex; align-items: center; justify-content: center;"><i class="{{ a.icon }}" style="font-size: 17px;"></i></span>
+                  <div style="flex: 1; min-width: 0;">
+                    <div style="font-size: 12px; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; color: {{ a.gInk }};">{{ a.group }}</div>
+                    <div style="font-weight: 700; line-height: 1.3;">{{ a.title }}</div>
+                    <div style="font-size: 14px; color: var(--fg2); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">{{ a.ctx }}</div>
+                  </div>
+                  <button style="height: 38px; padding: 0 14px; border: 0; border-radius: 10px; background: var(--solid); color: var(--onSolid); font: inherit; font-weight: 700; white-space: nowrap; cursor: pointer; display: flex; align-items: center; gap: 6px;">{{ a.action }}<i class="icon-arrow-right" style="font-size: 15px;"></i></button>
+                </div>
+              </sc-for>
+              <sc-if value="{{ w.d.empty }}" hint-placeholder-val="{{ false }}"><div style="display: flex; align-items: center; gap: 10px; padding: 14px; border: 1px dashed var(--line); border-radius: 12px; color: var(--fg2);"><i class="icon-circle-check" style="font-size: 18px; color: var(--green);"></i>Nothing needs you right now.</div></sc-if>
+            </div>
+            </sc-if>
+          </sc-if>
+
+          <sc-if value="{{ w.isQuick }}" hint-placeholder-val="{{ false }}">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 10px;">
+              <sc-for list="{{ w.d.quick }}" as="q" hint-placeholder-count="5">
+                <div style="background: var(--sunk); border-radius: 12px; padding: 12px; display: flex; align-items: center; gap: 12px; cursor: pointer; min-width: 0; transition: background-color 120ms linear;" style-hover="background: var(--hover);">
+                  <span style="width: 40px; height: 40px; flex-shrink: 0; border-radius: 10px; background: var(--brandSoft); color: var(--brandInk); display: flex; align-items: center; justify-content: center;"><i class="{{ q.icon }}" style="font-size: 19px;"></i></span>
+                  <span style="min-width: 0; display: flex; flex-direction: column;"><span style="font-weight: 700; line-height: 1.25;">{{ q.label }}</span><span style="font-size: 13px; color: var(--fg3);">{{ q.hint }}</span></span>
+                </div>
+              </sc-for>
+            </div>
+          </sc-if>
+
+          <sc-if value="{{ w.isPipeline }}" hint-placeholder-val="{{ false }}">
+            <sc-if value="{{ isPhone }}" hint-placeholder-val="{{ false }}"><div role="list" style="display: flex; flex-direction: column; gap: 6px;">
+              <sc-for list="{{ w.d.stages }}" as="s" hint-placeholder-count="6"><div role="listitem" style="display: flex; flex-direction: column; gap: 8px;">
+                <button onClick="{{ s.select }}" aria-pressed="{{ s.onS }}" style="width: 100%; min-height: 48px; box-sizing: border-box; text-align: left; border: 2px solid {{ s.bd }}; background: {{ s.bg }}; color: var(--fg); border-radius: 10px; padding: 8px 12px; font: inherit; cursor: pointer; display: flex; flex-direction: column; gap: 6px;">
+                  <span style="display: flex; align-items: center; gap: 8px; width: 100%;"><span style="flex: 1; min-width: 0; font-weight: 700;">{{ s.label }}</span><sc-if value="{{ s.stuck }}" hint-placeholder-val="{{ false }}"><span style="font-size: 12.5px; font-weight: 700; color: var(--red); background: var(--redSoft); border-radius: 99px; padding: 2px 8px; white-space: nowrap;">{{ s.stuck }} stuck</span></sc-if><span style="font-family: 'Space Grotesk', sans-serif; font-size: 20px; font-weight: 600; min-width: 28px; text-align: right;">{{ s.count }}</span></span>
+                  <span style="display: block; width: 100%; height: 6px; border-radius: 99px; background: var(--line2);"><span style="display: block; height: 6px; width: {{ s.h }}; border-radius: 99px; background: {{ s.fill }};"></span></span>
+                </button>
+                <sc-if value="{{ s.on }}" hint-placeholder-val="{{ false }}"><div style="display: flex; flex-direction: column; gap: 6px; padding: 0 2px 6px 12px; border-left: 3px solid var(--brand);"><sc-for list="{{ w.d.sel.items }}" as="p" hint-placeholder-count="2"><span style="font-size: 14.5px; font-weight: 600; display: flex; align-items: center; gap: 7px;"><i class="icon-layers" style="font-size: 14px; color: var(--fg3);"></i>{{ p }}</span></sc-for></div></sc-if>
+              </div></sc-for>
+            </div></sc-if>
+            <sc-if value="{{ isDesk }}" hint-placeholder-val="{{ true }}">
+            <div style="display: flex; flex-direction: column; gap: 10px;">
+              <div style="display: grid; grid-template-columns: repeat({{ w.d.cols }}, minmax(0, 1fr)); gap: 8px;">
+                <sc-for list="{{ w.d.stages }}" as="s" hint-placeholder-count="8">
+                  <div onClick="{{ s.select }}" style="border-radius: 12px; border: 2px solid {{ s.bd }}; background: {{ s.bg }}; padding: 10px 10px 10px; cursor: pointer; display: flex; flex-direction: column; gap: 6px; min-width: 0;">
+                    <div style="font-size: 13px; font-weight: 700; color: var(--fg2); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">{{ s.label }}</div>
+                    <div style="font-family: 'Space Grotesk', sans-serif; font-size: 26px; font-weight: 600; line-height: 1;">{{ s.count }}</div>
+                    <div style="height: 44px; display: flex; align-items: flex-end;"><span style="width: 100%; height: {{ s.h }}; border-radius: 6px; background: {{ s.fill }};"></span></div>
+                    <div style="height: 22px;"><sc-if value="{{ s.stuck }}" hint-placeholder-val="{{ false }}"><span style="font-size: 12.5px; font-weight: 700; color: var(--red); background: var(--redSoft); border-radius: 99px; padding: 2px 8px; white-space: nowrap;">{{ s.stuck }} stuck</span></sc-if></div>
+                  </div>
+                </sc-for>
+              </div>
+              <div style="background: var(--sunk); border-radius: 12px; padding: 12px 14px; display: flex; align-items: center; gap: 14px;">
+                <div style="min-width: 150px;"><div style="font-weight: 700;">{{ w.d.sel.label }}</div><div style="font-size: 14px; color: var(--fg2);">{{ w.d.sel.count }} products</div></div>
+                <div style="flex: 1; display: flex; flex-wrap: wrap; gap: 6px;">
+                  <sc-for list="{{ w.d.sel.items }}" as="p" hint-placeholder-count="3"><span style="height: 32px; padding: 0 11px; background: var(--surface); border: 1px solid var(--line); border-radius: 9px; display: flex; align-items: center; gap: 7px; font-weight: 600; font-size: 14px;"><i class="icon-layers" style="font-size: 14px; color: var(--fg3);"></i>{{ p }}</span></sc-for>
+                </div>
+              </div>
+            </div>
+            </sc-if>
+          </sc-if>
+
+          <sc-if value="{{ w.isShip }}" hint-placeholder-val="{{ false }}">
+            <div style="display: flex; flex-direction: column; gap: 16px;">
+              <sc-for list="{{ w.d.ships }}" as="s" hint-placeholder-count="4">
+                <div style="min-width: 0;">
+                  <div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 2px 8px;"><span style="font-weight: 700; min-width: 0; white-space: {{ wsWrap }}; overflow: hidden; text-overflow: ellipsis;">{{ s.name }}</span><span style="font-size: 14px; font-weight: 700; color: {{ s.ink }}; white-space: nowrap;">{{ s.eta }}</span></div>
+                  <div style="display: flex; align-items: center; margin: 8px 0 4px;">
+                    <sc-for list="{{ s.dots }}" as="d" hint-placeholder-count="5"><span style="flex: {{ d.flex }}; display: flex; align-items: center;"><span style="flex: 1; height: 3px; background: {{ d.line }};"></span><span style="width: 12px; height: 12px; border-radius: 99px; box-sizing: border-box; border: 2px solid {{ d.c }}; background: {{ d.fill }};"></span></span></sc-for>
+                  </div>
+                  <div style="font-size: 13px; color: var(--fg3); white-space: {{ wsWrap }}; overflow: hidden; text-overflow: ellipsis;">{{ s.stepLabel }}<span style="margin-left: 8px; color: var(--fg2);">{{ s.route }}</span></div>
+                </div>
+              </sc-for>
+              <sc-if value="{{ w.d.empty }}" hint-placeholder-val="{{ false }}"><div style="color: var(--fg2);">No shipments for this partner.</div></sc-if>
+            </div>
+          </sc-if>
+
+          <sc-if value="{{ w.isRunway }}" hint-placeholder-val="{{ false }}">
+            <div style="display: flex; flex-direction: column; gap: 14px;">
+              <div style="background: var(--sunk); border-radius: 12px; padding: 10px 12px; display: flex; flex-direction: column; gap: 8px;">
+                <div style="font-size: 12.5px; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; color: var(--fg3);">Summary of the {{ w.d.count }} SKUs below</div>
+                <div style="display: flex; flex-wrap: wrap; gap: 8px 18px;"><sc-for list="{{ w.d.sum }}" as="g" hint-placeholder-count="3"><span style="display: flex; align-items: baseline; gap: 6px;"><span style="font-family: 'Space Grotesk', sans-serif; font-size: 22px; font-weight: 600; color: {{ g.ink }};">{{ g.n }}</span><span style="font-size: 14px; font-weight: 600;">{{ g.label }}</span></span></sc-for></div>
+              </div>
+              <div style="display: flex; align-items: center; gap: 12px; flex-wrap: wrap;"><span style="font-size: 12.5px; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; color: var(--fg3);">Forecast by SKU</span><span style="font-size: 13px; color: var(--fg3); display: flex; align-items: center; gap: 12px; flex-wrap: wrap;"><span style="display: flex; align-items: center; gap: 6px;"><span style="width: 16px; height: 8px; border-radius: 3px; background: var(--fg3);"></span>Days of stock left</span><span style="display: flex; align-items: center; gap: 6px;"><span style="width: 3px; height: 12px; border-radius: 2px; background: var(--fg);"></span>Restock lands</span><span>Scale: {{ w.d.horizon }} days from today</span></span></div>
+              <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(min(360px, 100%), 1fr)); gap: 18px 28px;">
+              <sc-for list="{{ w.d.rows }}" as="r" hint-placeholder-count="4">
+                <div style="min-width: 0;">
+                  <div style="display: flex; justify-content: space-between; gap: 8px; align-items: center;"><span style="min-width: 0;"><span style="display: block; font-weight: 700; white-space: {{ wsWrap }}; overflow: hidden; text-overflow: ellipsis;">{{ r.name }}</span><span style="display: block; font-family: ui-monospace, monospace; font-size: 12.5px; color: var(--fg3);">{{ r.sku }}</span></span><span style="font-size: 13px; font-weight: 700; color: {{ r.ink }}; background: {{ r.soft }}; padding: 2px 9px; border-radius: 99px; white-space: nowrap;">{{ r.verdict }}</span></div>
+                  <div role="img" aria-label="{{ r.aria }}" style="position: relative; height: 12px; margin: 8px 0 8px; background: var(--sunk); border-radius: 99px;">
+                    <span style="position: absolute; left: 0; top: 0; bottom: 0; width: {{ r.w }}; border-radius: 99px; background: {{ r.bar }};"></span>
+                    <sc-if value="{{ r.hasRestock }}" hint-placeholder-val="{{ false }}"><span style="position: absolute; top: -4px; bottom: -4px; left: {{ r.mark }}; width: 3px; border-radius: 2px; background: var(--fg);"></span></sc-if>
+                  </div>
+                  <div style="display: grid; grid-template-columns: {{ rwCols }}; gap: {{ rwGap }};">
+                    <div style="min-width: 0;"><div style="font-size: 12.5px; font-weight: 600; color: var(--fg3);">Runs out</div><div style="font-weight: 700;">{{ r.outT }}</div><div style="font-size: 13px; color: var(--fg2);">{{ r.outSub }}</div></div>
+                    <div style="min-width: 0;"><div style="font-size: 12.5px; font-weight: 600; color: var(--fg3);">Next restock</div><div style="font-weight: 700;">{{ r.rsT }}</div><div style="font-size: 13px; color: var(--fg2); white-space: {{ wsWrap }}; overflow: hidden; text-overflow: ellipsis;">{{ r.rsSub }}</div></div>
+                    <div style="min-width: 0;"><div style="font-size: 12.5px; font-weight: 600; color: var(--fg3);">Gap before restock</div><div style="font-weight: 700; color: {{ r.gapInk }};">{{ r.gapT }}</div><div style="font-size: 13px; color: var(--fg2);">{{ r.gapSub }}</div></div>
+                  </div>
+                </div>
+              </sc-for>
+              </div>
+              <sc-if value="{{ w.d.empty }}" hint-placeholder-val="{{ false }}"><div style="color: var(--fg2);">No tracked SKUs for this partner.</div></sc-if>
+            </div>
+          </sc-if>
+
+          <sc-if value="{{ w.isHealth }}" hint-placeholder-val="{{ false }}">
+            <div>
+              <div style="font-family: 'Space Grotesk', sans-serif; font-size: 26px; font-weight: 600;">{{ w.d.total }} <span style="font-family: 'Atkinson Hyperlegible Next', sans-serif; font-size: 14px; font-weight: 600; color: var(--fg2);">SKUs tracked</span></div>
+              <div style="display: flex; height: 14px; border-radius: 99px; overflow: hidden; gap: 2px; margin-top: 10px;">
+                <sc-for list="{{ w.d.segs }}" as="g" hint-placeholder-count="4"><span style="width: {{ g.w }}; background: {{ g.c }};"></span></sc-for>
+              </div>
+              <div style="display: flex; flex-direction: column; gap: 6px; margin-top: 12px; font-size: 14px;">
+                <sc-for list="{{ w.d.segs }}" as="g" hint-placeholder-count="4"><span style="display: flex; align-items: center; gap: 8px;"><span style="width: 10px; height: 10px; border-radius: 3px; background: {{ g.c }};"></span><span style="flex: 1;">{{ g.label }}</span><b>{{ g.n }}</b></span></sc-for>
+              </div>
+            </div>
+          </sc-if>
+
+          <sc-if value="{{ w.isUnavail }}" hint-placeholder-val="{{ false }}"><div role="note" style="display: flex; gap: 10px; align-items: flex-start; padding: 12px 14px; border-radius: 12px; background: var(--sunk); color: var(--fg2);"><i class="icon-lock" style="font-size: 17px; margin-top: 2px;"></i><span style="text-wrap: pretty;"><b style="display: block; color: var(--fg);">{{ w.d.unavailT }}</b>{{ w.d.unavailS }}</span></div></sc-if>
+          <sc-if value="{{ w.isMoney }}" hint-placeholder-val="{{ false }}">
+            <div>
+              <div style="font-size: 14px; color: var(--fg2); font-weight: 600;">We owe factories</div>
+              <div style="display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap;"><span style="font-family: 'Space Grotesk', sans-serif; font-size: 28px; font-weight: 600; letter-spacing: -0.02em;">$48,210</span><span style="font-weight: 700; color: var(--red); font-size: 14px;">$6,450 overdue</span></div>
+              <sc-if value="{{ w.d.aging }}" hint-placeholder-val="{{ true }}">
+                <div style="display: flex; height: 12px; gap: 2px; border-radius: 99px; overflow: hidden; margin-top: 10px;"><span style="width: 66%; background: var(--fg3);"></span><span style="width: 21%; background: var(--amberBar);"></span><span style="width: 13%; background: var(--redBar);"></span></div>
+                <div style="display: flex; flex-direction: column; gap: 4px; margin-top: 10px; font-size: 14px;">
+                  <span style="display: flex; justify-content: space-between;"><span style="display: flex; align-items: center; gap: 8px;"><span style="width: 10px; height: 10px; border-radius: 3px; background: var(--fg3);"></span>Not due yet</span><b>$31.8k</b></span>
+                  <span style="display: flex; justify-content: space-between;"><span style="display: flex; align-items: center; gap: 8px;"><span style="width: 10px; height: 10px; border-radius: 3px; background: var(--amberBar);"></span>Due this week</span><b>$10.0k</b></span>
+                  <span style="display: flex; justify-content: space-between;"><span style="display: flex; align-items: center; gap: 8px;"><span style="width: 10px; height: 10px; border-radius: 3px; background: var(--redBar);"></span>Overdue</span><b>$6.5k</b></span>
+                </div>
+              </sc-if>
+              <sc-if value="{{ w.d.sales }}" hint-placeholder-val="{{ false }}">
+                <div style="border-top: 1px solid var(--line2); margin-top: 12px; padding-top: 10px; display: flex; justify-content: space-between; font-size: 14px;"><span style="color: var(--fg2); font-weight: 600;">{{ w.d.salesLabel }}</span><span><b>{{ w.d.salesT }}</b> <span style="font-weight: 700; color: var(--fg2);">{{ w.d.salesDelta }}</span></span></div>
+              </sc-if>
+            </div>
+          </sc-if>
+
+          <sc-if value="{{ w.isSales }}" hint-placeholder-val="{{ false }}">
+            <div style="display: flex; flex-direction: column; gap: 14px; min-width: 0;">
+              <sc-if value="{{ w.d.hasState }}" hint-placeholder-val="{{ false }}"><div role="status" style="display: flex; flex-direction: column; align-items: flex-start; gap: 10px; padding: 22px 18px; border: 1px dashed var(--line); border-radius: 12px; color: var(--fg2);"><span style="display: flex; align-items: center; gap: 10px; font-weight: 700; color: var(--fg);"><i class="{{ w.d.stateIcon }}" style="font-size: 18px; color: {{ w.d.stateInk }};"></i>{{ w.d.stateTitle }}</span><span style="font-size: 14px; text-wrap: pretty;">{{ w.d.stateMsg }}</span><sc-if value="{{ w.d.stateAction }}" hint-placeholder-val="{{ false }}"><button onClick="{{ w.d.stateDo }}" style="height: 36px; padding: 0 14px; border: 1px solid var(--line); border-radius: 9px; background: var(--surface); color: var(--fg); font: inherit; font-weight: 700; cursor: pointer;">{{ w.d.stateAction }}</button></sc-if></div></sc-if>
+              <sc-if value="{{ w.d.ok }}" hint-placeholder-val="{{ false }}">
+                <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px;">
+                  <div role="group" aria-label="Date range" style="display: flex; gap: 2px; padding: 3px; background: var(--sunk); border-radius: 10px; flex-wrap: wrap;"><sc-for list="{{ w.d.ranges }}" as="r" hint-placeholder-count="6"><button onClick="{{ r.pick }}" aria-pressed="{{ r.on }}" style="height: 34px; padding: 0 11px; border: 0; border-radius: 8px; font: inherit; font-size: 14px; font-weight: 700; cursor: pointer; white-space: nowrap; background: {{ r.bg }}; color: {{ r.fg }}; box-shadow: {{ r.sh }};">{{ r.label }}</button></sc-for></div>
+                  <sc-if value="{{ w.d.multiStore }}" hint-placeholder-val="{{ true }}"><div role="group" aria-label="Chart lines" style="display: flex; gap: 2px; padding: 3px; background: var(--sunk); border-radius: 10px;"><sc-for list="{{ w.d.modes }}" as="r" hint-placeholder-count="2"><button onClick="{{ r.pick }}" aria-pressed="{{ r.on }}" style="height: 34px; padding: 0 11px; border: 0; border-radius: 8px; font: inherit; font-size: 14px; font-weight: 700; cursor: pointer; white-space: nowrap; background: {{ r.bg }}; color: {{ r.fg }}; box-shadow: {{ r.sh }};">{{ r.label }}</button></sc-for></div></sc-if>
+                  <button onClick="{{ w.d.toggleCompare }}" aria-pressed="{{ w.d.compareS }}" style="height: 40px; padding: 0 12px; border: 1px solid var(--line); border-radius: 10px; background: {{ w.d.compareBg }}; color: var(--fg); font: inherit; font-size: 14px; font-weight: 700; cursor: pointer; display: flex; align-items: center; gap: 8px; white-space: nowrap;"><span style="width: 18px; height: 0; border-top: 2px dashed var(--fg2);"></span>{{ w.d.compareL }}</button>
+                  <button onClick="{{ w.d.toggleMarkers }}" aria-pressed="{{ w.d.markersS }}" style="height: 40px; padding: 0 12px; border: 1px solid var(--line); border-radius: 10px; background: {{ w.d.markersBg }}; color: var(--fg); font: inherit; font-size: 14px; font-weight: 700; cursor: pointer; display: flex; align-items: center; gap: 8px; white-space: nowrap;"><i class="icon-rocket" style="font-size: 15px; color: var(--brandInk);"></i>{{ w.d.markersL }}</button>
+                </div>
+                <div role="group" aria-label="Stores" style="display: flex; flex-wrap: wrap; align-items: center; gap: 6px;">
+                  <span style="font-size: 13px; font-weight: 700; color: var(--fg2); margin-right: 2px;">Stores</span>
+                  <sc-for list="{{ w.d.storeChips }}" as="c" hint-placeholder-count="4"><button onClick="{{ c.pick }}" aria-pressed="{{ c.on }}" title="{{ c.title }}" style="height: 34px; padding: 0 11px; border: 1px solid {{ c.bd }}; border-radius: 99px; background: {{ c.bg }}; color: var(--fg); font: inherit; font-size: 13.5px; font-weight: 700; cursor: {{ c.cur }}; display: flex; align-items: center; gap: 7px; white-space: nowrap;"><span style="width: 10px; height: 10px; border-radius: 3px; background: {{ c.color }}; opacity: {{ c.dotOp }};"></span>{{ c.label }}<i class="{{ c.check }}" style="font-size: 14px; color: var(--brandInk);"></i></button></sc-for>
+                  <sc-if value="{{ w.d.droppedNote }}" hint-placeholder-val="{{ false }}"><span style="font-size: 13px; color: var(--fg2); display: flex; align-items: center; gap: 5px;"><i class="icon-shield" style="font-size: 14px; color: var(--blue);"></i>{{ w.d.droppedNote }}</span></sc-if>
+                </div>
+                <div role="tablist" aria-label="Metric" style="display: grid; grid-template-columns: {{ mtCols }}; gap: {{ mtGap }};">
+                  <sc-for list="{{ w.d.metrics }}" as="k" hint-placeholder-count="3"><button role="tab" onClick="{{ k.pick }}" aria-selected="{{ k.on }}" style="text-align: left; padding: {{ mtPad }}; border-radius: 12px; border: 2px solid {{ k.bd }}; background: {{ k.bg }}; color: var(--fg); font: inherit; cursor: pointer; display: grid; grid-template-columns: {{ mtInner }}; align-items: baseline; gap: 2px 10px; min-width: 0;"><span style="font-size: 13.5px; font-weight: 700; color: var(--fg2);">{{ k.label }}</span><span style="font-family: 'Space Grotesk', sans-serif; font-size: {{ mtVal }}; text-align: {{ mtValAl }}; font-weight: 600; letter-spacing: -0.02em; font-variant-numeric: tabular-nums;">{{ k.value }}</span><span style="font-size: 13px; font-weight: 700; color: {{ k.dInk }};">{{ k.delta }}</span></button></sc-for>
+                </div>
+                                <sc-if value="{{ w.d.staffSharedNote }}" hint-placeholder-val="{{ false }}"><div style="display: flex; gap: 8px; font-size: 13.5px; color: var(--fg2); padding: 8px 12px; border-radius: 10px; background: var(--blueSoft); text-wrap: pretty;"><i class="icon-info" style="font-size: 15px; color: var(--blue); margin-top: 2px;"></i><span>{{ w.d.staffSharedNote }}</span></div></sc-if>
+                <div style="display: grid; grid-template-columns: 58px minmax(0, 1fr); gap: 8px;">
+                  <div style="position: relative; height: 230px; font-size: 12.5px; color: var(--fg3); font-variant-numeric: tabular-nums;"><sc-for list="{{ w.d.yTicks }}" as="y" hint-placeholder-count="3"><span style="position: absolute; right: 0; top: {{ y.top }}; transform: translateY(-50%); white-space: nowrap;">{{ y.label }}</span></sc-for></div>
+                  <div style="min-width: 0;">
+                    <div tabIndex="0" role="group" aria-label="{{ w.d.chartAria }}" onMouseMove="{{ w.d.onMove }}" onMouseLeave="{{ w.d.onLeave }}" onClick="{{ w.d.onTap }}" onKeyDown="{{ w.d.onKey }}" style="position: relative; height: 230px; outline: none; border-radius: 8px; cursor: crosshair;" style-focus="box-shadow: 0 0 0 2px var(--brand);">
+                      <sc-for list="{{ w.d.yTicks }}" as="y" hint-placeholder-count="3"><span style="position: absolute; left: 0; right: 0; top: {{ y.top }}; border-top: 1px solid var(--line2);"></span></sc-for>
+                      <svg viewBox="0 0 1000 220" width="100%" height="220" preserveAspectRatio="none" style="position: absolute; left: 0; top: 5px; overflow: visible;">
+                        <sc-if value="{{ w.d.showArea }}" hint-placeholder-val="{{ false }}"><path d="{{ w.d.area }}" fill="var(--brandSoft)" opacity="0.7"></path></sc-if>
+                        <sc-if value="{{ w.d.showPrev }}" hint-placeholder-val="{{ false }}"><path d="{{ w.d.prevPath }}" fill="none" stroke="var(--fg3)" stroke-width="2" stroke-dasharray="6 5" vector-effect="non-scaling-stroke"></path></sc-if>
+                        <sc-for list="{{ w.d.lines }}" as="l" hint-placeholder-count="1"><path d="{{ l.d }}" fill="none" stroke="{{ l.color }}" stroke-width="2.5" stroke-linejoin="round" vector-effect="non-scaling-stroke"></path></sc-for>
+                      </svg>
+                      <sc-for list="{{ w.d.markers }}" as="m" hint-placeholder-count="0"><span style="position: absolute; left: {{ m.left }}; top: 18px; bottom: 0; border-left: 2px dotted {{ m.ink }}; opacity: 0.8; pointer-events: none;"></span><button onClick="{{ m.pick }}" aria-label="{{ m.aria }}" title="{{ m.aria }}" aria-pressed="{{ m.on }}" style="position: absolute; left: {{ m.left }}; top: 0; transform: translateX(-50%); min-width: 26px; height: 26px; padding: 0 6px; box-sizing: border-box; border-radius: 99px; border: 2px solid {{ m.ink }}; background: {{ m.bg }}; color: {{ m.fg }}; font: inherit; font-size: 12.5px; font-weight: 700; display: flex; align-items: center; justify-content: center; gap: 3px; cursor: pointer; z-index: 2;"><i class="icon-rocket" style="font-size: 12px;"></i>{{ m.countT }}</button></sc-for>
+                      <sc-if value="{{ w.d.hasHover }}" hint-placeholder-val="{{ false }}"><span style="position: absolute; left: {{ w.d.hx }}; top: 5px; height: 220px; border-left: 1px solid var(--fg2); pointer-events: none;"></span>
+                        <div role="status" aria-live="polite" style="position: absolute; left: {{ w.d.hx }}; top: 34px; transform: {{ w.d.htx }}; z-index: 3; min-width: 200px; max-width: 280px; padding: 10px 12px; border-radius: 10px; background: var(--surface); border: 1px solid var(--line); box-shadow: 0 8px 24px var(--shc); pointer-events: none; font-size: 13.5px;">
+                          <div style="font-weight: 700; margin-bottom: 6px;">{{ w.d.hTitle }}</div>
+                          <sc-for list="{{ w.d.hRows }}" as="h" hint-placeholder-count="2"><div style="display: flex; align-items: center; gap: 8px; justify-content: space-between; padding: 2px 0;"><span style="display: flex; align-items: center; gap: 6px; min-width: 0; color: var(--fg2);"><span style="width: 12px; height: 0; border-top: 3px {{ h.dash }} {{ h.color }}; flex-shrink: 0;"></span><span style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">{{ h.label }}</span></span><b style="font-variant-numeric: tabular-nums;">{{ h.v }}</b></div></sc-for>
+                          <sc-if value="{{ w.d.hNote }}" hint-placeholder-val="{{ false }}"><div style="margin-top: 6px; font-size: 12.5px; color: var(--fg2);">{{ w.d.hNote }}</div></sc-if>
+                        </div></sc-if>
+                    </div>
+                    <div style="position: relative; height: 22px; margin-top: 6px; font-size: 12.5px; color: var(--fg3);"><sc-for list="{{ w.d.xTicks }}" as="x" hint-placeholder-count="5"><span style="position: absolute; left: {{ x.left }}; transform: {{ x.tx }}; white-space: nowrap;">{{ x.label }}</span></sc-for></div>
+                  </div>
+                </div>
+                                <sc-if value="{{ w.d.hasMk }}" hint-placeholder-val="{{ false }}"><div style="border: 1px solid var(--line); border-radius: 12px; padding: 12px 14px; display: flex; flex-direction: column; gap: 10px; background: var(--sunk);">
+                  <div style="display: flex; align-items: center; gap: 8px;"><i class="icon-rocket" style="font-size: 16px; color: var(--brandInk);"></i><span style="font-weight: 700; flex: 1;">{{ w.d.mkTitle }}</span><button onClick="{{ w.d.mkClose }}" aria-label="Close launch details" style="width: 32px; height: 32px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); color: var(--fg); display: flex; align-items: center; justify-content: center; cursor: pointer;"><i class="icon-x" style="font-size: 15px;"></i></button></div>
+                  <sc-for list="{{ w.d.mkItems }}" as="k" hint-placeholder-count="1"><div style="display: flex; flex-wrap: wrap; gap: 6px 16px; align-items: center; padding: 10px 12px; border-radius: 10px; background: var(--surface); border: 1px solid var(--line2);">
+                    <div style="flex: 1 1 220px; min-width: 0;"><div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;"><span style="font-weight: 700;">{{ k.product }}</span><span style="font-size: 12px; font-weight: 700; padding: 2px 8px; border-radius: 99px; background: var(--greenSoft); color: var(--green);">Released</span></div><div style="font-size: 13.5px; color: var(--fg2); display: flex; align-items: center; gap: 6px;"><span style="width: 9px; height: 9px; border-radius: 3px; background: {{ k.color }};"></span>{{ k.store }}<span style="margin-left: 8px; color: var(--fg3);">{{ k.date }}</span></div></div>
+                    <div style="flex: 0 1 auto; min-width: 0; text-align: right;"><div style="font-size: 12.5px; color: var(--fg3); font-weight: 600;">{{ k.dayLabel }}</div><div style="font-weight: 700; font-variant-numeric: tabular-nums;"><b>{{ k.daySales }}</b><span style="margin-left: 8px; color: var(--fg3);">{{ k.dayOrders }}</span></div></div>
+                    <div style="flex: 1 1 100%; font-size: 13.5px; color: var(--fg2); text-wrap: pretty;">{{ k.context }}</div>
+                    <sc-if value="{{ k.canOpen }}" hint-placeholder-val="{{ false }}"><a href="{{ k.href }}" style="font-size: 14px; font-weight: 700; color: var(--brandInk); display: flex; align-items: center; gap: 4px;">Open product<i class="icon-arrow-right" style="font-size: 14px;"></i></a></sc-if>
+                    <sc-if value="{{ k.noRecord }}" hint-placeholder-val="{{ false }}"><span style="font-size: 13px; color: var(--fg3);">No product record in this demo</span></sc-if>
+                  </div></sc-for>
+                </div></sc-if>
+              </sc-if>
+            </div>
+          </sc-if>
+
+          <sc-if value="{{ w.isWeek }}" hint-placeholder-val="{{ false }}">
+            <sc-if value="{{ w.weekList }}" hint-placeholder-val="{{ false }}"><div style="display: flex; flex-direction: column; gap: 14px;">
+              <div style="display: flex; flex-wrap: wrap; gap: 6px 14px; font-size: 13px; color: var(--fg2);"><span style="display: flex; align-items: center; gap: 6px;"><span style="width: 14px; height: 8px; border-radius: 3px; border: 2px solid var(--fg2);"></span>Done</span><span style="display: flex; align-items: center; gap: 6px;"><span style="width: 14px; height: 8px; border-radius: 3px; border: 2px dashed var(--fg2);"></span>Planned or expected</span><span style="display: flex; align-items: center; gap: 6px;"><span style="width: 14px; height: 8px; border-radius: 3px; border: 2px solid var(--red);"></span>Late or at risk</span></div>
+              <sc-for list="{{ w.d.agenda }}" as="d" hint-placeholder-count="3">
+                <section aria-label="{{ d.aria }}" style="display: flex; flex-direction: column; gap: 8px;">
+                  <h3 style="margin: 0; display: flex; align-items: baseline; gap: 8px; font-size: 15px; font-weight: 700; color: {{ d.ink }}; border-bottom: 1px solid var(--line2); padding-bottom: 6px;">{{ d.label }}<sc-if value="{{ d.today }}" hint-placeholder-val="{{ false }}"><span style="font-size: 12px; font-weight: 700; padding: 2px 8px; border-radius: 99px; background: var(--brand); color: white;">Today</span></sc-if></h3>
+                  <sc-for list="{{ d.events }}" as="e" hint-placeholder-count="2">
+                    <div style="display: flex; flex-direction: column; gap: 6px; padding: 10px 12px; border-radius: 10px; background: var(--surface); border: {{ e.bd }};">
+                      <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;"><i class="{{ e.icon }}" style="font-size: 15px; color: {{ e.ink }};"></i><span style="font-size: 12.5px; font-weight: 700; padding: 2px 8px; border-radius: 99px; background: {{ e.soft }}; color: {{ e.ink }};">{{ e.status }}</span><span style="font-size: 12.5px; color: var(--fg3);">{{ e.kindL }}</span></div>
+                      <div style="font-weight: 700; line-height: 1.35; text-wrap: pretty;">{{ e.t }}</div>
+                      <sc-if value="{{ e.detail }}" hint-placeholder-val="{{ false }}"><div style="font-size: 13.5px; color: var(--fg2); text-wrap: pretty;">{{ e.detail }}</div></sc-if>
+                      <sc-if value="{{ e.href }}" hint-placeholder-val="{{ false }}"><a href="{{ e.href }}" style="display: flex; align-items: center; justify-content: center; gap: 6px; width: 100%; min-height: 44px; box-sizing: border-box; border: 1px solid var(--line); border-radius: 10px; color: var(--fg); font-weight: 700; text-decoration: none; margin-top: 2px;">{{ e.action }}<i class="icon-arrow-right" style="font-size: 15px;"></i></a></sc-if>
+                    </div>
+                  </sc-for>
+                  <sc-if value="{{ d.none }}" hint-placeholder-val="{{ false }}"><div style="font-size: 14px; color: var(--fg3);">Nothing scheduled.</div></sc-if>
+                </section>
+              </sc-for>
+              <a href="{{ w.d.calHref }}" style="display: flex; align-items: center; justify-content: center; gap: 6px; min-height: 44px; border-radius: 10px; color: var(--brandInk); font-weight: 700; text-decoration: none;">{{ w.d.calL }}<i class="icon-arrow-right" style="font-size: 15px;"></i></a>
+            </div></sc-if>
+            <sc-if value="{{ w.weekGrid }}" hint-placeholder-val="{{ true }}">
+            <div style="display: grid; grid-template-columns: repeat({{ w.d.cols }}, minmax(0, 1fr)); border: 1px solid var(--line2); border-radius: 12px; overflow: hidden;">
+              <sc-for list="{{ w.d.days }}" as="d" hint-placeholder-count="7">
+                <div style="min-height: 170px; border-right: 1px solid var(--line2); padding: 10px 8px; background: {{ d.bg }}; opacity: {{ d.op }}; display: flex; flex-direction: column; gap: 6px; min-width: 0;">
+                  <div style="display: flex; align-items: center; gap: 6px; padding: 0 2px 2px;">
+                    <span style="font-size: 13.5px; font-weight: 700; color: var(--fg2);">{{ d.d }}</span>
+                    <span style="width: 28px; height: 28px; border-radius: 99px; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 14px; background: {{ d.numBg }}; color: {{ d.numFg }};">{{ d.n }}</span>
+                  </div>
+                  <sc-for list="{{ d.events }}" as="e" hint-placeholder-count="2">
+                    <div style="border-radius: 8px; background: {{ e.soft }}; padding: 7px 8px; display: flex; gap: 6px; align-items: flex-start;">
+                      <i class="{{ e.icon }}" style="font-size: 14px; color: {{ e.ink }}; margin-top: 2px;"></i>
+                      <span style="font-size: 13.5px; font-weight: 600; line-height: 1.3;">{{ e.t }}</span>
+                    </div>
+                  </sc-for>
+                </div>
+              </sc-for>
+            </div>
+            </sc-if>
+          </sc-if>
+
+          <sc-if value="{{ w.isNext }}" hint-placeholder-val="{{ false }}">
+            <div>
+              <div style="font-weight: 700; font-size: 17px;">{{ w.d.title }}</div>
+              <div style="font-size: 14px; color: var(--fg2);">{{ w.d.sub }}</div>
+              <div style="display: flex; flex-direction: column; margin-top: 14px;">
+                <sc-for list="{{ w.d.steps }}" as="s" hint-placeholder-count="5">
+                  <div style="display: flex; gap: 12px; align-items: stretch;">
+                    <div style="display: flex; flex-direction: column; align-items: center; width: 26px;">
+                      <span style="width: 26px; height: 26px; flex-shrink: 0; box-sizing: border-box; border-radius: 99px; border: 2px solid {{ s.bd }}; background: {{ s.bg }}; color: {{ s.fg }}; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 700;"><i class="{{ s.icon }}" style="font-size: 14px;"></i>{{ s.num }}</span>
+                      <span style="flex: 1; width: 2px; min-height: 8px; background: {{ s.line }};"></span>
+                    </div>
+                    <div style="flex: 1; display: flex; justify-content: space-between; gap: 8px; padding: 2px 0 10px;"><span style="font-weight: {{ s.fw }}; color: {{ s.tc }};">{{ s.label }}</span><span style="font-size: 13px; font-weight: 700; color: {{ s.mc }};">{{ s.meta }}</span></div>
+                  </div>
+                </sc-for>
+              </div>
+              <span style="display: inline-flex; height: 40px; padding: 0 16px; border-radius: 10px; background: var(--brand); color: white; font-weight: 700; align-items: center; gap: 8px; cursor: pointer;"><i class="icon-receipt" style="font-size: 16px;"></i>Add deposit invoice</span>
+            </div>
+          </sc-if>
+
+          <sc-if value="{{ w.isTasks }}" hint-placeholder-val="{{ false }}">
+            <div style="display: flex; flex-direction: column; gap: 4px;">
+              <sc-for list="{{ w.d.tasks }}" as="t" hint-placeholder-count="4">
+                <div onClick="{{ t.toggle }}" style="display: flex; align-items: center; gap: 12px; min-height: 50px; padding: 6px 8px; border-radius: 10px; cursor: pointer; min-width: 0; transition: background-color 120ms linear;" style-hover="background: var(--hover);">
+                  <span style="width: 24px; height: 24px; flex-shrink: 0; box-sizing: border-box; border-radius: 7px; border: 2px solid {{ t.bd }}; background: {{ t.bg }}; color: var(--onSolid); display: flex; align-items: center; justify-content: center;"><i class="{{ t.check }}" style="font-size: 15px;"></i></span>
+                  <div style="flex: 1; min-width: 0;"><div style="font-weight: 600; text-decoration: {{ t.strike }}; color: {{ t.tc }};">{{ t.t }}</div><div style="font-size: 13px; color: var(--fg3);">{{ t.link }}<span style="margin-left: 10px; font-weight: 700; color: {{ t.ink }};">{{ t.due }}</span></div></div>
+                </div>
+              </sc-for>
+              <span style="margin-top: 4px; font-size: 14px; font-weight: 700; color: var(--brandInk); display: flex; align-items: center; gap: 4px; padding: 0 8px; cursor: pointer;"><i class="icon-plus" style="font-size: 16px;"></i>Add task</span>
+            </div>
+          </sc-if>
+        </div>
+      </sc-for>
+
+      <sc-if value="{{ editing }}" hint-placeholder-val="{{ false }}">
+        <button onClick="{{ openLibrary }}" style="grid-column: span 1; min-height: 160px; border: 2px dashed var(--line); border-radius: 16px; background: transparent; color: var(--fg2); font: inherit; font-weight: 700; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; cursor: pointer; white-space: nowrap;" style-hover="border-color: var(--fg3); color: var(--fg);"><i class="icon-plus" style="font-size: 24px;"></i>Add widget</button>
+      </sc-if>
+      <sc-if value="{{ emptyView }}" hint-placeholder-val="{{ false }}">
+        <div style="grid-column: span 3; min-height: 160px; border: 2px dashed var(--line); border-radius: 16px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; color: var(--fg2); text-align: center; padding: 20px;"><div style="font-weight: 700; font-size: 17px; color: var(--fg);">This view is empty</div><div>Add widgets one at a time, or start from a template in the widget library.</div></div>
+      </sc-if>
+    </div>
+  </main>
+</div>
+
+<sc-if value="{{ settingsOpen }}" hint-placeholder-val="{{ false }}">
+  <div style="position: absolute; inset: 0; z-index: 50; display: flex; justify-content: flex-end;">
+    <div onClick="{{ closeSettings }}" style="position: absolute; inset: 0; background: oklch(0.1 0.01 260 / 0.4);"></div>
+    <div style="position: relative; width: 430px; min-height: 100%; background: var(--surface); border-left: 1px solid var(--line); box-shadow: -16px 0 40px var(--shc); display: flex; flex-direction: column;">
+      <div style="display: flex; align-items: center; gap: 12px; padding: 18px 20px; border-bottom: 1px solid var(--line2);">
+        <span style="width: 40px; height: 40px; border-radius: 10px; background: var(--sunk); display: flex; align-items: center; justify-content: center;"><i class="{{ sw.icon }}" style="font-size: 19px; color: var(--fg2);"></i></span>
+        <div style="flex: 1;"><div style="font-weight: 700; font-size: 18px;">Widget settings</div><div style="font-size: 14px; color: var(--fg2);">{{ sw.typeName }}</div></div>
+        <button onClick="{{ closeSettings }}" style="width: 40px; height: 40px; border: 1px solid var(--line); border-radius: 10px; background: transparent; color: var(--fg); display: flex; align-items: center; justify-content: center; cursor: pointer; white-space: nowrap;"><i class="icon-x" style="font-size: 18px;"></i></button>
+      </div>
+      <div style="padding: 20px; display: flex; flex-direction: column; gap: 22px;">
+        <label style="display: flex; flex-direction: column; gap: 8px;"><span style="font-weight: 700;">Title</span><input value="{{ sw.title }}" onChange="{{ sw.rename }}" style="height: 44px; box-sizing: border-box; border: 1px solid var(--line); background: var(--bg); color: var(--fg); border-radius: 10px; padding: 0 12px; font: inherit; font-size: 16px;"></label>
+        <div style="display: flex; flex-direction: column; gap: 8px;">
+          <span style="font-weight: 700;">Size</span>
+          <div style="display: flex; gap: 6px; flex-wrap: wrap;">
+            <sc-for list="{{ sw.sizes }}" as="z" hint-placeholder-count="3"><button onClick="{{ z.pick }}" style="height: 40px; padding: 0 14px; border-radius: 10px; border: 1px solid {{ z.bd }}; background: {{ z.bg2 }}; color: {{ z.fg2 }}; font: inherit; font-weight: 700; cursor: pointer; white-space: nowrap;">{{ z.title }}</button></sc-for>
+          </div>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 8px;">
+          <span style="font-weight: 700;">Position</span>
+          <div style="display: flex; gap: 6px;">
+            <button onClick="{{ sw.earlier }}" style="height: 40px; padding: 0 14px; border-radius: 10px; border: 1px solid var(--line); background: transparent; color: var(--fg); font: inherit; font-weight: 700; display: flex; align-items: center; gap: 6px; cursor: pointer; white-space: nowrap;"><i class="icon-arrow-left" style="font-size: 16px;"></i>Move earlier</button>
+            <button onClick="{{ sw.later }}" style="height: 40px; padding: 0 14px; border-radius: 10px; border: 1px solid var(--line); background: transparent; color: var(--fg); font: inherit; font-weight: 700; display: flex; align-items: center; gap: 6px; cursor: pointer; white-space: nowrap;">Move later<i class="icon-arrow-right" style="font-size: 16px;"></i></button>
+          </div>
+        </div>
+        <sc-for list="{{ sw.fields }}" as="f" hint-placeholder-count="3">
+          <div style="display: flex; flex-direction: column; gap: 8px;">
+            <sc-if value="{{ f.isPills }}" hint-placeholder-val="{{ true }}">
+              <span style="font-weight: 700;">{{ f.label }}</span>
+              <sc-if value="{{ f.help }}" hint-placeholder-val="{{ false }}"><span style="font-size: 13.5px; color: var(--fg2); margin-top: -4px;">{{ f.help }}</span></sc-if>
+              <div style="display: flex; gap: 6px; flex-wrap: wrap;">
+                <sc-for list="{{ f.options }}" as="o" hint-placeholder-count="3"><button onClick="{{ o.pick }}" style="height: 38px; padding: 0 12px; border-radius: 99px; border: 1px solid {{ o.bd }}; background: {{ o.bg }}; color: {{ o.fg }}; font: inherit; font-size: 14px; font-weight: 700; display: flex; align-items: center; gap: 6px; cursor: pointer; white-space: nowrap;"><i class="{{ o.icon }}" style="font-size: 14px;"></i>{{ o.label }}</button></sc-for>
+              </div>
+            </sc-if>
+            <sc-if value="{{ f.isToggle }}" hint-placeholder-val="{{ false }}">
+              <div onClick="{{ f.toggle }}" style="display: flex; align-items: center; gap: 12px; cursor: pointer; min-height: 40px;">
+                <span style="flex: 1; font-weight: 700;">{{ f.label }}</span>
+                <span style="width: 46px; height: 28px; border-radius: 99px; background: {{ f.track }}; position: relative; flex-shrink: 0;"><span style="position: absolute; top: 3px; left: {{ f.knob }}; width: 22px; height: 22px; border-radius: 99px; background: white; box-shadow: 0 1px 2px oklch(0 0 0 / 0.3);"></span></span>
+              </div>
+            </sc-if>
+          </div>
+        </sc-for>
+        <div style="font-size: 14px; color: var(--fg2); background: var(--sunk); border-radius: 10px; padding: 10px 12px; display: flex; gap: 8px;"><i class="icon-eye" style="font-size: 16px; margin-top: 2px;"></i>Changes show on the page right away and save to this view.</div>
+      </div>
+      <div style="margin-top: auto; padding: 16px 20px; border-top: 1px solid var(--line2); display: flex; gap: 8px; position: sticky; bottom: 0; background: var(--surface);">
+        <button onClick="{{ sw.remove }}" style="height: 44px; padding: 0 14px; border: 1px solid var(--line); border-radius: 10px; background: transparent; color: var(--red); font: inherit; font-weight: 700; display: flex; align-items: center; gap: 6px; cursor: pointer; white-space: nowrap;"><i class="icon-trash-2" style="font-size: 16px;"></i>Remove</button>
+        <span style="flex: 1;"></span>
+        <button onClick="{{ closeSettings }}" style="height: 44px; padding: 0 22px; border: 0; border-radius: 10px; background: var(--solid); color: var(--onSolid); font: inherit; font-weight: 700; cursor: pointer; white-space: nowrap;">Done</button>
+      </div>
+    </div>
+  </div>
+</sc-if>
+
+<sc-if value="{{ libraryOpen }}" hint-placeholder-val="{{ false }}">
+  <div style="position: absolute; inset: 0; z-index: 50; display: flex; justify-content: flex-end;">
+    <div onClick="{{ closeLibrary }}" style="position: absolute; inset: 0; background: oklch(0.1 0.01 260 / 0.4);"></div>
+    <div style="position: relative; width: 480px; min-height: 100%; background: var(--surface); border-left: 1px solid var(--line); box-shadow: -16px 0 40px var(--shc); display: flex; flex-direction: column;">
+      <div style="display: flex; align-items: center; gap: 12px; padding: 18px 20px; border-bottom: 1px solid var(--line2);">
+        <div style="flex: 1;"><div style="font-weight: 700; font-size: 18px;">Add a widget</div><div style="font-size: 14px; color: var(--fg2);">It's added to the end of "{{ viewName }}". Drag it wherever you like.</div></div>
+        <button onClick="{{ closeLibrary }}" style="width: 40px; height: 40px; border: 1px solid var(--line); border-radius: 10px; background: transparent; color: var(--fg); display: flex; align-items: center; justify-content: center; cursor: pointer; white-space: nowrap;"><i class="icon-x" style="font-size: 18px;"></i></button>
+      </div>
+      <div style="padding: 16px 20px; display: flex; flex-direction: column; gap: 8px;">
+        <sc-for list="{{ library }}" as="l" hint-placeholder-count="8">
+          <div style="display: flex; align-items: center; gap: 12px; padding: 10px 12px; border: 1px solid var(--line2); border-radius: 12px;">
+            <span style="width: 40px; height: 40px; flex-shrink: 0; border-radius: 10px; background: var(--sunk); display: flex; align-items: center; justify-content: center;"><i class="{{ l.icon }}" style="font-size: 19px; color: var(--fg2);"></i></span>
+            <div style="flex: 1; min-width: 0;"><div style="font-weight: 700;">{{ l.name }}</div><div style="font-size: 14px; color: var(--fg2);">{{ l.desc }}</div></div>
+            <sc-if value="{{ l.inView }}" hint-placeholder-val="{{ false }}"><span style="font-size: 12.5px; font-weight: 700; color: var(--fg3); white-space: nowrap;">In view</span></sc-if>
+            <button onClick="{{ l.add }}" style="height: 36px; padding: 0 12px; border: 1px solid var(--line); border-radius: 9px; background: transparent; color: var(--fg); font: inherit; font-weight: 700; display: flex; align-items: center; gap: 4px; cursor: pointer; white-space: nowrap;"><i class="icon-plus" style="font-size: 15px;"></i>Add</button>
+          </div>
+        </sc-for>
+        <div style="margin-top: 14px; font-weight: 700;">Or start over from a template</div>
+        <div style="font-size: 14px; color: var(--fg2); margin-top: -4px;">Replaces every widget in this view.</div>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px;">
+          <sc-for list="{{ templates }}" as="t" hint-placeholder-count="4">
+            <button onClick="{{ t.apply }}" style="text-align: left; border: 1px solid var(--line); border-radius: 12px; background: transparent; color: var(--fg); font: inherit; padding: 10px; cursor: pointer; display: flex; flex-direction: column; gap: 8px; white-space: nowrap;" style-hover="border-color: var(--fg3);">
+              <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 3px; width: 100%;"><sc-for list="{{ t.blocks }}" as="b" hint-placeholder-count="5"><span style="grid-column: span {{ b.span }}; height: {{ b.h }}; border-radius: 3px; background: {{ b.c }};"></span></sc-for></div>
+              <span style="font-weight: 700;">{{ t.name }}</span>
+            </button>
+          </sc-for>
+        </div>
+      </div>
+    </div>
+  </div>
+</sc-if>
+
+<sc-if value="{{ newViewOpen }}" hint-placeholder-val="{{ false }}">
+  <div style="position: absolute; inset: 0; z-index: 60; display: flex; align-items: flex-start; justify-content: center; padding-top: 120px;">
+    <div onClick="{{ closeNewView }}" style="position: absolute; inset: 0; background: oklch(0.1 0.01 260 / 0.45);"></div>
+    <div style="position: relative; width: 720px; background: var(--surface); border: 1px solid var(--line); border-radius: 18px; box-shadow: 0 24px 60px var(--shc); padding: 24px; display: flex; flex-direction: column; gap: 18px;">
+      <div><div style="font-family: 'Space Grotesk', sans-serif; font-size: 24px; font-weight: 600;">Create a new view</div><div style="color: var(--fg2); margin-top: 4px;">A view is a saved Home layout. Switch between views any time from the tabs.</div></div>
+      <label style="display: flex; flex-direction: column; gap: 8px;"><span style="font-weight: 700;">Name</span><input value="{{ newName }}" onChange="{{ setNewName }}" placeholder="e.g. Monday money check" style="height: 46px; box-sizing: border-box; border: 1px solid var(--line); background: var(--bg); color: var(--fg); border-radius: 10px; padding: 0 12px; font: inherit; font-size: 16px;"></label>
+      <div style="display: flex; flex-direction: column; gap: 8px;">
+        <span style="font-weight: 700;">Start from</span>
+        <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px;">
+          <sc-for list="{{ newTemplates }}" as="t" hint-placeholder-count="6">
+            <button onClick="{{ t.pick }}" style="text-align: left; border: 2px solid {{ t.bd }}; border-radius: 14px; background: {{ t.bg }}; color: var(--fg); font: inherit; padding: 12px; cursor: pointer; display: flex; flex-direction: column; gap: 8px; white-space: nowrap;">
+              <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 3px; width: 100%; min-height: 50px; align-content: start;"><sc-for list="{{ t.blocks }}" as="b" hint-placeholder-count="5"><span style="grid-column: span {{ b.span }}; height: {{ b.h }}; border-radius: 3px; background: {{ b.c }};"></span></sc-for></div>
+              <span style="font-weight: 700;">{{ t.name }}</span>
+              <span style="font-size: 13.5px; color: var(--fg2); line-height: 1.35;">{{ t.desc }}</span>
+            </button>
+          </sc-for>
+        </div>
+      </div>
+      <div style="display: flex; justify-content: flex-end; gap: 8px;">
+        <button onClick="{{ closeNewView }}" style="height: 44px; padding: 0 16px; border: 1px solid var(--line); border-radius: 10px; background: transparent; color: var(--fg); font: inherit; font-weight: 700; cursor: pointer; white-space: nowrap;">Cancel</button>
+        <button onClick="{{ createView }}" style="height: 44px; padding: 0 20px; border: 0; border-radius: 10px; background: var(--brand); color: white; font: inherit; font-weight: 700; cursor: pointer; white-space: nowrap; transition: transform 120ms cubic-bezier(.2,0,0,1), filter 120ms linear;" style-active="transform: scale(0.97);" style-hover="filter: brightness(1.06);">Create view</button>
+      </div>
+    </div>
+  </div>
+</sc-if>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1440,&quot;height&quot;:1500},&quot;scheme&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;dark&quot;,&quot;light&quot;],&quot;default&quot;:&quot;dark&quot;,&quot;tsType&quot;:&quot;'dark'|'light'&quot;},&quot;role&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;ops&quot;,&quot;finance&quot;,&quot;partner&quot;],&quot;default&quot;:&quot;ops&quot;,&quot;tsType&quot;:&quot;'ops'|'finance'|'partner'&quot;},&quot;scenario&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;dedicated&quot;,&quot;shared&quot;],&quot;default&quot;:&quot;dedicated&quot;,&quot;tsType&quot;:&quot;'dedicated'|'shared'&quot;,&quot;section&quot;:&quot;Prototype harness&quot;}}">
+class Component extends DCLogic {
+  role() { if (!this.__ri) { this.__ri = 1; this.__rp = this.props.role; let u = null; try { u = new URLSearchParams(location.search).get("role"); } catch (e) {} if (!u) { try { u = sessionStorage.getItem("lb-role-handoff-v2"); sessionStorage.removeItem("lb-role-handoff-v2"); } catch (e) {} } this.__ru = ["ops", "finance", "partner"].includes(u) ? u : null; try { localStorage.removeItem("lb-preview-role-v1"); } catch (e) {} const self = this; document.addEventListener("click", ev => { const a = ev.target && ev.target.closest ? ev.target.closest("a[href]") : null; if (!a) return; const h = a.getAttribute("href") || ""; if (!/\.dc\.html/.test(h)) return; try { sessionStorage.setItem("lb-role-handoff-v2", self.role()); } catch (e) {} a.setAttribute("href", self.rh(h)); }, true); }
+    if (this.props.role !== this.__rp) { this.__rp = this.props.role; this.__ru = null; try { const u = new URL(location.href); if (u.searchParams.has("role")) { u.searchParams.delete("role"); history.replaceState(null, "", u.toString()); } } catch (e) {} }
+    return this.__ru || this.props.role || "ops"; }
+  rh(h) { const s = String(h); const i = s.indexOf("?"); const p = i < 0 ? s : s.slice(0, i); const sp = new URLSearchParams(i < 0 ? "" : s.slice(i + 1)); sp.set("role", this.role()); return p + "?" + sp.toString(); }
+  state = { D: null, scheme: null, views: null, active: null, def: null, editing: false, settingsFor: null, library: false, newView: false, newName: "", newTpl: "ops", dragId: null, overId: null, stage: {}, done: {}, SD: null, sx: {}, hv: {}, sharedTmp: {} };
+  componentDidMount() {
+    import(new URL("homeData.js", document.baseURI).href).then(D => this.setState({ D }));
+    import(new URL("pagesData.js", document.baseURI).href).then(PG => this.setState({ PG })).catch(() => {});
+    import(new URL("salesData.js", document.baseURI).href).then(SD => this.setState({ SD })).catch(() => this.setState({ SD: null, sdErr: true }));
+    this.loadViews();
+    try { const v = new URLSearchParams(location.search).get("view"); if (v && this.allViews().some(x => x.id === v)) this.setState({ active: v }); } catch (e) {}
+  }
+  componentDidUpdate() { if (this.role() !== this._role) this.loadViews(); }
+  storeKey() { return this.role() === "partner" ? "lb-home-views-partner-v2" : this.role() === "finance" ? "lb-home-views-finance-v2" : "lb-home-views-v2"; }
+  me() { return { ops: "Jordan Reyes", finance: "Priya Shah", partner: "Twin Atlas (you)" }[this.role()]; }
+  auds() { const T = { key: "team", label: "Lootbloc team", roles: ["ops", "finance"] }, TA = { key: "team-ta", label: "Lootbloc team + Twin Atlas", roles: ["ops", "finance", "partner"] }, TAO = { key: "ta", label: "Twin Atlas team", roles: ["partner"] }; return { T, TA, TAO }; }
+  sharedSeeds() {
+    const { DEF } = this.cfg(); const { T, TA } = this.auds();
+    const mk = (id, arr) => arr.map(([type, size, o], i) => ({ id: id + "-" + i, type, size, title: (o && o._title) || null, partner: "All partners", s: { ...DEF[type], ...(o || {}) } }));
+    return [
+      { id: "hs-weekly", name: "Weekly sales review", owner: "Andrew", ownerRole: "staff-andrew", audience: T, tpl: "exec", widgets: mk("hs-weekly", [["sales", "XL", { range: "90d", mode: "split", compare: false }], ["kpi", "XL", { metrics: ["30-day sales", "Owed to factories", "In transit", "SKUs low on stock"] }], ["money", "S", { sales: true }], ["runway", "L"]]) },
+      { id: "hs-launch", name: "Twin Atlas launch check", owner: "Maya Park", ownerRole: "staff-maya", audience: TA, tpl: "partner", widgets: mk("hs-launch", [["sales", "XL", { range: "90d", stores: ["twinatlas", "lootbloc"], metric: "orders" }], ["runway", "XL", { _title: "Stock Health" }], ["pipeline", "XL"]]) },
+    ];
+  }
+  readShared() { try { return JSON.parse(localStorage.getItem("lb-home-shared-v2") || "[]"); } catch (e) { return []; } }
+  sharedList() { const role = this.role(); return [...this.sharedSeeds(), ...this.readShared().filter(v => v.ownerRole !== role)].filter(v => v.audience && v.audience.roles.includes(role)); }
+  allViews() { return [...(this.state.views || []), ...this.sharedList()]; }
+  loadViews() {
+    this._role = this.role();
+    let saved = null;
+    try { saved = JSON.parse(localStorage.getItem(this.storeKey()) || "null"); } catch (e) {}
+    if (saved && saved.views && saved.views.length) this.setState({ views: saved.views, active: saved.active, def: saved.def });
+    else if (this._role === "partner") this.setState({ views: [{ id: "v-partner", name: "Your products", tpl: "partner", widgets: this.build("partner") }], active: "v-partner", def: "v-partner" });
+    else this.setState({ views: this.initialViews(), active: "v-ceo", def: "v-ceo" });
+  }
+  persist(patch) {
+    const key = this.storeKey();
+    const role = this.role(), me = this.me();
+    this.setState(patch, () => { try { localStorage.setItem(key, JSON.stringify({ views: this.state.views, active: this.state.active, def: this.state.def }));
+      const other = this.readShared().filter(v => v.ownerRole !== role); localStorage.setItem("lb-home-shared-v2", JSON.stringify([...other, ...(this.state.views || []).filter(v => v.audience).map(v => ({ ...v, owner: me, ownerRole: role }))])); } catch (e) {} });
+  }
+  cfg() {
+    if (this._cfg) return this._cfg;
+    const W = {
+      kpi: { name: "Key numbers", icon: "gauge", desc: "Up to 4 numbers you want to see first", sizes: ["M", "L", "XL"], link: "" },
+      needs: { name: "Needs you", icon: "inbox", desc: "Items waiting on you, most urgent first", sizes: ["M", "L", "XL"], link: "See all →" },
+      quick: { name: "Quick actions", icon: "zap", desc: "Shortcuts to the jobs you do most", sizes: ["M", "L", "XL"], link: "" },
+      pipeline: { name: "Product pipeline", icon: "layers", desc: "How many products are at each stage", sizes: ["L", "XL"], link: "Products →" },
+      ship: { name: "On the way", icon: "truck", desc: "Shipments and where each one is", sizes: ["S", "M", "L"], link: "Shipments →" },
+      runway: { name: "Will we run out?", icon: "warehouse", desc: "Runout date, next restock and any gap, per SKU", sizes: ["M", "L", "XL"], link: "Inventory →", chip: "Runout forecast" },
+      health: { name: "Stock health", icon: "chart-pie", desc: "Counts of critical, low and healthy SKUs", sizes: ["S", "M"], link: "Inventory →", chip: "Counts only" },
+      money: { name: "Money", icon: "receipt", desc: "What we owe factories and what's overdue", sizes: ["S", "M"], link: "Invoices →" },
+      sales: { name: "Sales overview", icon: "chart-line", desc: "Total Sales, orders and AOV per Shopify store, with launch markers", sizes: ["L", "XL"], link: "", chip: "Demo data" },
+      week: { name: "This week", icon: "calendar-days", desc: "What arrives, is due or launches each day", sizes: ["L", "XL"], link: "Calendar →" },
+      next: { name: "Your next step", icon: "list-ordered", desc: "One record, step by step", sizes: ["M", "L"], link: "" },
+      tasks: { name: "My tasks", icon: "list-checks", desc: "Tick off tasks right from Home", sizes: ["S", "M", "L"], link: "Tasks →" },
+    };
+    const TEAMS = ["Ops", "Finance", "Partner"];
+    const PARTNERS = ["All partners", "Twin Atlas", "Creatures of Sonaria", "World Zero"];
+    const S = {
+      kpi: [{ key: "metrics", label: "Numbers to show", help: "Pick up to 4.", kind: "chips", options: ["In transit", "Waiting for approval", "Open purchase orders", "SKUs low on stock", "Owed to factories", "Due this week", "30-day sales", "Payouts to review", "Products in progress", "Live products"], max: 4 }],
+      needs: [{ key: "team", label: "Show items for", kind: "seg", options: TEAMS }, { key: "groups", label: "Include", kind: "chips", options: ["Overdue", "Today", "This week"] }, { key: "rows", label: "How many", kind: "seg", options: ["3", "5", "All"] }],
+      quick: [{ key: "team", label: "Actions for", kind: "seg", options: TEAMS }],
+      pipeline: [{ key: "live", label: "Show the Live stage", kind: "toggle" }, { key: "stuck", label: "Flag stuck products", kind: "toggle" }],
+      ship: [{ key: "delivered", label: "Include delivered", kind: "toggle" }, { key: "rows", label: "How many", kind: "seg", options: ["2", "3", "4"] }],
+      runway: [{ key: "filter", label: "Show", kind: "seg", options: ["At risk only", "All tracked"] }, { key: "horizon", label: "Look ahead", kind: "seg", options: ["30 days", "45 days", "60 days"] }],
+      health: [{ key: "nodata", label: "Show SKUs with no sales data", kind: "toggle" }],
+      money: [{ key: "aging", label: "Show overdue breakdown", kind: "toggle" }, { key: "sales", label: "Show sales total", kind: "toggle" }],
+      sales: [{ key: "compare", label: "Show previous period", kind: "toggle" }, { key: "markers", label: "Show launch markers", kind: "toggle" }, { key: "demo", label: "Prototype: preview a state", help: "For design review only. Not a real setting.", kind: "seg", options: ["Live demo", "Loading", "Error", "No sales", "No store access"] }],
+      week: [{ key: "types", label: "Show", kind: "chips", options: ["Problems", "Due", "Arriving", "Launches"] }, { key: "weekend", label: "Show weekends", kind: "toggle" }],
+      next: [{ key: "upcoming", label: "Show every step", kind: "toggle" }],
+      tasks: [{ key: "whose", label: "Whose tasks", kind: "seg", options: ["Mine", "My team"] }, { key: "rows", label: "How many", kind: "seg", options: ["3", "4"] }],
+    };
+    const DEF = {
+      kpi: { metrics: ["In transit", "Waiting for approval", "Open purchase orders", "SKUs low on stock"] },
+      needs: { team: "Ops", groups: ["Overdue", "Today", "This week"], rows: "5" },
+      quick: { team: "Ops" }, pipeline: { live: true, stuck: true }, ship: { delivered: true, rows: "4" },
+      runway: { filter: "All tracked", horizon: "45 days" }, health: { nodata: true }, money: { aging: true, sales: false },
+      sales: { range: "30d", metric: "sales", stores: "all", mode: "combined", compare: true, markers: true, demo: "Live demo" }, week: { types: ["Problems", "Due", "Arriving", "Launches"], weekend: true },
+      next: { upcoming: true }, tasks: { whose: "Mine", rows: "4" },
+    };
+    const TPL = {
+      exec: { name: "Executive", desc: "Big-picture numbers, sales, pipeline, money and stock", w: [["kpi", "XL", { metrics: ["30-day sales", "Owed to factories", "In transit", "SKUs low on stock"] }], ["sales", "XL"], ["needs", "L"], ["money", "S"], ["pipeline", "XL"], ["ship", "M"], ["runway", "M"], ["week", "XL"]] },
+      ops: { name: "Operations", desc: "What needs doing, what's moving, what's running low", w: [["needs", "L"], ["health", "S"], ["ship", "M"], ["runway", "M"], ["week", "XL"], ["tasks", "M"], ["next", "M"]] },
+      finance: { name: "Finance", desc: "Invoices, payments, payouts and sales", w: [["kpi", "XL", { metrics: ["Owed to factories", "Due this week", "30-day sales", "Payouts to review"] }], ["sales", "XL"], ["needs", "L", { team: "Finance" }], ["money", "S", { sales: true }], ["tasks", "M"], ["week", "XL", { types: ["Problems", "Due"] }]] },
+      partner: { name: "Partner", desc: "Approvals, store sales, product progress and stock forecast for one partner", w: [["kpi", "XL", { metrics: ["Products in progress", "Waiting for approval", "Live products", "30-day sales"] }], ["sales", "XL"], ["needs", "L", { team: "Partner" }], ["ship", "S", { rows: "3" }], ["runway", "XL", { _title: "Stock Health" }], ["pipeline", "XL"]] },
+      blank: { name: "Blank", desc: "Start empty and add widgets yourself", w: [] },
+    };
+    this._cfg = { W, S, DEF, TPL, PARTNERS, SPAN: { S: 1, M: 2, L: 3, XL: 4 }, SL: { S: "S", M: "M", L: "L", XL: "Full" }, ST: { S: "Quarter width", M: "Half width", L: "Three-quarters", XL: "Full width" } };
+    return this._cfg;
+  }
+  uid() { return "w" + Math.random().toString(36).slice(2, 8); }
+  build(tpl) {
+    const { TPL, DEF } = this.cfg();
+    return TPL[tpl].w.map(([type, size, o]) => ({ id: this.uid(), type, size, title: (o && o._title) || null, partner: "All partners", s: { ...DEF[type], ...(o || {}) } }));
+  }
+  initialViews() {
+    return [
+      { id: "v-ceo", name: "CEO overview", tpl: "exec", widgets: this.build("exec") },
+      { id: "v-ops", name: "Operations", tpl: "ops", widgets: this.build("ops") },
+      { id: "v-fin", name: "Finance", tpl: "finance", widgets: this.build("finance") },
+    ];
+  }
+  view() { const v = this.state.views || []; const own = v.find(x => x.id === this.state.active); if (own) return own;
+    const sh = this.sharedList().find(x => x.id === this.state.active); if (sh) { const tmp = this.state.sharedTmp[sh.id]; return { ...sh, widgets: tmp || sh.widgets, foreign: true, edited: !!tmp }; }
+    return v[0]; }
+  setWidgets(fn) {
+    const cur = this.view(); if (!cur) return;
+    if (cur.foreign) { this.setState({ sharedTmp: { ...this.state.sharedTmp, [cur.id]: fn(cur.widgets) } }); return; }
+    this.persist({ views: this.state.views.map(v => v.id === cur.id ? { ...v, widgets: fn(v.widgets) } : v) });
+  }
+  patchW(id, patch) { this.setWidgets(ws => ws.map(w => w.id === id ? { ...w, ...patch, s: { ...w.s, ...(patch.s || {}) } } : w)); }
+  move(id, dir) { this.setWidgets(ws => { const a = [...ws]; const i = a.findIndex(w => w.id === id); const j = i + dir; if (j < 0 || j >= a.length) return a; [a[i], a[j]] = [a[j], a[i]]; return a; }); }
+  blocks(tpl) {
+    const { TPL, SPAN } = this.cfg();
+    const b = TPL[tpl].w.map(([t, s]) => ({ span: SPAN[s], h: t === "week" || t === "pipeline" ? "16px" : t === "kpi" || t === "quick" ? "8px" : "12px", c: t === "needs" ? "var(--brand)" : "var(--line)" }));
+    return b.length ? b : [{ span: 4, h: "26px", c: "var(--sunk)" }];
+  }
+  pf(p, text) { if (p === "All partners") return true; if (p === "Twin Atlas") return /Sonaria|World Zero|Twin Atlas/.test(text); if (p === "Creatures of Sonaria") return /Sonaria|COS/.test(text); return /World Zero|WZ/.test(text); }
+  scen() { let u = null; try { u = new URLSearchParams(location.search).get("scenario"); } catch (e) {} const v = u ?? this.props.scenario; return v === "shared" ? "shared" : "dedicated"; }
+  sales30() { const SD = this.state.SD; if (!SD) return { short: "…", full: "…", delta: "Loading", label: "Total Sales, 30 days" }; const auth = SD.access(this.role(), this.scen()); const basis = SD.basisFor(this.role(), this.scen()); const label = basis === "scoped" ? "Scoped product sales, 30 days" : "Total Sales, 30 days"; if (!auth.length) return { short: "—", full: "—", delta: "No store access", label };
+    const L = SD.buckets(auth, "30d", basis).list; const c = L.reduce((a, b) => a + b.cur.sales, 0), p = L.reduce((a, b) => a + b.prev.sales, 0); const d = p ? (c - p) / p : 0;
+    return { label, short: SD.fmtMetric(c, "sales", true), full: SD.fmtMoney(c), delta: (d >= 0 ? "+" : "−") + Math.abs(d * 100).toFixed(1) + "% vs prior 30 days" }; }
+  salesBody(w) {
+    const SD = this.state.SD, role = this.role(); const { DEF } = this.cfg();
+    const st = (icon, ink, title, msg, action, fn) => ({ hasState: true, ok: false, stateIcon: icon, stateInk: ink, stateTitle: title, stateMsg: msg, stateAction: action || "", stateDo: fn || (() => {}), dropped: 0 });
+    if (!SD) return this.state.sdErr ? st("icon-circle-alert", "var(--red)", "Couldn't load sales", "The demo sales data didn't load.") : st("icon-loader", "var(--fg3)", "Loading sales…", "Getting the demo numbers.");
+    const s = { ...DEF.sales, ...w.s }; const r0 = String(s.range); if (/days/.test(r0)) s.range = r0.startsWith("7") ? "7d" : r0.startsWith("90") ? "90d" : "30d";
+    const patch = o => this.patchW(w.id, { s: o });
+    const ux = (this.state.sx || {})[w.id] || {}; const setUx = o => this.setState(S0 => ({ sx: { ...(S0.sx || {}), [w.id]: { ...((S0.sx || {})[w.id] || {}), ...o } } }));
+    const demo = s.demo || "Live demo";
+    const scen = this.scen(), basis = SD.basisFor(role, scen), scoped = basis === "scoped";
+    const auth = demo === "No store access" ? [] : SD.access(role, scen);
+    const saved = Array.isArray(s.stores) ? s.stores : null;
+    const sel = saved ? saved.filter(id => auth.includes(id)) : auth.slice();
+    const dropped = saved ? saved.length - sel.length : 0;
+    if (demo === "Loading") return st("icon-loader", "var(--fg3)", "Loading sales…", "Getting the latest demo numbers. This is the prototype loading state.");
+    if (demo === "Error") return st("icon-circle-alert", "var(--red)", "Couldn't load sales", "The sales service didn't respond (prototype error state). Your stores are not affected.", "Try again", () => patch({ demo: "Live demo" }));
+    if (!auth.length) return st("icon-store", "var(--fg3)", "No Shopify stores available to you", "Your account isn't linked to a Shopify store yet. Ask a Lootbloc admin to connect one.", demo === "No store access" ? "Back to live demo" : "", () => patch({ demo: "Live demo" }));
+    if (!sel.length) return { ...st("icon-shield", "var(--blue)", "None of this view's saved stores are available to you", "This widget was saved with stores outside your access, so nothing from them is shown.", "Show all my stores", () => patch({ stores: "all" })), dropped };
+    const stores = SD.STORES.filter(x => sel.includes(x.id));
+    const mixed = new Set(stores.map(x => x.currency)).size > 1;
+    const split = (s.mode === "split" || mixed) && stores.length > 1;
+    const m = s.metric || "sales", fm = (v, sh) => SD.fmtMetric(v, m, sh);
+    const B = SD.buckets(sel, s.range, basis); const L = B.list, n = L.length;
+    const tot = arr => arr.reduce((a, b) => ({ orders: a.orders + b.orders, sales: a.sales + b.sales }), { orders: 0, sales: 0 });
+    const curT = tot(L.map(b => b.cur)), hasPrev = !!L[0].prev, prevT = hasPrev ? tot(L.map(b => b.prev)) : null;
+    if (demo === "No sales" || curT.orders === 0) return st("icon-chart-no-axes-column", "var(--fg3)", "No sales in this range", "The selected stores have no included Shopify orders for " + B.period + ".", demo === "No sales" ? "Back to live demo" : "", () => patch({ demo: "Live demo" }));
+    const MLAB = scoped ? { sales: "Scoped product sales", orders: "Orders with your products", aov: "Scoped AOV" } : { sales: "Total Sales", orders: "Total Orders", aov: "Avg Order Value" };
+    const metrics = [["sales", MLAB.sales], ["orders", MLAB.orders], ["aov", MLAB.aov]].map(([k, l]) => { const v = SD.metricOf(curT, k), pv = hasPrev ? SD.metricOf(prevT, k) : null; const d = pv ? (v - pv) / pv : null; const on = k === m;
+      return { label: l, value: SD.fmtMetric(v, k), delta: d == null ? "No previous period" : (d >= 0 ? "+" : "−") + Math.abs(d * 100).toFixed(1) + "% vs previous period", dInk: d == null ? "var(--fg3)" : d >= 0 ? "var(--green)" : "var(--red)", on: String(on), bd: on ? "var(--brand)" : "transparent", bg: on ? "var(--brandSoft)" : "var(--sunk)", pick: () => patch({ metric: k }) }; });
+    const X = i => n === 1 ? 500 : i / (n - 1) * 1000;
+    const curV = L.map(b => SD.metricOf(b.cur, m) || 0), prevV = hasPrev ? L.map(b => SD.metricOf(b.prev, m) || 0) : [];
+    const per = split ? stores.map(x => ({ st: x, list: SD.buckets([x.id], s.range, basis).list })).map(p => ({ ...p, vals: p.list.map(b => SD.metricOf(b.cur, m) || 0) })) : [];
+    const showPrev = !!s.compare && hasPrev && !split;
+    let mx = Math.max(1e-6, ...(split ? per.flatMap(p => p.vals) : curV), ...(showPrev ? prevV : [])) * 1.08;
+    const pw = Math.pow(10, Math.floor(Math.log10(mx))), f = mx / pw; mx = (f <= 1 ? 1 : f <= 2 ? 2 : f <= 2.5 ? 2.5 : f <= 5 ? 5 : 10) * pw;
+    const Y = v => 220 - v / mx * 215;
+    const path = vals => vals.map((v, i) => (i ? "L" : "M") + X(i).toFixed(1) + " " + Y(v).toFixed(1)).join(" ");
+    const lines = split ? per.map(p => ({ d: path(p.vals), color: p.st.color })) : [{ d: path(curV), color: "var(--brand)" }];
+    const unitW = { hour: "hour", day: "day", week: "week", month: "month" }[B.unit];
+    const yTicks = [mx, mx / 2, 0].map(v => ({ top: (5 + Y(v)).toFixed(1) + "px", label: fm(v, true) }));
+    const k = Math.min(n, this.isPh() ? 4 : 6); const xi = [...new Set(Array.from({ length: k }, (_, j) => Math.round(j * (n - 1) / Math.max(1, k - 1))))];
+    const xTicks = xi.map((i, j) => ({ left: (X(i) / 10) + "%", tx: j === 0 ? "none" : j === xi.length - 1 ? "translateX(-100%)" : "translateX(-50%)", label: L[i].label }));
+    // launches
+    const inSel = l => sel.includes(l.store); const stOf = id => SD.STORES.find(x => x.id === id);
+    const PROD_OK = l => l.record && (role !== "partner" || l.store === "twinatlas");
+    const href = l => "Products.dc.html?open=" + encodeURIComponent(l.product);
+    const acts = s.markers && B.unit !== "hour" ? SD.LAUNCHES.filter(l => l.kind === "actual" && inSel(l) && SD.launchVisible(l, role) && l.date >= L[0].start && l.date <= L[n - 1].end) : [];
+    const groups = {}; acts.forEach(l => { const i = L.findIndex(b => l.date >= b.start && l.date <= b.end); if (i >= 0) (groups[i] = groups[i] || []).push(l); });
+    const markers = Object.entries(groups).map(([i, ls]) => { i = +i; const on = ux.mk === i; return { left: (X(i) / 10) + "%", countT: ls.length > 1 ? String(ls.length) : "", on: String(on), ink: "var(--brandInk)", bg: on ? "var(--brand)" : "var(--surface)", fg: on ? "white" : "var(--brandInk)",
+      aria: (ls.length > 1 ? ls.length + " launches: " : "Launch: ") + ls.map(l => l.product + " (" + SD.fmtDay(l.date) + ")").join(", "), pick: e => { if (e && e.stopPropagation) e.stopPropagation(); setUx({ mk: on ? null : i }); } }; });
+    const mg = ux.mk != null ? groups[ux.mk] : null;
+    const mkItems = (mg || []).map(l => { const S2 = stOf(l.store); const D2 = SD.daily(l.store).map(d => SD.pickB(d, basis)); const di = SD.dayIndex(l.date); const day = D2[di]; const prev = D2.slice(Math.max(0, di - 7), di); const avg = prev.reduce((a, b) => a + b.sales, 0) / Math.max(1, prev.length); const ch = avg ? (day.sales - avg) / avg : 0;
+      return { product: l.product, store: S2.name, color: S2.color, date: SD.fmtDay(l.date, true), daySales: SD.fmtMoney(day.sales) + " " + MLAB.sales, dayOrders: day.orders.toLocaleString("en-US") + " orders",
+        dayLabel: scoped ? "That day, your products in this store" : "That day, whole store", context: "This store's " + MLAB.sales + " on the release day were " + (ch >= 0 ? Math.round(ch * 100) + "% above" : Math.round(-ch * 100) + "% below") + " its " + SD.fmtMoney(avg) + " daily average for the 7 days before. The release coincides with this change; it doesn't prove the release caused it.",
+        canOpen: PROD_OK(l), noRecord: !l.record, href: href(l) }; });
+    const planned = s.markers ? SD.LAUNCHES.filter(l => l.kind === "planned" && inSel(l) && SD.launchVisible(l, role) && l.date > SD.TODAY).sort((a, b) => a.date - b.date).map(l => ({ product: l.product, date: SD.fmtDay(l.date), color: stOf(l.store).color, href: PROD_OK(l) ? href(l) : "#", title: stOf(l.store).name + ". Planned launch date, not yet released." })) : [];
+    const ML = MLAB[m];
+    const hasShared = sel.includes("shared");
+    const WK = hasShared ? SD.WORKED.map(o => ({ id: o.id, c: SD.orderCalc(o, "twinatlas") })) : [];
+    const money = n => SD.fmtMoney(n, true);
+    const worked = !hasShared ? [] : scoped
+      ? WK.filter(x => x.c.counts).map(x => { const mine = x.c.items.filter(i => i.mine); return { id: x.id, lines: mine.map(i => ({ t: i.name + (i.qty > 1 ? " × " + i.qty : ""), v: money(i.amount) })), result: money(x.c.scoped) + ", counted as 1 order" + (mine.length > 1 ? " (" + mine.length + " of your items, counted once)" : "") }; })
+      : WK.map(x => ({ id: x.id, lines: x.c.items.map(i => ({ t: i.name + (i.qty > 1 ? " × " + i.qty : "") + (i.mine ? ", Twin Atlas" : ", other partner"), v: money(i.amount) })).concat([{ t: "Shipping + tax", v: money(SHIPTAX(x.c)) }]), result: "Order total " + money(x.c.total) + ", Twin Atlas scoped " + (x.c.counts ? money(x.c.scoped) : "not counted (no Twin Atlas items)") }));
+    function SHIPTAX(c) { return Math.round((c.total - c.sub) * 100) / 100; }
+    const wS = WK.filter(x => x.c.counts), wSales = wS.reduce((a, b) => a + b.c.scoped, 0), wTot = WK.reduce((a, b) => a + b.c.total, 0);
+    const workedSum = scoped ? "Scoped product sales " + money(wSales) + " ÷ " + wS.length + " orders = " + money(wSales / wS.length) + " scoped AOV. Orders without your products aren't counted."
+      : "Whole store: " + money(wTot) + " ÷ " + WK.length + " orders = " + money(wTot / WK.length) + " AOV. Partner scoped view: " + money(wSales) + " ÷ " + wS.length + " orders = " + money(wSales / wS.length) + ".";
+    // hover
+    const hi = ux.hi != null && ux.hi < n ? ux.hi : null;
+    let hov = { hasHover: false, hRows: [] };
+    if (hi != null) { const b = L[hi];
+      const rows = split ? [...per.map(p => ({ label: p.st.short, v: fm(p.vals[hi]), color: p.st.color, dash: "solid" })), { label: "All selected", v: fm(SD.metricOf(b.cur, m)), color: "var(--fg2)", dash: "solid" }]
+        : [{ label: "This period", v: fm(curV[hi]), color: "var(--brand)", dash: "solid" }, ...(showPrev ? [{ label: "Previous: " + b.prevLong, v: fm(prevV[hi]), color: "var(--fg3)", dash: "dashed" }] : [])];
+      const lg = groups[hi]; hov = { hasHover: true, hx: (X(hi) / 10) + "%", htx: X(hi) > 600 ? "translateX(calc(-100% - 10px))" : "translateX(10px)", hTitle: b.long + ", " + ML, hRows: rows, hNote: lg ? lg.length + (lg.length > 1 ? " launches" : " launch") + " this " + unitW + ". Select the marker for details." : "" }; }
+    const mv = i => { i = Math.max(0, Math.min(n - 1, i)); if (i !== ((this.state.sx || {})[w.id] || {}).hi) setUx({ hi: i }); };
+    const fromX = e => { const r = e.currentTarget.getBoundingClientRect(); return Math.round((e.clientX - r.left) / r.width * (n - 1)); };
+    const auths = SD.STORES.filter(x => auth.includes(x.id));
+    const storeChips = auths.length > 1 ? [{ label: "All authorized stores (" + auths.length + ")", on: String(sel.length === auths.length), bd: sel.length === auths.length ? "var(--brand)" : "var(--line)", bg: sel.length === auths.length ? "var(--brandSoft)" : "transparent", check: sel.length === auths.length ? "icon-check" : "", color: "var(--fg2)", dotOp: 1, cur: "pointer", title: "Every store you have access to", pick: () => patch({ stores: "all" }) },
+      ...auths.map(x => { const on = sel.includes(x.id); return { label: x.name, on: String(on), bd: on ? "var(--brand)" : "var(--line)", bg: on ? "var(--brandSoft)" : "transparent", check: on ? "icon-check" : "", color: x.color, dotOp: on ? 1 : 0.35, cur: "pointer", title: on ? "Remove from chart" : "Add to chart",
+        pick: () => { const nx = on ? sel.filter(y => y !== x.id) : [...sel, x.id]; if (!nx.length) return; patch({ stores: nx.length === auths.length ? "all" : auths.map(a => a.id).filter(id => nx.includes(id)) }); } }; })]
+      : auths.map(x => ({ label: x.name, on: "true", bd: "var(--line)", bg: "transparent", check: "", color: x.color, dotOp: 1, cur: "default", title: "The only Shopify store you have access to", pick: () => {} }));
+    const seg = (on, pick, label) => ({ label, pick, on: String(on), bg: on ? "var(--surface)" : "transparent", fg: on ? "var(--fg)" : "var(--fg2)", sh: on ? "0 0 0 1px var(--line)" : "none" });
+    const legend = split ? [...per.map(p => ({ label: p.st.name, color: p.st.color, dash: "solid" })), ...(s.compare && hasPrev ? [{ label: "Previous period line shows in Combined", color: "var(--fg3)", dash: "dashed" }] : [])]
+      : [{ label: stores.length > 1 ? "Selected stores combined (" + stores.length + ")" : stores[0].name, color: "var(--brand)", dash: "solid" }, ...(showPrev ? [{ label: "Previous period, " + B.prevPeriod, color: "var(--fg3)", dash: "dashed" }] : [])];
+    return { ok: true, hasState: false, dropped, droppedNote: dropped ? (dropped === 1 ? "1 saved store isn't available to you, so it's left out" : dropped + " saved stores aren't available to you, so they're left out") : "",
+      ranges: SD.RANGES.map(([k2, l]) => seg(s.range === k2, () => { patch({ range: k2 }); setUx({ hi: null, mk: null }); }, l)),
+      multiStore: stores.length > 1, modes: [["combined", "Combined"], ["split", "By store"]].map(([k2, l]) => seg((split ? "split" : "combined") === k2, () => { if (!mixed) patch({ mode: k2 }); setUx({ hi: null }); }, l)),
+      compareS: String(!!s.compare), compareBg: s.compare ? "var(--sunk)" : "transparent", compareL: hasPrev ? "Previous period" : "No previous period", toggleCompare: () => patch({ compare: !s.compare }),
+      markersS: String(!!s.markers), markersBg: s.markers ? "var(--sunk)" : "transparent", markersL: "Launch markers", toggleMarkers: () => { patch({ markers: !s.markers }); setUx({ mk: null }); },
+      storeChips, metrics, period: B.period, prevPeriod: B.prevPeriod, showPrevPeriod: hasPrev && !!s.compare, unitNote: { hour: "Hourly, today so far", day: "Daily, complete days", week: "Weekly totals", month: "Monthly totals" }[B.unit], currency: mixed ? "Mixed currencies, not added together" : "USD",
+      yTicks, xTicks, lines, showArea: !split, area: split ? "" : path(curV) + " L" + X(n - 1).toFixed(1) + " 220 L0 220 Z", showPrev, prevPath: showPrev ? path(prevV) : "",
+      chartAria: ML + " chart, " + B.period + ". Use the left and right arrow keys to read each " + unitW + ".",
+      onMove: e => mv(fromX(e)), onTap: e => mv(fromX(e)), onLeave: () => setUx({ hi: null }),
+      onKey: e => { const cur = ((this.state.sx || {})[w.id] || {}).hi; const c = cur == null ? n - 1 : cur; const map = { ArrowLeft: c - 1, ArrowRight: c + 1, Home: 0, End: n - 1 }; if (e.key in map) { e.preventDefault(); mv(cur == null ? n - 1 : map[e.key]); } else if (e.key === "Escape") setUx({ hi: null, mk: null }); },
+      ...hov, markers, hasMk: !!mg, mkTitle: mg ? (mg.length > 1 ? mg.length + " launches, " : "Launch, ") + (B.unit === "day" ? L[ux.mk].long : SD.fmtDay(mg[0].date, true)) : "", mkItems, mkClose: () => setUx({ mk: null }),
+      hasPlanned: planned.length > 0, planned, legend, sync: SD.SYNC_NOTE + (scen === "shared" ? " Shared-store scenario is synthetic." : ""),
+      definition: scoped ? "Scoped product sales = line-item sales of your authorized products only, before shipping and tax, in USD. Orders = distinct orders containing at least one of your products. Scoped AOV = scoped product sales ÷ those orders. Not whole-store totals." : SD.DEFINITION + " Avg Order Value = Total Sales ÷ Total Orders.",
+      basisChip: scoped ? "Basis: scoped product sales" : "Basis: Total Sales (whole store)", scopedBasis: scoped,
+      staffSharedNote: !scoped && hasShared && role !== "partner" ? "Sample Shared Store (synthetic) sells several partners' products. These are whole-store order totals. Partners never see them; they get scoped product sales for their own products." : "",
+      hasWorked: hasShared, workedOpen: !!ux.wk, toggleWorked: () => setUx({ wk: !ux.wk }), workedL: ux.wk ? "Hide how this is calculated" : "How this is calculated (synthetic example)", worked, workedSum };
+  }
+  // One role/object/field intersection for every Home widget (prototype display rule, not backend enforcement).
+  pScope(w) { if (this.role() !== "partner") return w; const s = { ...w.s };
+    if ("team" in s) s.team = "Partner";
+    if (w.type === "kpi") s.metrics = (s.metrics || []).filter(m => this.PARTNER_KPIS.includes(m));
+    if (w.type === "pipeline") s.stuck = false;
+    if (w.type === "tasks") s.whose = "Mine";
+    return { ...w, partner: "Twin Atlas", s }; }
+  get PARTNER_KPIS() { return ["Products in progress", "Waiting for approval", "Live products", "30-day sales"]; }
+  safeDeep(x) { const PG = this.state.PG; const f = v => typeof v === "string" ? (PG ? PG.partnerSafe(v, true) : v.replace(/Dongguan Toys|Shenzhen Apparel( Co\.)?|Guangzhou Figures|Ningbo Metalworks|Yiwu Packaging|Suzhou Softgoods|Hangzhou Knitworks/g, "Manufacturer")) : Array.isArray(v) ? v.map(f) : v && typeof v === "object" && !(v instanceof Function) && !v.$typeof ? Object.fromEntries(Object.entries(v).map(([k, y]) => [k, typeof y === "function" ? y : f(y)])) : v; return f(x); }
+  body(w0, D, T) { const part = this.role() === "partner"; const w = this.pScope(w0);
+    if (part && w.type === "money") return { unavail: true, unavailT: "Not available for partner accounts", unavailS: "Factory payables are Lootbloc-only. Your invoices billed by Lootbloc are on the Invoices page." };
+    const out = this.body0(w, D, T); return part ? this.safeDeep(out) : out; }
+  partnerPipeline(w, T) { const PG = this.state.PG; if (!PG) return { stages: [], cols: 0, sel: { label: "", count: 0, items: [] } };
+    const prods = PG.PRODUCTS.filter(p => p.partner !== "Lootbloc"); const selKey = this.state.stage[w.id] || "sampling";
+    const ST = PG.STAGES.filter(x => w.s.live || x.key !== "live"); const mx = Math.max(1, ...ST.map(x => prods.filter(p => p.stage === x.key).length));
+    const st = ST.map(x => { const items = prods.filter(p => p.stage === x.key).map(p => p.name); const on = x.key === selKey;
+      return { key: x.key, label: x.label, count: items.length, items, h: Math.max(8, Math.round(items.length / mx * 100)) + "%", stuck: null, on, onS: String(on), bd: on ? "var(--brand)" : "var(--line2)", bg: on ? "var(--brandSoft)" : "var(--sunk)", fill: x.key === "live" ? "var(--greenBar)" : on ? "var(--brand)" : "var(--blueBar)", select: () => this.setState({ stage: { ...this.state.stage, [w.id]: x.key } }) }; });
+    return { stages: st, cols: st.length, sel: st.find(x => x.on) || st[0] }; }
+  body0(w, D, T) {
+    const s = w.s, p = this.role() === "partner" ? "Twin Atlas" : w.partner;
+    if (w.type === "pipeline" && this.role() === "partner") return this.partnerPipeline(w, T);
+    if (w.type === "kpi") {
+      const pool = {}; Object.values(D.KPIS).flat().forEach(k => { pool[k.label] = k; });
+      pool["Waiting for approval"] = pool["Waiting for approval"] || pool["Waiting on you"];
+      if (this.role() === "partner") { const PG = this.state.PG; Object.keys(pool).forEach(k => { if (!this.PARTNER_KPIS.includes(k)) delete pool[k]; });
+        if (PG) { const pr = PG.PRODUCTS.filter(p => p.partner !== "Lootbloc"); pool["Products in progress"] = { ...pool["Products in progress"], value: String(pr.filter(p => p.stage !== "live").length), note: pr.filter(p => p.stage === "production").length + " in production" }; pool["Live products"] = { ...pool["Live products"], value: String(pr.filter(p => p.stage === "live").length), note: "in this demo" }; pool["Waiting for approval"] = { ...D.KPIS.partner[1], label: "Waiting for approval" }; } }
+      if (pool["30-day sales"]) { const k = this.sales30(); pool["30-day sales"] = { ...pool["30-day sales"], label: k.label, value: k.short, note: k.delta, tone: "none" }; }
+      return { kpis: (s.metrics || []).map(m => pool[m]).filter(Boolean).map(k => ({ ...k, icon: "icon-" + k.icon, ink: T[k.tone].ink, soft: T[k.tone].soft, noteInk: k.tone === "none" ? "var(--fg3)" : T[k.tone].ink })) };
+    }
+    if (w.type === "needs") {
+      const gi = { Overdue: "var(--red)", Today: "var(--amber)", "This week": "var(--blue)" };
+      let items = D.ATTENTION[s.team.toLowerCase()].filter(a => s.groups.includes(a.group) && this.pf(p, a.title + a.ctx));
+      if (s.rows !== "All") items = items.slice(0, +s.rows);
+      const hrefFor = a => { const s2 = a.title + " " + a.ctx; let m;
+        if ((m = /SH-\d+/.exec(s2))) return "Shipments.dc.html"; if ((m = /INV-\d+/.exec(s2))) return "Invoices.dc.html?open=" + m[0];
+        if (/mapping|QuickBooks/i.test(s2) && p !== "partner") return "Workspace.dc.html?m=quickbooks"; if (/invoice/i.test(s2)) return "Invoices.dc.html";
+        if (/sample|approv/i.test(s2)) return "Approvals.dc.html"; if ((m = /PO-\d+/.exec(s2))) return "Purchase Orders.dc.html?open=" + m[0]; if (/Reorder|stock/i.test(s2)) return "Inventory.dc.html"; return "Products.dc.html"; };
+      return { items: items.map(a => ({ ...a, ...T[a.tone], icon: "icon-" + a.icon, gInk: gi[a.group], href: this.rh(hrefFor(a)) })), empty: items.length === 0 };
+    }
+    if (w.type === "quick") return { quick: D.QUICK[s.team.toLowerCase()].map(q => ({ ...q, icon: "icon-" + q.icon })) };
+    if (w.type === "pipeline") {
+      const selKey = this.state.stage[w.id] || "sampling";
+      const st = D.PIPELINE.filter(x => s.live || x.key !== "live").map(x => {
+        const on = x.key === selKey;
+        return { ...x, h: (x.key === "live" ? 100 : Math.max(8, Math.round(x.count / 14 * 100))) + "%", stuck: s.stuck && x.stuck ? x.stuck : null,
+          bd: on ? "var(--brand)" : "var(--line2)", bg: on ? "var(--brandSoft)" : "var(--sunk)", fill: x.key === "live" ? "var(--greenBar)" : on ? "var(--brand)" : "var(--blueBar)",
+          on, onS: String(on), select: () => this.setState({ stage: { ...this.state.stage, [w.id]: x.key } }) };
+      });
+      return { stages: st, cols: st.length, sel: st.find(x => x.key === selKey) || st[0] };
+    }
+    if (w.type === "ship") {
+      const rows = D.SHIPMENTS.filter(x => (s.delivered || x.step < 5) && this.pf(p, x.name)).slice(0, +s.rows);
+      return { empty: rows.length === 0, ships: rows.map(x => { const c = x.tone === "red" ? "var(--redBar)" : x.tone === "green" ? "var(--greenBar)" : "var(--blueBar)";
+        return { ...x, ink: T[x.tone].ink, stepLabel: D.SHIP_STEPS[x.step - 1], dots: [1, 2, 3, 4, 5].map(n => ({ flex: n === 1 ? "0 0 12px" : "1", line: n === 1 ? "transparent" : n <= x.step ? c : "var(--line)", c: n <= x.step ? c : "var(--line)", fill: n < x.step || (n === x.step && n === 5) ? c : "var(--surface)" })) }; }) };
+    }
+    if (w.type === "runway") {
+      const H = parseInt(s.horizon);
+      const fmt = n => new Date(2026, 8, 29 + n).toLocaleDateString("en-US", { month: "short", day: "numeric" });
+      const rows = D.INVENTORY.atRisk.filter(r => (s.filter === "All tracked" || r.tone !== "green") && this.pf(p, r.name + r.sku));
+      const risk = r => r.restock == null ? (r.ref ? "unknown" : "gap") : r.restock > r.days ? "gap" : "ok";
+      const sum = [["gap", "run out before restock", "var(--red)"], ["unknown", "restock date unknown", "var(--amber)"], ["ok", "covered by a restock", "var(--green)"]].map(([k, label, ink]) => ({ label, ink, n: rows.filter(r => risk(r) === k).length })).filter(g => g.n > 0);
+      return { horizon: H, count: rows.length, sum, empty: rows.length === 0, rows: rows.map(r => { const k = risk(r); const gap = r.restock != null ? r.restock - r.days : null;
+        return { ...r, ...T[r.tone], w: Math.min(100, r.days / H * 100) + "%", hasRestock: r.restock != null, mark: r.restock != null ? Math.min(99, r.restock / H * 100) + "%" : "0",
+          outT: fmt(r.days), outSub: "in " + r.days + " days",
+          rsT: r.restock != null ? fmt(r.restock) : r.ref ? "No date yet" : "None ordered", rsSub: r.restock != null ? "in " + r.restock + " days" + (r.ref ? " on " + r.ref : "") : r.refNote || "Nothing on order",
+          gapT: k === "ok" ? "None" : k === "unknown" ? "Unknown" : gap != null ? gap + " days" : "Not covered", gapInk: k === "ok" ? "var(--green)" : k === "unknown" ? "var(--amber)" : "var(--red)",
+          gapSub: k === "ok" ? "Restock lands first" : k === "unknown" ? "Needs a ship date" : gap != null ? "with nothing to sell" : "Runs out with no restock",
+          aria: r.name + ": runs out " + fmt(r.days) + ". " + (r.restock != null ? "Restock " + fmt(r.restock) + "." : "No restock date.") }; }) };
+    }
+    if (w.type === "health") {
+      const I = D.INVENTORY;
+      const segs = [{ label: "Critical", n: I.critical, c: "var(--redBar)" }, { label: "Low", n: I.low, c: "var(--amberBar)" }, { label: "Healthy", n: I.healthy, c: "var(--greenBar)" }];
+      if (s.nodata) segs.push({ label: "No sales data", n: I.nodata, c: "var(--line)" });
+      const tot = segs.reduce((a, b) => a + b.n, 0);
+      return { total: tot, segs: segs.map(g => ({ ...g, w: Math.max(2, g.n / tot * 100) + "%" })) };
+    }
+    if (w.type === "money") { const k = this.sales30(); return { aging: !!s.aging, sales: !!s.sales, salesT: k.full, salesDelta: k.delta, salesLabel: k.label }; }
+    if (w.type === "sales") return this.salesBody(w);
+    if (w.type === "week") {
+      const cat = { red: "Problems", amber: "Due", neutral: "Due", green: "Due", blue: "Arriving", brand: "Launches" };
+      const days = D.WEEK.filter(d => s.weekend || (d.d !== "Sat" && d.d !== "Sun"));
+      const part = this.role() === "partner"; const MON = { "28": "Sep", "29": "Sep", "30": "Sep" };
+      const KIND = { truck: ["Shipment", "Shipments.dc.html", "Open shipments"], "square-check-big": ["Approval", "Approvals.dc.html", "Review in Approvals"], sparkles: ["Launch", "Products.dc.html", "Open products"], receipt: ["Invoice", "Invoices.dc.html", "Open invoices"], money: ["Payment", "Invoices.dc.html", "Open invoices"], "hand-coins": ["Payouts", null, ""], "list-checks": ["Task", "Workspace.dc.html?m=tasks", "Open in Tasks"], warehouse: ["Stock", "Inventory.dc.html", "Open inventory"] };
+      const staffOnly = k => ["money", "receipt", "hand-coins"].includes(k);
+      const agenda = days.map(d => { const evs = d.events.filter(e => s.types.includes(cat[e.tone]) && !(part && staffOnly(e.k))).map(e => { const K = KIND[e.k] || ["Event", null, ""]; const late = e.tone === "red";
+          const status = d.past ? "Done" : late ? (d.today ? "Late" : "At risk") : d.today ? "Today" : "Expected";
+          const tk = d.past ? "green" : late ? "red" : e.tone === "neutral" ? "neutral" : e.tone;
+          const href = K[1] && !(part && /Workspace/.test(K[1])) ? this.rh(K[1]) : "";
+          return { t: e.t, icon: "icon-" + (e.k === "money" ? "dollar-sign" : e.k), ink: T[tk].ink, soft: tk === "neutral" ? "var(--sunk)" : T[tk].soft, status, kindL: K[0] + (e.k === "hand-coins" ? ", coming soon" : ""), detail: d.past ? "Already happened." : late ? "Past its expected date or likely to cause a gap." : "Date is expected, not guaranteed. No time set.",
+            bd: d.past ? "2px solid var(--line)" : late ? "2px solid var(--red)" : "2px dashed var(--line)", href, action: K[2] }; });
+        const mo = MON[d.n] || "Oct"; return { label: d.d + ", " + mo + " " + d.n, aria: d.d + " " + mo + " " + d.n, today: !!d.today, ink: d.today ? "var(--brandInk)" : "var(--fg)", events: evs, none: !evs.length }; });
+      return { agenda, calHref: this.rh(part ? "Approvals.dc.html" : "Workspace.dc.html?m=calendar"), calL: part ? "Open Approvals" : "Open the full Calendar", cols: days.length, days: days.map(d => ({ ...d, bg: d.today ? "color-mix(in oklch, var(--brandSoft) 45%, transparent)" : "transparent", op: d.past ? 0.6 : 1, numBg: d.today ? "var(--brand)" : "transparent", numFg: d.today ? "white" : "var(--fg)",
+        events: d.events.filter(e => s.types.includes(cat[e.tone]) && !(this.role() === "partner" && ["money", "receipt", "hand-coins"].includes(e.k))).map(e => ({ ...e, icon: "icon-" + (e.k === "money" ? "dollar-sign" : e.k), ink: T[e.tone].ink, soft: e.tone === "neutral" ? "var(--sunk)" : T[e.tone].soft })) })) };
+    }
+    if (w.type === "next") {
+      const F = D.FOCUS;
+      const steps = F.steps.map((x, i) => ({ ...x, i })).filter(x => s.upcoming || x.i <= 3);
+      return { title: F.title, sub: F.sub, steps: steps.map((x, k) => ({ ...x, num: x.state === "done" ? "" : String(x.i + 1), icon: x.state === "done" ? "icon-check" : "",
+        bd: x.state === "done" ? "var(--greenBar)" : x.state === "now" ? "var(--brand)" : "var(--line)", bg: x.state === "done" ? "var(--greenBar)" : x.state === "now" ? "var(--brand)" : "var(--surface)",
+        fg: x.state === "next" ? "var(--fg3)" : "white", line: k === steps.length - 1 ? "transparent" : x.state === "done" ? "var(--greenBar)" : "var(--line)",
+        fw: x.state === "now" ? 700 : 500, tc: x.state === "next" ? "var(--fg2)" : "var(--fg)", mc: x.state === "now" ? "var(--brandInk)" : "var(--fg3)" })) };
+    }
+    if (w.type === "tasks") {
+      const done = this.state.done;
+      const list = (s.whose === "Mine" ? D.TASKS : [...D.TASKS, { t: "Photograph Mystery Box S3 samples", link: "Mystery Box S3", due: "Today", tone: "amber" }]).filter(t => this.role() !== "partner" || this.pf("Twin Atlas", t.t + " " + t.link)).slice(0, +s.rows);
+      return { tasks: list.map((t, i) => { const k = w.id + i, d = !!done[k]; return { ...t, ink: d ? "var(--fg3)" : T[t.tone].ink, bd: d ? "var(--greenBar)" : "var(--fg3)", bg: d ? "var(--greenBar)" : "transparent", check: d ? "icon-check" : "", strike: d ? "line-through" : "none", tc: d ? "var(--fg3)" : "var(--fg)", due: d ? "Done" : t.due, toggle: () => this.setState({ done: { ...done, [k]: !d } }) }; }) };
+    }
+    return {};
+  }
+  vwInit() { if (this.__vwi) return; this.__vwi = 1; const f = () => { const w = window.innerWidth; if (w !== this.state.vw) this.setState({ vw: w }); }; window.addEventListener("resize", f); setTimeout(f, 0); }
+  urlScheme() { try { const s = new URLSearchParams(location.search).get("scheme"); return s === "light" || s === "dark" ? s : null; } catch (e) { return null; } }
+  isPh() { this.vwInit(); let fw = 0; try { fw = +new URLSearchParams(location.search).get("vw") || 0; } catch (e) {} return (fw || this.state.vw || window.innerWidth) < 700; }
+  phOver(v, ph) { const ne = !this.state.editing;
+    return ph ? { homeCols: "minmax(0, 1fr)", homeGap: "12px", h1Size: "24px", deskNotEditing: false, phNotEditing: ne, vFlex: "1 1 240px", vW: "100%", kpiCols: "minmax(0, 1fr)", vMax: "none", ctlH: "auto", vPad: "8px 12px", hdWrap: "wrap", hdShrink: "0", wsWrap: "normal", rwCols: "repeat(2, minmax(0, 1fr))", rwGap: "8px 12px", mtCols: "minmax(0, 1fr)", mtGap: "6px", mtPad: "8px 12px", mtInner: "minmax(0, 1fr) auto", mtVal: "20px", mtValAl: "right" }
+      : { homeCols: "repeat(4, minmax(0, 1fr))", homeGap: "16px", h1Size: "30px", deskNotEditing: ne, phNotEditing: false, vFlex: "0 1 auto", vW: "auto", kpiCols: "repeat(auto-fit, minmax(170px, 1fr))", vMax: "340px", ctlH: "42px", vPad: "0 12px", hdWrap: "nowrap", hdShrink: "1", wsWrap: "nowrap", rwCols: "repeat(3, minmax(0, 1fr))", rwGap: "10px", mtCols: "repeat(auto-fit, minmax(170px, 1fr))", mtGap: "8px", mtPad: "10px 14px", mtInner: "minmax(0, 1fr)", mtVal: "26px", mtValAl: "left" }; }
+  tipH(t, o = {}) { return e => { const el = e && e.currentTarget; clearTimeout(this.__tipT); this.__tipT = setTimeout(() => { if (!el || !el.isConnected) return; const r = el.getBoundingClientRect(); const pl = o.place || "right"; const W = window.innerWidth;
+      this.setState({ sbTip: { t, keys: o.keys || [], sub: o.sub || "", pl, x: pl === "right" ? r.right + 10 : Math.max(160, Math.min(W - 160, r.left + r.width / 2)), y: pl === "right" ? r.top + r.height / 2 : pl === "above" ? r.top - 8 : r.bottom + 8 } }); }, o.delay ?? 300); }; }
+  tipOff() { clearTimeout(this.__tipT); if (this.state.sbTip) this.setState({ sbTip: null }); }
+  lsScheme() { try { const s = localStorage.getItem("lb-scheme"); return s === "light" || s === "dark" ? s : null; } catch (e) { return null; } }
+  sbToggle() { const n = !(this.state.sbMini ?? this.__sbMini0); try { localStorage.setItem("lb-nav-mini", n ? "1" : "0"); } catch (e) {} clearTimeout(this.__tipT); this.setState({ sbMini: n, sbTip: null, sbCreateOpen: false, sbScopeOpen: false, sbNotifOpen: false }); }
+  shellVals(v) {
+    const S = this.state, role = this.role(), ph = this.isPh();
+    if (!this.__sbI) { this.__sbI = 1; try { this.__sbMini0 = localStorage.getItem("lb-nav-mini") === "1"; } catch (e) {}
+      this.__mac = /Mac|iPhone|iPad/i.test((navigator.platform || "") + " " + (navigator.userAgent || ""));
+      import(new URL("pagesData.js", document.baseURI).href).then(m => { this.__palP = m.PRODUCTS || []; }).catch(() => {});
+      document.addEventListener("click", e => { if (!this.__svDirty) return; const a = e.target && e.target.closest ? e.target.closest("a[href]") : null; if (!a) return; const h = a.getAttribute("href") || ""; if (!h || h.startsWith("#")) return; e.preventDefault(); e.stopPropagation(); this.setState(s => ({ svbShake: (s.svbShake || 0) + 1 })); }, true);
+      document.addEventListener("keydown", e => { const k = (e.key || "").toLowerCase(), mod = e.metaKey || e.ctrlKey;
+        if (mod && k === "k") { e.preventDefault(); clearTimeout(this.__tipT); this.setState(s => ({ palOpen: !s.palOpen, palQ: "", palI: 0, sbTip: null })); }
+        else if (mod && (e.key === "\\" || e.code === "Backslash")) { e.preventDefault(); this.sbToggle(); }
+        else if (e.key === "Escape" && (this.state.sbCreateOpen || this.state.sbScopeOpen || this.state.sbNotifOpen)) this.setState({ sbCreateOpen: false, sbScopeOpen: false, sbNotifOpen: false }); }); }
+    if (v.nwOpen && S.P && !this.__newChk) { this.__newChk = 1; try { const u = new URL(location.href); if (u.searchParams.get("new") === "1") { u.searchParams.delete("new"); history.replaceState(null, "", u.toString()); setTimeout(() => v.nwOpen(), 0); } } catch (e) {} }
+    const mini = !ph && !!(S.sbMini ?? this.__sbMini0); const M = this.__mac ? "⌘" : "Ctrl";
+    const tip = (t, keys) => this.tipH(t, { keys, delay: 380 });
+    const tipOff = () => { clearTimeout(this.__tipT); if (this.state.sbTip) this.setState({ sbTip: null }); };
+    const noop = () => {}; const miniTip = t => mini ? tip(t) : noop;
+    const nav = this.nav(role); const all = nav.flatMap(g => g.items);
+    const sbNav = nav.map((g, gi) => ({ label: g.label, showLabel: !mini && !!g.label, showRule: mini && gi > 0, items: g.items.map(i => { const num = typeof i.count === "number"; return { ...i, cur: i.active ? "page" : undefined, aria: i.label + (num ? ", " + i.count : ""), tipOn: miniTip(i.label + (num ? "  " + i.count : "")), showCount: !!i.count && (!mini || num), bPos: mini ? "absolute" : "static", bSz: mini ? "16px" : "22px", bPad: mini ? "4px" : "7px", bFs: mini ? "10.5px" : "12.5px" }; }) }));
+    const goHref = h => { const u = this.rh ? this.rh(h) : h; location.href = u; };
+    const CR = [["Product", "layers", "Products.dc.html?new=1"], ["Quote", "badge-dollar-sign", "Quotes.dc.html"], ["Purchase order", "package", "Purchase Orders.dc.html"], ["Invoice", "receipt", "Invoices.dc.html"], ["Shipment", "truck", "Shipments.dc.html"], ["Task", "list-checks", "Workspace.dc.html?m=tasks"]];
+    const closeAll = { sbCreateOpen: false, sbScopeOpen: false, sbNotifOpen: false, palOpen: false };
+    const sbCreate = CR.map(([l, ic, h]) => ({ label: l, icon: "icon-" + ic, href: h, go: l === "Product" && v.nwOpen ? e => { e.preventDefault(); this.setState(closeAll); v.nwOpen(); } : () => this.setState(closeAll) }));
+    const scheme = v.scheme || "dark"; const toggleScheme = () => { const n = scheme === "dark" ? "light" : "dark"; try { localStorage.setItem("lb-scheme", n); } catch (e) {} this.setState({ scheme: n }); };
+    const preview = role === "partner" && !!this.__ru; const setRole = r => { try { const u = new URL(location.href); u.searchParams.set("role", r); location.href = u.toString(); } catch (e) {} };
+    const NT = { Approvals: n => n + (n === 1 ? " approval is" : " approvals are") + " waiting on you", Inventory: n => n + " stock " + (n === 1 ? "alert" : "alerts") + " to review", Shipments: n => n + (n === 1 ? " shipment needs" : " shipments need") + " attention", Invoices: n => n + (n === 1 ? " invoice is" : " invoices are") + " overdue" };
+    const alerts = all.filter(i => i.alert && typeof i.count === "number");
+    const nN = alerts.reduce((a, i) => a + i.count, 0);
+    const q = (S.palQ || "").trim().toLowerCase(); const has = s => !q || String(s).toLowerCase().includes(q);
+    const pages = all.map(i => { const g = nav.find(gg => gg.items.includes(i)); return { label: i.label, sub: (g && g.label) || "", icon: i.icon, href: i.href }; }).filter(x => has(x.label + " " + x.sub));
+    const acts = [...(role !== "partner" ? sbCreate.map(c => ({ label: "Create " + c.label.toLowerCase(), sub: "", icon: "icon-plus", href: c.href, run: c.label === "Product" && v.nwOpen ? () => v.nwOpen() : null })) : []),
+      { label: scheme === "dark" ? "Switch to light mode" : "Switch to dark mode", sub: "", icon: scheme === "dark" ? "icon-sun" : "icon-moon", run: toggleScheme },
+      { label: mini ? "Expand navigation" : "Collapse navigation", sub: "", icon: mini ? "icon-panel-left-open" : "icon-panel-left-close", run: () => this.sbToggle(), keys: [M, "\\"] }].filter(x => has(x.label));
+    const prods = role !== "partner" && q ? (this.__palP || []).filter(p => has(p.name + " " + p.partner + " " + (p.type || ""))).slice(0, 6).map(p => ({ label: p.name, sub: p.partner, icon: "icon-layers", href: "Products.dc.html?open=" + encodeURIComponent(p.name) })) : [];
+    const groups = [["Products", prods], ["Pages", pages], ["Actions", acts]].filter(g => g[1].length);
+    const flat = groups.flatMap(g => g[1]); const pi = Math.min(S.palI || 0, Math.max(0, flat.length - 1));
+    const run = x => { if (x.href && !x.run && this.__svDirty) { this.setState(s => ({ palOpen: false, svbShake: (s.svbShake || 0) + 1 })); return; } this.setState({ palOpen: false }); if (x.run) x.run(); else if (x.href) goHref(x.href); };
+    let n = 0; const palGroups = groups.map(([label, items]) => ({ label, items: items.map(x => { const idx = n++; return { ...x, href: x.href || "#", bg: idx === pi ? "var(--hover)" : "transparent", on: idx === pi, keys: x.keys || [], hasKeys: !!(x.keys && x.keys.length), hover: () => { if ((this.state.palI || 0) !== idx) this.setState({ palI: idx }); }, go: e => { e.preventDefault(); run(x); } }; }) }));
+    const pop = (k) => () => this.setState(s => ({ sbCreateOpen: false, sbScopeOpen: false, sbNotifOpen: false, sbAcctOpen: false, sbSetOpen: false, [k]: !s[k], sbTip: null }));
+    return { isLoading: ("P" in this.state) && !this.state.P, skRows: [1, 0.85, 0.7, 0.55, 0.4, 0.25].map(op => ({ op })), toggleScheme, schemeIcon: scheme === "dark" ? "icon-sun" : "icon-moon",
+      sbW: mini ? "64px" : "248px", sbFull: !mini, sbFullS: String(!mini), sbLblOp: mini ? 0 : 1, sbBrandPad: mini ? "12px" : "16px", sbRowDir: mini ? "column" : "row",
+      sbColL: mini ? "Expand navigation" : "Collapse navigation", sbColIcon: mini ? "icon-panel-left-open" : "icon-panel-left-close", sbToggle: () => this.sbToggle(),
+      sbColTip: tip(mini ? "Expand navigation" : "Collapse navigation", [M, "\\"]), sbSearchTip: tip("Search", [M, "K"]), sbSearchKeys: [M, "K"], sbCreateTip: miniTip("Create new"),
+      sbSetTip: miniTip("Settings"), sbHelpTip: tip("Help"), sbThemeTip: tip(scheme === "dark" ? "Light mode" : "Dark mode"), sbThemeL: scheme === "dark" ? "Switch to light mode" : "Switch to dark mode", sbUserTip: miniTip(v.user ? v.user.name + ", " + v.user.role : ""),
+      sbNotifTip: tip("Notifications"), sbScopeTip: miniTip("View as"), sbTipOff: tipOff,
+      sbTipOn: !!S.sbTip, sbTipX: S.sbTip ? S.sbTip.x + "px" : "0px", sbTipY: S.sbTip ? S.sbTip.y + "px" : "0px", sbTipT: S.sbTip ? S.sbTip.t : "", sbTipKeys: S.sbTip ? S.sbTip.keys : [], sbTipSub: S.sbTip ? S.sbTip.sub : "", sbTipWs: S.sbTip && S.sbTip.sub ? "normal" : "nowrap", sbTipTf: !S.sbTip || S.sbTip.pl === "right" ? "translateY(-50%)" : S.sbTip.pl === "above" ? "translate(-50%, -100%)" : "translateX(-50%)", sbTipHasK: !!(S.sbTip && S.sbTip.keys.length),
+      sbNav, sbCreate, sbCreateOpen: !!S.sbCreateOpen, sbCreateS: String(!!S.sbCreateOpen), sbCreateToggle: pop("sbCreateOpen"), sbPopClose: () => this.setState({ sbCreateOpen: false, sbScopeOpen: false, sbNotifOpen: false, sbAcctOpen: false, sbSetOpen: false }),
+      sbPopL: mini ? "58px" : "12px", sbPopT: mini ? "4px" : "52px", sbUpL: mini ? "58px" : "0px", sbUpB: mini ? "0px" : "calc(100% + 6px)", sbNtL: mini ? "58px" : "-50px",
+      sbScopeShow: role !== "partner" || preview, sbScopeVal: role === "partner" ? "Twin Atlas" : "Lootbloc team", sbScopeOpen: !!S.sbScopeOpen, sbScopeS: String(!!S.sbScopeOpen), sbScopeToggle: pop("sbScopeOpen"),
+      sbAcctOpen: !!S.sbAcctOpen, sbAcctS: String(!!S.sbAcctOpen), sbAcctBg: S.sbAcctOpen ? "var(--hover)" : "transparent", sbAcctToggle: pop("sbAcctOpen"), sbAcctSub: (v.user ? v.user.role : "") + ((role !== "partner" || preview) ? ", viewing as " + (role === "partner" ? "Twin Atlas" : "Lootbloc team") : ""),
+      sbSetOpen: !!S.sbSetOpen, sbSetS: String(!!S.sbSetOpen), sbSetBg: S.sbSetOpen ? "var(--hover)" : "transparent", sbSetToggle: pop("sbSetOpen"),
+      sbThemeOpts: [["light", "Light", "icon-sun"], ["dark", "Dark", "icon-moon"]].map(([k, l, ic]) => { const on = scheme === k; return { label: l, icon: ic, onS: String(on), bg: on ? "var(--surface)" : "transparent", sh: on ? "0 1px 2px var(--shc), 0 0 0 1px var(--line)" : "none", fg: on ? "var(--fg)" : "var(--fg2)", go: () => { if (!on) toggleScheme(); } }; }),
+      sbHelp: () => { this.setState({ sbAcctOpen: false }); if (this.state.TK && this.state.TK.toast) this.state.TK.toast(this, "Help center isn't part of this prototype yet. Press " + M + " K to search."); },
+      sbSignOut: () => { this.setState({ sbAcctOpen: false }); if (this.state.TK && this.state.TK.toast) this.state.TK.toast(this, "Signed out (prototype only, nothing changed)"); },
+      sbScopeOpts: [{ label: "Lootbloc team", sub: "Everything, every partner", on: role !== "partner", onS: String(role !== "partner"), go: () => role === "partner" ? setRole("ops") : this.setState({ sbScopeOpen: false, sbAcctOpen: false }) }, { label: "Twin Atlas", sub: "Only what this partner can see", on: role === "partner", onS: String(role === "partner"), go: () => role !== "partner" ? setRole("partner") : this.setState({ sbScopeOpen: false, sbAcctOpen: false }) }],
+      sbNotif: alerts.map(i => ({ t: (NT[i.label] || (c => c + " in " + i.label))(i.count), icon: i.icon, href: i.href, page: i.label })), sbNotifNone: !alerts.length, sbNotifN: nN || 0, sbNotifL: nN ? "Notifications, " + nN + " new" : "Notifications",
+      sbNotifOpen: !!S.sbNotifOpen, sbNotifS: String(!!S.sbNotifOpen), sbNotifToggle: pop("sbNotifOpen"), sbNotifBg: S.sbNotifOpen ? "var(--hover)" : "transparent",
+      palOpen: !!S.palOpen, palQ: S.palQ || "", palSet: e => this.setState({ palQ: e.target.value, palI: 0 }), palOpenDo: () => { clearTimeout(this.__tipT); this.setState({ palOpen: true, palQ: "", palI: 0, sbTip: null }); }, palClose: () => this.setState({ palOpen: false }),
+      palGroups, palEmpty: !flat.length,
+      palKey: e => { if (e.key === "ArrowDown") { e.preventDefault(); this.setState({ palI: Math.min(pi + 1, flat.length - 1) }); } else if (e.key === "ArrowUp") { e.preventDefault(); this.setState({ palI: Math.max(pi - 1, 0) }); } else if (e.key === "Enter") { e.preventDefault(); if (flat[pi]) run(flat[pi]); } else if (e.key === "Escape") { e.preventDefault(); this.setState({ palOpen: false }); } } };
+  }
+  renderVals() { const ph = this.isPh(); const v = this.renderVals0(); const role = this.role(); const S = this.state;
+    const nav = this.nav(role); const cur = nav.flatMap(g => g.items).find(i => i.active); const q = (S.navQ || "").trim().toLowerCase();
+    const phNav = nav.map(g => ({ label: g.label, items: g.items.filter(i => !q || i.label.toLowerCase().includes(q)).map(i => ({ ...i, cur: i.active ? "page" : "false" })) })).filter(g => g.items.length);
+    const CR = [["Product", "layers", "Products.dc.html"], ["Quote", "badge-dollar-sign", "Quotes.dc.html"], ["Purchase order", "package", "Purchase Orders.dc.html"], ["Invoice", "receipt", "Invoices.dc.html"], ["Shipment", "truck", "Shipments.dc.html"], ["Task", "list-checks", "Workspace.dc.html?m=tasks"]];
+    const o = { rootMinW: ph ? "0px" : "1440px", isPhone: ph, isDesk: !ph, mainPad: ph ? "14px 14px calc(40px + env(safe-area-inset-bottom))" : "28px 32px 48px", mainMinW: ph ? "0px" : "0px",
+      phTitle: (cur && cur.label) || (this.pageName ? this.pageName() : "Lootbloc"), phStaff: role !== "partner", phUser: { ops: "Ops Staff", finance: "Finance", partner: "Twin Atlas" }[role] || "",
+      navOpen: !!S.navOpen, navOpenS: String(!!S.navOpen), navFocus: !!S.navFocus, openNav: () => this.setState({ navOpen: true, navQ: "", navFocus: false }), openSearch: () => this.setState({ navOpen: true, navQ: "", navFocus: true }),
+      closeNav: () => this.setState({ navOpen: false, createOpen: false }), navQ: S.navQ || "", setNavQ: e => this.setState({ navQ: e.target.value }), phNav, phNavEmpty: !phNav.length,
+      createOpen: !!S.createOpen, openCreatePh: () => this.setState({ createOpen: true, navOpen: false }), phCreate: role !== "partner" ? CR.map(([l, ic, h]) => ({ label: l, icon: "icon-" + ic, href: h })) : [],
+      shPos: ph ? "fixed" : "relative", shInset: ph ? "0px" : "auto", shZ: ph ? "70" : "auto", shOv: ph ? "auto" : "visible", shOvX: ph ? "hidden" : "visible", shPadB: ph ? "env(safe-area-inset-bottom)" : "0px" };
+    if (ph) o.panelW = "100%";
+    if (v.widgets) v.widgets = v.widgets.filter(w => !w.isQuick); Object.keys(v).forEach(k => { if (Array.isArray(v[k]) && v[k].some(x => x && x.name === "Quick actions")) v[k] = v[k].filter(x => !(x && x.name === "Quick actions")); });
+    return { ...v, ...o, ...this.shellVals(v), hdShowCust: !v.editing, hvHasShared: !!(v.hvShared && v.hvShared.length), ...(this.phOver ? this.phOver(v, ph) : {}) };
+  }
+  renderVals0() {
+    const role = this.role();
+    const scheme = this.state.scheme ?? this.urlScheme() ?? this.lsScheme() ?? this.props.scheme ?? "dark";
+    const D = this.state.D;
+    const T = {
+      red: { ink: "var(--red)", soft: "var(--redSoft)", bar: "var(--redBar)" }, amber: { ink: "var(--amber)", soft: "var(--amberSoft)", bar: "var(--amberBar)" },
+      green: { ink: "var(--green)", soft: "var(--greenSoft)", bar: "var(--greenBar)" }, blue: { ink: "var(--blue)", soft: "var(--blueSoft)", bar: "var(--blueBar)" },
+      brand: { ink: "var(--brandInk)", soft: "var(--brandSoft)", bar: "var(--brand)" }, none: { ink: "var(--fg2)", soft: "var(--sunk)", bar: "var(--fg3)" }, neutral: { ink: "var(--fg2)", soft: "var(--sunk)", bar: "var(--fg3)" },
+    };
+    const { W, S, TPL, PARTNERS, SPAN, SL, ST } = this.cfg();
+    const editing = this.state.editing;
+    const view = this.view();
+    const base = {
+      scheme, schemeIcon: scheme === "dark" ? "icon-sun" : "icon-moon", schemeLabel: scheme === "dark" ? "Light" : "Dark",
+      toggleScheme: () => this.setState({ scheme: scheme === "dark" ? "light" : "dark" }),
+      isStaff: role !== "partner", nav: this.nav(role), editing, notEditing: !editing,
+      startEdit: () => { const v = this.view(); if (v && v.foreign) { const id = "v" + Date.now(); this.persist({ views: [...this.state.views, { id, name: v.name + " (my copy)", tpl: v.tpl || "blank", widgets: v.widgets.map(x => ({ ...JSON.parse(JSON.stringify(x)), id: this.uid() })) }], active: id, editing: true }); return; } this.setState({ editing: true }); }, stopEdit: () => this.setState({ editing: false, settingsFor: null }),
+      openLibrary: () => this.setState({ library: true }), closeLibrary: () => this.setState({ library: false }),
+      closeSettings: () => this.setState({ settingsFor: null }),
+      openNewView: () => this.setState({ newView: true, newName: "", newTpl: "ops", hv: { ...(this.state.hv || {}), open: false } }), closeNewView: () => this.setState({ newView: false }),
+      dragEnd: () => this.setState({ dragId: null, overId: null }),
+    };
+    if (!D || !view) return { ...base, user: {}, tabs: [], widgets: [], library: [], templates: [], newTemplates: [], sw: {} };
+    const user = D.USERS[role];
+    const widgets = view.widgets.map(w => {
+      const c = W[w.type];
+      const isOver = this.state.overId === w.id && this.state.dragId && this.state.dragId !== w.id;
+      const LH = { "See all →": "Approvals.dc.html", "Products →": "Products.dc.html", "Shipments →": "Shipments.dc.html", "Inventory →": "Inventory.dc.html", "Invoices →": "Invoices.dc.html", "Calendar →": "Workspace.dc.html?m=calendar", "Tasks →": "Workspace.dc.html?m=tasks", "Mystery Box S3": "Products.dc.html?open=Mystery%20Box%20S3" };
+      return {
+        ...w, span: this.isPh() ? 1 : SPAN[w.size], icon: "icon-" + c.icon, title: w.title || c.name, link: c.link, linkHref: this.rh(LH[c.link] || "Home Custom.dc.html"), showLink: !editing && !!c.link && !(role === "partner" && /Calendar|Tasks/.test(c.link)),
+        partnerChip: role !== "partner" && w.partner !== "All partners" ? w.partner : null, kindChip: c.chip || null,
+        editing, draggable: editing ? "true" : "false",
+        border: isOver ? "2px solid var(--brand)" : editing ? "1px dashed var(--fg3)" : "1px solid var(--line)",
+        shadow: editing ? "0 4px 14px var(--shc)" : "0 1px 2px var(--shc)", op: this.state.dragId === w.id ? 0.45 : 1,
+        sizes: c.sizes.map(z => ({ label: SL[z], title: ST[z], pick: () => this.patchW(w.id, { size: z }), bg: z === w.size ? "var(--surface)" : "transparent", fg: z === w.size ? "var(--fg)" : "var(--fg2)", sh: z === w.size ? "0 0 0 1px var(--line)" : "none" })),
+        openSettings: () => this.setState({ settingsFor: w.id }), remove: () => this.setWidgets(ws => ws.filter(x => x.id !== w.id)),
+        dragStart: e => { if (!editing) return; try { e.dataTransfer.setData("text/plain", w.id); e.dataTransfer.effectAllowed = "move"; } catch (x) {} this.setState({ dragId: w.id }); },
+        dragOver: e => { if (!this.state.dragId) return; e.preventDefault(); if (this.state.overId !== w.id) this.setState({ overId: w.id }); },
+        drop: e => { e.preventDefault(); const from = this.state.dragId; if (!from || from === w.id) return this.setState({ dragId: null, overId: null });
+          this.setWidgets(ws => { const a = [...ws]; const fi = a.findIndex(x => x.id === from); const [it] = a.splice(fi, 1); const ti = a.findIndex(x => x.id === w.id); a.splice(fi <= ti ? ti + 1 : ti, 0, it); return a; });
+          this.setState({ dragId: null, overId: null }); },
+        isKpi: w.type === "kpi", isNeeds: w.type === "needs", isQuick: w.type === "quick", isPipeline: w.type === "pipeline", isShip: w.type === "ship", isRunway: w.type === "runway",
+        isHealth: w.type === "health", isMoney: w.type === "money" && role !== "partner", isSales: w.type === "sales", isWeek: w.type === "week", weekList: w.type === "week" && (this.isPh() || w.size !== "XL"), weekGrid: w.type === "week" && !this.isPh() && w.size === "XL", isNext: w.type === "next", isTasks: w.type === "tasks",
+        d: this.body(w, D, T), isUnavail: role === "partner" && w.type === "money",
+      };
+    });
+    const sw0 = view.widgets.find(w => w.id === this.state.settingsFor);
+    let sw = {};
+    if (sw0) {
+      const c = W[sw0.type];
+      const pill = (on, pick, check) => ({ pick, bd: on ? "var(--fg)" : "var(--line)", bg: on ? "var(--solid)" : "transparent", fg: on ? "var(--onSolid)" : "var(--fg)", icon: on && check ? "icon-check" : "" });
+      const swS = this.pScope(sw0);
+      const pFields = (S[sw0.type] || []).filter(f => role !== "partner" || !["team", "stuck", "whose"].includes(f.key)).map(f => role === "partner" && f.key === "metrics" ? { ...f, options: f.options.filter(o => this.PARTNER_KPIS.includes(o)) } : f);
+      const fields = [...(role === "partner" ? [] : [{ key: "_partner", label: "Partner", kind: "seg", options: PARTNERS }]), ...(role === "partner" && sw0.type === "money" ? [] : pFields)].map(f => {
+        const val = f.key === "_partner" ? sw0.partner : swS.s[f.key];
+        if (f.kind === "toggle") return { label: f.label, isToggle: true, isPills: false, track: val ? "var(--brand)" : "var(--line)", knob: val ? "21px" : "3px", toggle: () => this.patchW(sw0.id, { s: { [f.key]: !val } }) };
+        return { label: f.label, help: f.help || null, isPills: true, isToggle: false, options: f.options.map(o => {
+          const on = f.kind === "chips" ? (val || []).includes(o) : val === o;
+          return { label: o, ...pill(on, () => {
+            if (f.key === "_partner") return this.patchW(sw0.id, { partner: o });
+            if (f.kind === "seg") return this.patchW(sw0.id, { s: { [f.key]: o } });
+            let next = on ? val.filter(x => x !== o) : [...val, o];
+            if (f.max && next.length > f.max) next = next.slice(next.length - f.max);
+            this.patchW(sw0.id, { s: { [f.key]: next } });
+          }, f.kind === "chips") };
+        }) };
+      });
+      sw = { icon: "icon-" + c.icon, typeName: c.name, title: sw0.title || c.name,
+        rename: e => this.patchW(sw0.id, { title: e.target.value }),
+        sizes: c.sizes.map(z => ({ title: ST[z], pick: () => this.patchW(sw0.id, { size: z }), bd: z === sw0.size ? "var(--fg)" : "var(--line)", bg2: z === sw0.size ? "var(--solid)" : "transparent", fg2: z === sw0.size ? "var(--onSolid)" : "var(--fg)" })),
+        earlier: () => this.move(sw0.id, -1), later: () => this.move(sw0.id, 1),
+        remove: () => { this.setWidgets(ws => ws.filter(x => x.id !== sw0.id)); this.setState({ settingsFor: null }); },
+        fields };
+    }
+    const inView = new Set(view.widgets.map(w => w.type));
+    const HV = this.state.hv || {}; const setHv = p => this.setState({ hv: { ...(this.state.hv || {}), ...p } });
+    const owned = !view.foreign; const me = this.me(); const { T: AT, TA: ATA, TAO: ATAO } = this.auds();
+    const cloneW = ws => ws.map(x => ({ ...JSON.parse(JSON.stringify(x)), id: this.uid() }));
+    const vItem = v => { const on = v.id === view.id; return { name: v.name, sub: v.audience ? (v.owner && v.ownerRole !== role ? v.owner : "You") + ", Shared with " + v.audience.label : "Private, only you", isDefault: v.id === this.state.def, on: String(on), check: on ? "icon-check" : "", bg: on ? "var(--sunk)" : "transparent", fw: on ? 700 : 600, icon: v.audience ? "icon-users" : "icon-lock",
+      pick: () => { this.persist({ active: v.id, settingsFor: null, editing: false }); setHv({ open: false, mode: null, toast: "" }); } }; };
+    const mineV = (this.state.views || []);
+    let hidN = 0; widgets.forEach(x => { if (x.isSales && x.d) hidN += x.d.dropped || 0; });
+    const copyAs = (name, edit) => { const id = "v" + Date.now(); this.persist({ views: [...this.state.views, { id, name, tpl: view.tpl || "blank", widgets: cloneW(view.widgets) }], active: id, editing: !!edit }); return id; };
+    const hvm = {
+      hvOpen: !!HV.open, hvOpenS: String(!!HV.open), hvToggle: () => setHv({ open: !HV.open, mode: null, toast: "" }), hvClose: () => setHv({ open: false, mode: null }),
+      hvIcon: view.audience ? "icon-users" : "icon-lock", hvEdited: !!view.edited, hvOwned: owned,
+      hvScope: view.audience ? (owned ? "You" : view.owner) + ", Shared with " + view.audience.label + (owned ? "" : ". Read-only for you.") : "Private, only you" + (this.state.def === view.id ? ", your default" : ""),
+      hvHasHidden: hidN > 0, hvHidden: hidN ? "This view includes " + (hidN === 1 ? "a saved store" : hidN + " saved stores") + " outside your access, so " + (hidN === 1 ? "it's" : "they're") + " left out. Sharing never shows extra stores or records." : "", hvHiddenShort: hidN ? (hidN === 1 ? "1 saved store is outside your access and left out" : hidN + " saved stores are outside your access and left out") : "",
+      hvMine: mineV.filter(v => !v.audience).map(vItem), hvNoMine: !mineV.some(v => !v.audience),
+      hvShared: [...mineV.filter(v => v.audience), ...this.sharedList()].map(vItem), hvNoShared: !mineV.some(v => v.audience) && !this.sharedList().length,
+      hvCustomize: () => { if (owned) { this.setState({ editing: true }); setHv({ open: false }); return; } copyAs(view.name + " (my copy)", true); setHv({ open: false, toast: "" }); },
+      hvSaveAs: () => setHv({ mode: "saveas", name: view.name + " (copy)", toast: "" }), hvRename: () => setHv({ mode: "rename", name: view.name, toast: "" }), hvShare: () => setHv({ mode: "share", toast: "" }), hvCancel: () => setHv({ mode: null }),
+      hvModeName: HV.mode === "saveas" || HV.mode === "rename", hvModeShare: HV.mode === "share", hvNameTitle: HV.mode === "rename" ? "Rename view" : "Save as a new private view", hvNameBtn: HV.mode === "rename" ? "Rename" : "Save view",
+      hvName: HV.name ?? "", hvSetName: e => setHv({ name: e.target.value }),
+      hvConfirm: () => { const nm = (HV.name || "").trim(); if (!nm) return; if (HV.mode === "rename" && owned) { this.persist({ views: this.state.views.map(v => v.id === view.id ? { ...v, name: nm } : v) }); setHv({ mode: null, toast: "Renamed to “" + nm + "”." }); return; }
+        copyAs(nm, false); if (view.foreign) this.setState({ sharedTmp: { ...this.state.sharedTmp, [view.id]: undefined } }); setHv({ mode: null, toast: "Saved “" + nm + "” to My views. Only you can see it." }); },
+      hvShareOpts: (role === "partner" ? [{ key: "me", label: "Only me", sub: "Private, in My views" }, { ...ATAO, sub: "Other Twin Atlas users. They see the same Twin Atlas store and products you do." }] : [{ key: "me", label: "Only me", sub: "Private, in My views" }, { ...AT, sub: "Ops and finance staff" }, { ...ATA, sub: "Staff and Twin Atlas partner users. Partners only see Twin Atlas Official Store and their own products." }]).map(a => { const on = (view.audience ? view.audience.key : "me") === a.key; return { label: a.label, sub: a.sub, on: String(on), check: on ? "icon-circle-check" : "icon-circle", bd: on ? "var(--brand)" : "var(--line)",
+        pick: () => { if (!owned) return; this.persist({ views: this.state.views.map(v => v.id === view.id ? (a.key === "me" ? (({ audience, ...r }) => r)(v) : { ...v, audience: { key: a.key, label: a.label, roles: a.roles } }) : v) }); setHv({ mode: null, toast: a.key === "me" ? "“" + view.name + "” is private again." : "Now shared with " + a.label + " (prototype, nobody is notified). Each person still only sees stores and records they already have access to." }); } }; }),
+      hvCopy: () => { try { const u = new URL(location.href); u.searchParams.delete("role"); u.searchParams.set("view", view.id); navigator.clipboard && navigator.clipboard.writeText(u.toString()).catch(() => {}); } catch (e) {} setHv({ toast: view.audience ? "Link copied. Each person still only sees stores and records they can already access." : "Link copied. This view is private, so the link only works for you." }); },
+      hvToast: HV.toast || "", hvHasToast: !!HV.toast };
+    return {
+      ...base, ...hvm, user,
+      greeting: role === "partner" ? "Welcome back, Twin Atlas" : "Good morning, " + user.name,
+      viewName: view.name,
+      renameView: e => this.persist({ views: this.state.views.map(v => v.id === view.id ? { ...v, name: e.target.value } : v) }),
+      defaultLabel: this.state.def === view.id ? "Your default" : "Make default",
+      makeDefault: () => { if (!view.foreign) this.persist({ def: view.id }); },
+      resetView: () => this.setWidgets(() => this.build(view.tpl)),
+      deleteView: () => { if (view.foreign) return; const rest = this.state.views.filter(v => v.id !== view.id); if (!rest.length) return; this.persist({ views: rest, active: rest[0].id, def: this.state.def === view.id ? rest[0].id : this.state.def, editing: false }); },
+      tabs: this.state.views.map(v => { const on = v.id === view.id; return { name: v.name, isDefault: v.id === this.state.def, pick: () => this.persist({ active: v.id, settingsFor: null }),
+        bg: on ? "var(--surface)" : "transparent", fg: on ? "var(--fg)" : "var(--fg2)", sh: on ? "0 1px 2px var(--shc), 0 0 0 1px var(--line)" : "none" }; }),
+      widgets, emptyView: view.widgets.length === 0,
+      settingsOpen: !!sw0, sw, libraryOpen: this.state.library,
+      library: Object.keys(W).filter(k => role !== "partner" || k !== "money").map(k => ({ ...W[k], icon: "icon-" + W[k].icon, inView: inView.has(k), add: () => { const { DEF } = this.cfg(); const id = this.uid();
+        this.setWidgets(ws => [...ws, { id, type: k, size: W[k].sizes[Math.min(1, W[k].sizes.length - 1)], title: null, partner: "All partners", s: { ...DEF[k] } }]); this.setState({ library: false, settingsFor: id }); } })),
+      templates: Object.keys(TPL).filter(k => k !== "blank").map(k => ({ name: TPL[k].name, blocks: this.blocks(k), apply: () => { this.setWidgets(() => this.build(k)); this.setState({ library: false }); } })),
+      newViewOpen: this.state.newView, newName: this.state.newName, setNewName: e => this.setState({ newName: e.target.value }),
+      newTemplates: Object.keys(TPL).map(k => ({ name: TPL[k].name, desc: TPL[k].desc, blocks: this.blocks(k), pick: () => this.setState({ newTpl: k }),
+        bd: this.state.newTpl === k ? "var(--brand)" : "var(--line)", bg: this.state.newTpl === k ? "var(--brandSoft)" : "transparent" })),
+      createView: () => { const k = this.state.newTpl; const id = "v" + Date.now(); const name = this.state.newName.trim() || TPL[k].name + " view";
+        this.persist({ views: [...this.state.views, { id, name, tpl: k, widgets: this.build(k) }], active: id, newView: false, editing: k === "blank" }); },
+    };
+  }
+  nav(role) {
+    const page = this.pageName ? this.pageName() : "Home";
+    const it = (icon, label, href, o = {}) => ({ icon: "icon-" + icon, label, href, ...o, active: label === page });
+    const staff = [
+      { label: "", items: [it("house", "Home", "Home Custom.dc.html")] },
+      { label: "My work", items: [it("list-checks", "Tasks", "Workspace.dc.html?m=tasks", { count: 4 }), it("square-check-big", "Approvals", "Approvals.dc.html", { count: 3, alert: true }), it("calendar-days", "Calendar", "Workspace.dc.html?m=calendar"), it("chart-gantt", "Timeline", "Workspace.dc.html?m=timeline")] },
+      { label: "Make & sell", items: [it("layers", "Products", "Products.dc.html"), it("badge-dollar-sign", "Quotes", "Quotes.dc.html"), it("package", "Purchase orders", "Purchase Orders.dc.html"), it("factory", "Vendors & factories", "Workspace.dc.html?m=vendors")] },
+      { label: "Stock & shipping", items: [it("warehouse", "Inventory", "Inventory.dc.html", { count: 3, alert: true }), it("truck", "Shipments", "Shipments.dc.html", { count: 1, alert: true })] },
+      { label: "Money", items: [it("receipt", "Invoices", "Invoices.dc.html", { count: 1, alert: true }), it("hand-coins", "Payouts", "Workspace.dc.html?m=payouts", { count: "Soon" }), it("refresh-cw", "QuickBooks", "Workspace.dc.html?m=quickbooks")] },
+      { label: "Company", items: [it("building-2", "Partners", "Workspace.dc.html?m=partners"), it("library", "Resources", "Workspace.dc.html?m=resources"), it("chevrons-right", "More tools", "Workspace.dc.html")] },
+      { label: "Admin", items: [it("shield", "Users & roles", "Workspace.dc.html?m=users"), it("settings", "Settings", "Workspace.dc.html?m=settings")] },
+    ];
+    const partner = [
+      { label: "", items: [it("house", "Home", "Home Custom.dc.html")] },
+      { label: "Your products", items: [it("square-check-big", "Approvals", "Approvals.dc.html", { count: 2, alert: true }), it("layers", "Products", "Products.dc.html"), it("badge-dollar-sign", "Quotes", "Quotes.dc.html"), it("warehouse", "Inventory", "Inventory.dc.html"), it("package", "Purchase orders", "Purchase Orders.dc.html"), it("truck", "Shipments", "Shipments.dc.html")] },
+      { label: "Money", items: [it("receipt", "Invoices", "Invoices.dc.html")] },
+      { label: "Account", items: [it("settings", "Settings", "Workspace.dc.html?m=settings")] },
+    ];
+    return (role === "partner" ? partner : staff).map(g => ({ ...g, items: g.items.map(i => ({ ...i,
+      bg: i.active ? "var(--surface)" : "transparent", fg: i.active ? "var(--fg)" : "var(--fg2)", fw: i.active ? 700 : 500,
+      sh: i.active ? "0 1px 2px var(--shc), 0 0 0 1px var(--line)" : "none", ic: i.active ? "var(--brandInk)" : "var(--fg3)",
+      cbg: i.alert ? "var(--redSoft)" : "var(--line)", cfg: i.alert ? "var(--red)" : "var(--fg)" })) }));
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap">
+<link rel="stylesheet" href="https://unpkg.com/lucide-static@0.469.0/font/lucide.css">
+<style>body{margin:0}</style>
+</helmet>
+<div style="color-scheme: {{ scheme }};">
+<div style="--bg: light-dark(oklch(0.985 0.004 260), oklch(0.12 0.015 260)); --fg: light-dark(oklch(0.16 0.015 260), oklch(0.96 0.005 260)); --card: light-dark(oklch(1 0 0), oklch(0.16 0.015 260)); --muted: light-dark(oklch(0.95 0.006 260), oklch(0.2 0.012 260)); --mfg: light-dark(oklch(0.48 0.012 260), oklch(0.55 0.01 260)); --border: light-dark(oklch(0.88 0.01 260), oklch(0.26 0.015 260)); --input: light-dark(oklch(0.9 0.012 260), oklch(0.2 0.015 260)); --accent: light-dark(oklch(0.96 0.028 8.5), oklch(0.2 0.04 8.5)); --sidebar: light-dark(oklch(0.965 0.006 260), oklch(0.1 0.015 260)); --sbb: light-dark(oklch(0.86 0.012 260), oklch(0.2 0.015 260)); --sba: light-dark(oklch(0.94 0.012 260), oklch(0.18 0.04 8.5)); --primary: oklch(0.65 0.25 8.5); --pri10: oklch(0.65 0.25 8.5 / 0.1); --pri20: oklch(0.65 0.25 8.5 / 0.2); --red: light-dark(#b91c1c, #fca5a5); --redbg: rgb(239 68 68 / 0.12); --redbd: rgb(239 68 68 / 0.3); --amber: light-dark(#b45309, #fcd34d); --amberbg: rgb(245 158 11 / 0.12); --amberbd: rgb(245 158 11 / 0.3); --green: light-dark(#047857, #6ee7b7); --greenbg: rgb(16 185 129 / 0.1); --greenbd: rgb(16 185 129 / 0.3); --sky: light-dark(#0369a1, #7dd3fc); --skybg: rgb(14 165 233 / 0.1); --skybd: rgb(14 165 233 / 0.3); --chart3: light-dark(oklch(0.62 0.16 75), oklch(0.72 0.18 75)); --shadow: 0 1px 2px -1px light-dark(oklch(0.18 0.02 260 / 0.1), oklch(0 0 0 / 0.44)), 0 1px 3px 0 light-dark(oklch(0.18 0.02 260 / 0.06), oklch(0 0 0 / 0.28)); width: 1440px; min-height: 1560px; display: flex; background: var(--bg); color: var(--fg); font-family: Inter, system-ui, sans-serif; font-size: 14px; line-height: 20px; -webkit-font-smoothing: antialiased;">
+
+<aside style="width: 256px; flex-shrink: 0; background: var(--sidebar); border-right: 1px solid var(--sbb); display: flex; flex-direction: column;">
+  <div style="height: 56px; box-sizing: border-box; border-bottom: 1px solid var(--sbb); display: flex; align-items: center; gap: 8px; padding: 0 12px;">
+    <img src="assets/lootbloc-icon.png" alt="Lootbloc" style="width: 28px; height: 28px;">
+    <span style="flex: 1; font-size: 14px; font-weight: 600; letter-spacing: -0.01em;">Lootbloc Ops</span>
+    <span style="width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; border-radius: 6px;"><i class="icon-panel-left" style="font-size: 16px;"></i></span>
+  </div>
+  <div style="flex: 1; display: flex; flex-direction: column; overflow: hidden;">
+    <div style="padding: 8px; display: flex; flex-direction: column;">
+      <div style="height: 32px; display: flex; align-items: center; padding: 0 8px; font-size: 12px; font-weight: 500; opacity: 0.7;">Main</div>
+      <div style="display: flex; flex-direction: column; gap: 4px;">
+        <div style="position: relative; height: 32px; display: flex; align-items: center; gap: 8px; padding: 0 8px; border-radius: 6px; background: var(--sba); font-weight: 500;"><span style="position: absolute; left: 0; top: 4px; bottom: 4px; width: 2px; border-radius: 9px; background: var(--primary);"></span><i class="icon-layout-dashboard" style="font-size: 16px;"></i><span>Dashboard</span></div>
+        <div style="height: 32px; display: flex; align-items: center; gap: 8px; padding: 0 8px;"><i class="icon-layers" style="font-size: 16px;"></i><span>Products</span></div>
+        <div style="height: 32px; display: flex; align-items: center; gap: 8px; padding: 0 8px;"><i class="icon-square-check-big" style="font-size: 16px;"></i><span style="flex: 1;">Approvals</span><span style="font-size: 12px; font-weight: 500; padding: 0 6px; height: 20px; line-height: 18px; box-sizing: border-box; border-radius: 6px; border: 1px solid var(--redbd); background: var(--redbg); color: var(--red);">3</span></div>
+        <div style="height: 32px; display: flex; align-items: center; gap: 8px; padding: 0 8px;"><i class="icon-warehouse" style="font-size: 16px;"></i><span>Inventory</span></div>
+        <div style="height: 32px; display: flex; align-items: center; gap: 8px; padding: 0 8px;"><i class="icon-package" style="font-size: 16px;"></i><span>Purchase Orders</span></div>
+        <div style="height: 32px; display: flex; align-items: center; gap: 8px; padding: 0 8px;"><i class="icon-file-text" style="font-size: 16px;"></i><span>Invoices</span></div>
+        <div style="height: 32px; display: flex; align-items: center; gap: 8px; padding: 0 8px;"><i class="icon-file-text" style="font-size: 16px;"></i><span style="flex: 1;">Payouts</span><span style="font-size: 12px; font-weight: 500; padding: 0 6px; height: 20px; line-height: 18px; box-sizing: border-box; border-radius: 6px; border: 1px solid var(--amberbd); background: var(--amberbg); color: var(--amber);">Soon</span></div>
+      </div>
+    </div>
+    <div style="padding: 8px; display: flex; flex-direction: column;">
+      <div style="height: 32px; display: flex; align-items: center; padding: 0 8px; font-size: 12px; font-weight: 500; opacity: 0.7;">Operations</div>
+      <div style="display: flex; flex-direction: column; gap: 4px;">
+        <div style="height: 32px; display: flex; align-items: center; gap: 8px; padding: 0 8px;"><i class="icon-truck" style="font-size: 16px;"></i><span style="flex: 1;">Shipments</span><span style="font-size: 12px; font-weight: 500; padding: 0 6px; height: 20px; line-height: 18px; box-sizing: border-box; border-radius: 6px; border: 1px solid var(--redbd); background: var(--redbg); color: var(--red);">1</span></div>
+        <div style="height: 32px; display: flex; align-items: center; gap: 8px; padding: 0 8px;"><i class="icon-library" style="font-size: 16px;"></i><span>Resources</span></div>
+        <div style="height: 32px; display: flex; align-items: center; gap: 8px; padding: 0 8px;"><i class="icon-chart-gantt" style="font-size: 16px;"></i><span>Timeline</span></div>
+        <div style="height: 32px; display: flex; align-items: center; gap: 8px; padding: 0 8px;"><i class="icon-calendar-days" style="font-size: 16px;"></i><span>Calendar</span></div>
+        <div style="height: 32px; display: flex; align-items: center; gap: 8px; padding: 0 8px;"><i class="icon-activity" style="font-size: 16px;"></i><span>Activity</span></div>
+      </div>
+    </div>
+    <div style="padding: 8px; display: flex; flex-direction: column;">
+      <div style="height: 32px; display: flex; align-items: center; padding: 0 8px; font-size: 12px; font-weight: 500; opacity: 0.7;">Admin</div>
+      <div style="display: flex; flex-direction: column; gap: 4px;">
+        <div style="height: 32px; display: flex; align-items: center; gap: 8px; padding: 0 8px;"><i class="icon-chart-column" style="font-size: 16px;"></i><span style="flex: 1;">Finance</span><span style="font-size: 12px; font-weight: 500; padding: 0 6px; height: 20px; line-height: 18px; box-sizing: border-box; border-radius: 6px; border: 1px solid var(--amberbd); background: var(--amberbg); color: var(--amber);">Soon</span></div>
+        <div style="height: 32px; display: flex; align-items: center; gap: 8px; padding: 0 8px;"><i class="icon-box" style="font-size: 16px;"></i><span>Vendors &amp; Factories</span></div>
+        <div style="height: 32px; display: flex; align-items: center; gap: 8px; padding: 0 8px;"><i class="icon-refresh-cw" style="font-size: 16px;"></i><span>QuickBooks</span></div>
+        <div style="height: 32px; display: flex; align-items: center; gap: 8px; padding: 0 8px;"><i class="icon-refresh-cw" style="font-size: 16px;"></i><span>Shopify Sync</span></div>
+        <div style="height: 32px; display: flex; align-items: center; gap: 8px; padding: 0 8px;"><i class="icon-building-2" style="font-size: 16px;"></i><span>Partners</span></div>
+        <div style="height: 32px; display: flex; align-items: center; gap: 8px; padding: 0 8px;"><i class="icon-square-check-big" style="font-size: 16px;"></i><span style="flex: 1;">Tasks</span><span style="font-size: 12px; font-weight: 500; padding: 0 6px; height: 20px; line-height: 18px; box-sizing: border-box; border-radius: 6px; border: 1px solid var(--redbd); background: var(--redbg); color: var(--red);">2</span></div>
+        <div style="height: 32px; display: flex; align-items: center; gap: 8px; padding: 0 8px;"><i class="icon-bot" style="font-size: 16px;"></i><span style="flex: 1;">AI Review</span><span style="font-size: 12px; font-weight: 500; padding: 0 6px; height: 20px; line-height: 18px; box-sizing: border-box; border-radius: 6px; border: 1px solid var(--redbd); background: var(--redbg); color: var(--red);">4</span></div>
+        <div style="height: 32px; display: flex; align-items: center; gap: 8px; padding: 0 8px;"><i class="icon-users" style="font-size: 16px;"></i><span>Users &amp; Roles</span></div>
+      </div>
+    </div>
+    <div style="padding: 8px; display: flex; flex-direction: column;">
+      <div style="height: 32px; display: flex; align-items: center; padding: 0 8px; font-size: 12px; font-weight: 500; opacity: 0.7;">Settings</div>
+      <div style="height: 32px; display: flex; align-items: center; gap: 8px; padding: 0 8px;"><i class="icon-settings" style="font-size: 16px;"></i><span>Settings</span></div>
+    </div>
+  </div>
+  <div style="border-top: 1px solid var(--sbb); padding: 8px;">
+    <div style="height: 48px; display: flex; align-items: center; gap: 8px; padding: 0 8px;">
+      <span style="width: 32px; height: 32px; border-radius: 99px; border: 1px solid var(--sbb); background: var(--pri20); color: var(--primary); font-size: 12px; font-weight: 500; display: flex; align-items: center; justify-content: center; box-sizing: border-box;">J</span>
+      <span style="flex: 1; display: flex; flex-direction: column; line-height: 1.25;"><span style="font-weight: 500;">Jordan Reyes</span><span style="font-size: 12px; color: var(--mfg);">Admin</span></span>
+      <i class="icon-chevron-up" style="font-size: 16px;"></i>
+    </div>
+  </div>
+</aside>
+
+<div style="flex: 1; min-width: 0; display: flex; flex-direction: column;">
+  <header style="height: 56px; box-sizing: border-box; border-bottom: 1px solid color-mix(in oklch, var(--border) 60%, transparent); display: flex; align-items: center; justify-content: space-between; padding: 0 16px;">
+    <div style="width: 256px; height: 32px; box-sizing: border-box; border: 1px solid color-mix(in oklch, var(--border) 60%, transparent); background: color-mix(in oklch, var(--muted) 50%, transparent); border-radius: 6px; display: flex; align-items: center; gap: 8px; padding: 0 10px; color: var(--mfg); font-weight: 500;">
+      <i class="icon-search" style="font-size: 14px;"></i><span style="flex: 1;">Search...</span><span style="font-size: 12px; border: 1px solid var(--border); border-radius: 4px; padding: 0 4px; line-height: 18px; background: var(--muted);">⌘K</span>
+    </div>
+    <div style="display: flex; align-items: center; gap: 4px;">
+      <div style="height: 32px; box-sizing: border-box; border: 1px solid color-mix(in oklch, var(--border) 60%, transparent); background: color-mix(in oklch, var(--muted) 40%, transparent); border-radius: 6px; display: flex; align-items: center; gap: 8px; padding: 0 10px 0 8px; font-weight: 500;">
+        <span style="width: 20px; height: 20px; border-radius: 99px; background: color-mix(in oklch, var(--mfg) 20%, transparent); display: flex; align-items: center; justify-content: center;"><i class="icon-globe" style="font-size: 12px; color: var(--mfg);"></i></span>
+        <span style="opacity: 0.8;">All Partners</span><i class="icon-chevron-down" style="font-size: 12px; color: var(--mfg);"></i>
+      </div>
+      <span style="width: 32px; height: 32px; display: flex; align-items: center; justify-content: center;"><i class="icon-sparkles" style="font-size: 16px;"></i></span>
+      <span style="position: relative; width: 32px; height: 32px; display: flex; align-items: center; justify-content: center;"><i class="icon-bell" style="font-size: 16px;"></i><span style="position: absolute; top: 4px; right: 4px; min-width: 16px; height: 16px; border-radius: 99px; background: var(--primary); color: white; font-size: 10px; line-height: 16px; text-align: center; font-weight: 600;">7</span></span>
+      <span style="width: 32px; height: 32px; display: flex; align-items: center; justify-content: center;"><i class="icon-activity" style="font-size: 16px;"></i></span>
+      <span style="width: 32px; height: 32px; display: flex; align-items: center; justify-content: center;"><span style="width: 28px; height: 28px; box-sizing: border-box; border-radius: 99px; border: 1px solid var(--border); background: var(--pri20); color: var(--primary); font-size: 12px; font-weight: 500; display: flex; align-items: center; justify-content: center;">J</span></span>
+    </div>
+  </header>
+
+  <main style="padding: 24px; display: flex; flex-direction: column; gap: 32px;">
+    <div>
+      <h1 style="margin: 0; font-family: 'Space Grotesk', Inter, sans-serif; font-size: 24px; line-height: 32px; font-weight: 600; letter-spacing: -0.02em;">Operations Overview</h1>
+      <p style="margin: 4px 0 0; color: var(--mfg);">Live status across all Lootbloc operations</p>
+    </div>
+
+    <div style="display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 16px;">
+      <sc-for list="{{ stats }}" as="s" hint-placeholder-count="5">
+        <div style="background: var(--card); border: 1px solid var(--border); border-radius: 8px; box-shadow: var(--shadow); padding: 16px; display: flex; flex-direction: column; gap: 16px;">
+          <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+            <span style="font-weight: 500; color: var(--mfg); line-height: 1;">{{ s.label }}</span>
+            <span style="width: 32px; height: 32px; border-radius: 8px; background: var(--pri10); display: flex; align-items: center; justify-content: center;"><i class="{{ s.icon }}" style="font-size: 16px; color: var(--primary);"></i></span>
+          </div>
+          <span style="font-size: 24px; line-height: 32px; font-weight: 600; font-variant-numeric: tabular-nums;">{{ s.value }}</span>
+        </div>
+      </sc-for>
+    </div>
+
+    <div style="background: var(--card); border: 1px solid var(--border); border-radius: 8px; box-shadow: var(--shadow); padding-top: 16px; overflow: hidden;">
+      <div style="padding: 0 16px 16px; border-bottom: 1px solid var(--border); display: flex; flex-direction: column; gap: 16px;">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 12px;">
+          <div><div style="font-weight: 600; line-height: 1;">Sales Overview</div><div style="margin-top: 4px; font-size: 12px; line-height: 16px; color: var(--mfg);">Last synced 12 min ago</div></div>
+          <div style="display: flex; flex-direction: column; align-items: flex-end; gap: 8px;">
+            <span style="height: 32px; box-sizing: border-box; border: 1px solid var(--input); border-radius: 6px; padding: 0 10px; display: flex; align-items: center; gap: 6px; font-weight: 500; box-shadow: var(--shadow);"><i class="icon-refresh-cw" style="font-size: 14px;"></i>Refresh</span>
+            <div style="display: flex; border: 1px solid var(--input); border-radius: 6px; overflow: hidden; box-shadow: var(--shadow);">
+              <span style="height: 30px; padding: 0 10px; display: flex; align-items: center; font-size: 12px; font-weight: 500;">Today</span>
+              <span style="height: 30px; padding: 0 10px; display: flex; align-items: center; font-size: 12px; font-weight: 500; border-left: 1px solid var(--input);">Last 7 days</span>
+              <span style="height: 30px; padding: 0 10px; display: flex; align-items: center; font-size: 12px; font-weight: 500; border-left: 1px solid var(--input); background: var(--accent);">Last 30 days</span>
+              <span style="height: 30px; padding: 0 10px; display: flex; align-items: center; font-size: 12px; font-weight: 500; border-left: 1px solid var(--input);">Last 90 days</span>
+              <span style="height: 30px; padding: 0 10px; display: flex; align-items: center; font-size: 12px; font-weight: 500; border-left: 1px solid var(--input);">Last Year</span>
+              <span style="height: 30px; padding: 0 10px; display: flex; align-items: center; font-size: 12px; font-weight: 500; border-left: 1px solid var(--input);">All Time</span>
+            </div>
+          </div>
+        </div>
+        <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px;">
+          <div style="border: 1px solid var(--input); border-radius: 6px; padding: 8px 12px; display: flex; align-items: center; gap: 8px; background: var(--accent);"><i class="icon-dollar-sign" style="font-size: 16px; color: var(--primary);"></i><span><span style="display: block; font-size: 12px; line-height: 16px; color: var(--mfg);">Total Sales</span><span style="display: block; font-size: 20px; line-height: 28px; font-weight: 600; font-variant-numeric: tabular-nums;">$182,406.18</span></span></div>
+          <div style="border: 1px solid var(--input); border-radius: 6px; padding: 8px 12px; display: flex; align-items: center; gap: 8px;"><i class="icon-shopping-cart" style="font-size: 16px; color: var(--mfg);"></i><span><span style="display: block; font-size: 12px; line-height: 16px; color: var(--mfg);">Total Orders</span><span style="display: block; font-size: 20px; line-height: 28px; font-weight: 600; font-variant-numeric: tabular-nums;">4,912</span></span></div>
+          <div style="border: 1px solid var(--input); border-radius: 6px; padding: 8px 12px; display: flex; align-items: center; gap: 8px;"><i class="icon-trending-up" style="font-size: 16px; color: var(--mfg);"></i><span><span style="display: block; font-size: 12px; line-height: 16px; color: var(--mfg);">Avg Order Value</span><span style="display: block; font-size: 20px; line-height: 28px; font-weight: 600; font-variant-numeric: tabular-nums;">$37.13</span></span></div>
+        </div>
+      </div>
+      <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px; padding: 12px 16px; border-bottom: 1px solid var(--border);">
+        <span style="margin-right: 4px; font-size: 12px; font-weight: 500; letter-spacing: 0.025em; text-transform: uppercase; color: var(--mfg);">Stores</span>
+        <span style="height: 32px; padding: 0 10px; border-radius: 6px; background: var(--primary); color: white; display: flex; align-items: center; gap: 6px; font-weight: 500;"><i class="icon-chart-column" style="font-size: 14px;"></i>Combined</span>
+        <span style="height: 32px; box-sizing: border-box; padding: 0 12px; border-radius: 6px; border: 1px solid var(--input); display: flex; align-items: center; gap: 6px; font-weight: 500;"><span style="width: 6px; height: 6px; border-radius: 9px; background: #e11d48;"></span>Lootbloc Store</span>
+        <span style="height: 32px; box-sizing: border-box; padding: 0 12px; border-radius: 6px; border: 1px solid var(--input); display: flex; align-items: center; gap: 6px; font-weight: 500;"><span style="width: 6px; height: 6px; border-radius: 9px; background: #0ea5e9;"></span>Creatures of Sonaria</span>
+        <span style="height: 32px; box-sizing: border-box; padding: 0 12px; border-radius: 6px; border: 1px solid var(--input); display: flex; align-items: center; gap: 6px; font-weight: 500;"><span style="width: 6px; height: 6px; border-radius: 9px; background: #22c55e;"></span>World Zero</span>
+      </div>
+      <div style="display: flex; align-items: center; gap: 8px; padding: 8px 16px; border-bottom: 1px solid var(--border);"><span style="width: 8px; height: 8px; border-radius: 9px; background: var(--chart3);"></span><span style="font-size: 12px; color: var(--mfg);">Product releases shown on chart — hover a marker for details</span></div>
+      <div style="padding: 16px 8px 8px;">
+        <svg viewBox="0 0 1120 440" width="100%" height="440" style="display: block;">
+          <g stroke="var(--border)" stroke-dasharray="3 3"><line x1="60" x2="1110" y1="20" y2="20"></line><line x1="60" x2="1110" y1="120" y2="120"></line><line x1="60" x2="1110" y1="220" y2="220"></line><line x1="60" x2="1110" y1="320" y2="320"></line><line x1="60" x2="1110" y1="410" y2="410"></line></g>
+          <g fill="var(--mfg)" font-size="12" text-anchor="end"><text x="50" y="24">$10.0k</text><text x="50" y="124">$7.5k</text><text x="50" y="224">$5.0k</text><text x="50" y="324">$2.5k</text><text x="50" y="414">$0</text></g>
+          <g fill="var(--mfg)" font-size="12" text-anchor="middle"><text x="80" y="434">Aug 31</text><text x="280" y="434">Sep 6</text><text x="480" y="434">Sep 12</text><text x="680" y="434">Sep 18</text><text x="880" y="434">Sep 24</text><text x="1080" y="434">Sep 29</text></g>
+          <path d="{{ areaPath }}" fill="oklch(0.65 0.25 8.5 / 0.18)"></path>
+          <path d="{{ linePath }}" fill="none" stroke="oklch(0.65 0.25 8.5)" stroke-width="2"></path>
+          <line x1="480" x2="480" y1="20" y2="410" stroke="var(--chart3)" stroke-dasharray="4 4"></line><circle cx="480" cy="28" r="5" fill="var(--chart3)"></circle><text x="488" y="32" font-size="9" font-weight="600" fill="var(--chart3)">Sonaria Plush Wave…</text>
+          <line x1="880" x2="880" y1="20" y2="410" stroke="var(--chart3)" stroke-dasharray="4 4"></line><circle cx="880" cy="28" r="5" fill="var(--chart3)"></circle><text x="888" y="32" font-size="9" font-weight="600" fill="var(--chart3)">Mystery Box S3</text>
+        </svg>
+      </div>
+    </div>
+
+    <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px;">
+      <div style="background: var(--card); border: 1px solid var(--border); border-radius: 8px; box-shadow: var(--shadow); padding: 16px 0; display: flex; flex-direction: column; gap: 16px;">
+        <div style="padding: 0 16px; display: flex; justify-content: space-between; align-items: flex-start;">
+          <div><div style="font-weight: 600; display: flex; align-items: center; gap: 6px; line-height: 1;"><i class="icon-square-check-big" style="font-size: 16px; color: var(--mfg);"></i>My Tasks</div><div style="margin-top: 2px; color: var(--mfg);">4 open<span style="display: inline-block; width: 10px;"></span>1 overdue</div></div>
+          <div style="display: flex; align-items: center; gap: 8px;"><span style="color: var(--primary); font-weight: 500;">View all →</span><span style="height: 32px; padding: 0 10px; display: flex; align-items: center; gap: 6px; font-weight: 500;"><i class="icon-plus" style="font-size: 16px;"></i>New task</span></div>
+        </div>
+        <div style="padding: 0 16px; display: flex; flex-direction: column; gap: 6px;">
+          <sc-for list="{{ tasks }}" as="t" hint-placeholder-count="4">
+            <div style="min-height: 44px; box-sizing: border-box; display: flex; align-items: center; gap: 8px; border: 1px solid color-mix(in oklch, var(--border) 60%, transparent); background: color-mix(in oklch, var(--bg) 40%, transparent); border-radius: 8px; padding: 8px 12px;">
+              <span style="width: 16px; height: 16px; box-sizing: border-box; border: 1px solid var(--input); border-radius: 4px; flex-shrink: 0; background: var(--muted);"></span>
+              <span style="flex: 1; min-width: 0;"><span style="display: block; font-weight: 500; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">{{ t.t }}</span><span style="display: block; margin-top: 2px; font-size: 12px; line-height: 16px; color: var(--mfg);">{{ t.link }}</span></span>
+              <span style="font-size: 12px; font-weight: 500; padding: 1px 8px; border-radius: 6px; border: 1px solid {{ t.bd }}; background: {{ t.bg }}; color: {{ t.fg }}; white-space: nowrap;">{{ t.dueFull }}</span>
+              <i class="icon-chevron-right" style="font-size: 16px; color: color-mix(in oklch, var(--mfg) 40%, transparent);"></i>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+
+      <div style="background: var(--card); border: 1px solid var(--border); border-radius: 8px; box-shadow: var(--shadow); padding-top: 16px; overflow: hidden;">
+        <div style="padding: 0 16px 16px; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center;">
+          <div style="display: flex; align-items: center; gap: 8px;"><i class="icon-truck" style="font-size: 16px; color: var(--mfg);"></i><span style="font-weight: 600;">Active Shipments</span><span style="font-size: 12px; color: var(--mfg);">(4)</span></div>
+          <span style="color: var(--primary); font-weight: 500;">View all →</span>
+        </div>
+        <sc-for list="{{ shipments }}" as="s" hint-placeholder-count="4">
+          <div style="padding: 12px 16px; border-bottom: 1px solid var(--border);">
+            <div style="display: flex; align-items: center; gap: 12px;">
+              <span style="width: 32px; height: 32px; border-radius: 6px; background: var(--muted); display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 700; color: var(--mfg);">{{ s.logo }}</span>
+              <div style="flex: 1; min-width: 0;"><div style="font-weight: 500;">{{ s.name }}</div><div style="display: flex; gap: 8px; margin-top: 2px; font-size: 12px; line-height: 16px;"><span style="color: var(--mfg);">{{ s.carrier }}</span><span style="color: color-mix(in oklch, var(--mfg) 60%, transparent);">{{ s.route }}</span></div></div>
+              <div style="display: flex; flex-direction: column; align-items: flex-end; gap: 4px;"><span style="font-size: 12px; font-weight: 500; padding: 1px 8px; border-radius: 6px; border: 1px solid {{ s.bd }}; background: {{ s.bg }}; color: {{ s.fg }};">{{ s.statusLabel }}</span><span style="font-size: 12px; line-height: 16px; font-weight: 500; color: {{ s.etaColor }};">{{ s.etaLabel }}</span></div>
+              <span style="width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; color: var(--mfg);"><i class="icon-external-link" style="font-size: 16px;"></i></span>
+            </div>
+            <div style="position: relative; margin-top: 6px; height: 12px;">
+              <div style="position: absolute; left: 6px; right: 6px; top: 4px; height: 4px; border-radius: 9px; background: var(--muted);"></div>
+              <div style="position: absolute; left: 6px; top: 4px; height: 4px; border-radius: 9px; background: var(--primary); width: {{ s.pct }};"></div>
+              <div style="position: absolute; inset: 0; display: flex; justify-content: space-between; align-items: center;">
+                <sc-for list="{{ s.dots }}" as="d" hint-placeholder-count="5"><span style="width: 12px; height: 12px; box-sizing: border-box; border-radius: 99px; border: 2px solid {{ d.bd }}; background: {{ d.bg }};"></span></sc-for>
+              </div>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+
+      <div style="background: var(--card); border: 1px solid var(--border); border-radius: 8px; box-shadow: var(--shadow); padding: 16px 0; display: flex; flex-direction: column; gap: 16px;">
+        <div style="padding: 0 16px; display: flex; justify-content: space-between; align-items: flex-start;">
+          <div><div style="font-weight: 600; display: flex; align-items: center; gap: 6px; line-height: 1;"><i class="icon-receipt" style="font-size: 16px; color: var(--mfg);"></i>Outstanding Invoices</div><div style="margin-top: 2px; color: var(--mfg);">7 invoices<span style="display: inline-block; width: 10px;"></span>$48,210.00 outstanding<span style="display: inline-block; width: 10px;"></span>1 overdue</div></div>
+          <div style="display: flex; align-items: center; gap: 8px;"><span style="color: var(--primary); font-weight: 500;">View all →</span><span style="height: 32px; padding: 0 10px; display: flex; align-items: center; gap: 4px; font-weight: 500;"><i class="icon-plus" style="font-size: 16px;"></i>New invoice</span></div>
+        </div>
+        <div style="padding: 0 16px; display: flex; flex-direction: column; gap: 6px;">
+          <sc-for list="{{ invoices }}" as="v" hint-placeholder-count="4">
+            <div style="min-height: 44px; box-sizing: border-box; display: flex; align-items: center; gap: 8px; border: 1px solid color-mix(in oklch, var(--border) 60%, transparent); background: color-mix(in oklch, var(--bg) 40%, transparent); border-radius: 8px; padding: 8px 12px;">
+              <span style="flex: 1; min-width: 0;"><span style="display: block; font-weight: 500;">{{ v.vendor }}</span><span style="display: block; margin-top: 2px; font-size: 12px; line-height: 16px; color: var(--mfg);">{{ v.ref }}</span></span>
+              <span style="font-weight: 500; font-variant-numeric: tabular-nums;">{{ v.amt }}</span>
+              <span style="font-size: 12px; font-weight: 500; padding: 1px 8px; border-radius: 6px; border: 1px solid {{ v.bd }}; background: {{ v.bg }}; color: {{ v.fg }};">{{ v.status }}</span>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+
+      <div style="background: var(--card); border: 1px solid var(--border); border-radius: 8px; box-shadow: var(--shadow); padding: 16px 0; display: flex; flex-direction: column; gap: 16px;">
+        <div style="padding: 0 16px; display: flex; justify-content: space-between; align-items: center;">
+          <div style="font-weight: 600; display: flex; align-items: center; gap: 8px;"><i class="icon-triangle-alert" style="font-size: 16px; color: var(--mfg);"></i>Active Alerts</div>
+          <span style="color: var(--primary); font-weight: 500;">View all →</span>
+        </div>
+        <div style="padding: 0 16px; display: flex; flex-direction: column; gap: 4px;">
+          <sc-for list="{{ alerts }}" as="a" hint-placeholder-count="5">
+            <div style="display: flex; align-items: center; gap: 8px; padding: 8px;">
+              <div style="flex: 1; min-width: 0;"><div style="font-weight: 500; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">{{ a.title }}</div><div style="color: var(--mfg); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">{{ a.body }}</div></div>
+              <span style="display: flex; align-items: center; gap: 4px; font-size: 12px; font-weight: 500; color: var(--mfg);"><span style="width: 6px; height: 6px; border-radius: 9px; background: {{ a.dot }};"></span>{{ a.sev }}</span>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1440,&quot;height&quot;:1560},&quot;scheme&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;dark&quot;,&quot;light&quot;],&quot;default&quot;:&quot;dark&quot;,&quot;tsType&quot;:&quot;'dark'|'light'&quot;}}">
+class Component extends DCLogic {
+  renderVals() {
+    const tone = {
+      red: { bd: "var(--redbd)", bg: "var(--redbg)", fg: "var(--red)" },
+      amber: { bd: "var(--amberbd)", bg: "var(--amberbg)", fg: "var(--amber)" },
+      green: { bd: "var(--greenbd)", bg: "var(--greenbg)", fg: "var(--green)" },
+      sky: { bd: "var(--skybd)", bg: "var(--skybg)", fg: "var(--sky)" },
+      neutral: { bd: "var(--border)", bg: "var(--muted)", fg: "var(--mfg)" },
+    };
+    const sales = [42,38,45,51,47,55,60,58,49,62,70,66,72,68,75,81,77,74,88,92,85,90,97,94,101,96,108,112,104,118];
+    const pts = sales.map((v, i) => [60 + i * (1050 / 29), 410 - (v / 125) * 390]);
+    const line = pts.map((p, i) => (i ? "L" : "M") + p[0].toFixed(1) + " " + p[1].toFixed(1)).join(" ");
+    const steps = [3, 4, 3, 5];
+    const ship = [
+      { logo: "MSK", name: "Sonaria Plush Wave 2", carrier: "Maersk", route: "Yantian → Long Beach", statusLabel: "In Transit", t: "amber", etaLabel: "3d overdue", etaColor: "light-dark(oklch(0.56 0.22 25), oklch(0.65 0.2 25))" },
+      { logo: "FDX", name: "World Zero Hoodie — Black", carrier: "FedEx", route: "Shenzhen → Reno", statusLabel: "Out for Delivery", t: "amber", etaLabel: "1d away", etaColor: "var(--amber)" },
+      { logo: "DHL", name: "Sonaria Keychains", carrier: "DHL", route: "Ningbo → Reno", statusLabel: "In Transit", t: "amber", etaLabel: "4d away", etaColor: "var(--amber)" },
+      { logo: "UPS", name: "Mystery Box S3", carrier: "UPS", route: "Los Angeles → Reno", statusLabel: "Delivered", t: "green", etaLabel: "Delivered today", etaColor: "var(--green)" },
+    ].map((s, i) => {
+      const st = steps[i];
+      return { ...s, ...tone[s.t], pct: `calc(${(st - 1) / 4} * (100% - 12px))`,
+        dots: [1,2,3,4,5].map(n => ({ bd: n <= st ? "var(--primary)" : "color-mix(in oklch, var(--mfg) 30%, transparent)", bg: n < st || (n === st && st === 5) ? "var(--primary)" : "var(--card)" })) };
+    });
+    return {
+      scheme: this.props.scheme ?? "dark",
+      stats: [
+        { label: "Active Partners", value: "12", icon: "icon-building-2" },
+        { label: "Products", value: "213", icon: "icon-box" },
+        { label: "Pending Approvals", value: "3", icon: "icon-package" },
+        { label: "Shipments In Transit", value: "5", icon: "icon-truck" },
+        { label: "Active Alerts", value: "7", icon: "icon-triangle-alert" },
+      ],
+      linePath: line,
+      areaPath: line + " L1110 410 L60 410 Z",
+      tasks: [
+        { t: "Confirm carton sizes with Dongguan Toys", link: "PO-1047, Sonaria Glacier Plush", dueFull: "Overdue, Sep 28, 5:00 PM", ...tone.red },
+        { t: "Upload QC photos for PO-1047", link: "PO-1047", dueFull: "Sep 29, 5:00 PM", ...tone.sky },
+        { t: "Update SKU list for World Zero S2", link: "World Zero", dueFull: "Oct 1, 12:00 PM", ...tone.sky },
+        { t: "Send Twin Atlas monthly recap", link: "Twin Atlas", dueFull: "Oct 2, 9:00 AM", ...tone.sky },
+      ],
+      shipments: ship,
+      invoices: [
+        { vendor: "Dongguan Toys", ref: "INV-3312, PO-1038, Due Sep 23, 6d overdue", amt: "$6,450.00", status: "Overdue", ...tone.red },
+        { vendor: "Shenzhen Apparel Co.", ref: "INV-3320, PO-1043, Due Oct 2", amt: "$6,400.00", status: "Unpaid", ...tone.amber },
+        { vendor: "Ningbo Metalworks", ref: "INV-3318, PO-1045, Due Oct 6", amt: "$4,120.00", status: "Partially paid", ...tone.sky },
+        { vendor: "Yiwu Packaging", ref: "INV-3301, PO-1040, Due Oct 14", amt: "$2,380.00", status: "Unpaid", ...tone.amber },
+        { vendor: "Dongguan Toys", ref: "INV-3325, PO-1047, Due Oct 20", amt: "$9,860.00", status: "Unpaid", ...tone.amber },
+      ],
+      alerts: [
+        { title: "Shipment overdue", body: "SH-2291 Sonaria Plush Wave 2 was expected Sep 26", sev: "Critical", dot: "light-dark(#dc2626, #fca5a5)" },
+        { title: "Low stock: World Zero Hoodie — Black / L", body: "19 days of stock remaining at current sell rate", sev: "Warning", dot: "light-dark(#d97706, #fcd34d)" },
+        { title: "QuickBooks sync failed", body: "3 invoices could not be exported — vendor not mapped", sev: "Warning", dot: "light-dark(#d97706, #fcd34d)" },
+        { title: "Stockout gap detected", body: "Sonaria Plush Wave 1 runs out 4 days before PO-1044 arrives", sev: "Critical", dot: "light-dark(#dc2626, #fca5a5)" },
+        { title: "ShipHero auto-sync completed", body: "142 of 156 SKUs synced at 6:00 AM ET", sev: "Info", dot: "light-dark(#0284c7, #7dd3fc)" },
+      ],
+    };
+  }
+}
+</script>
+</body>
+</html>
